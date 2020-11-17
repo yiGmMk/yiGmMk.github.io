@@ -19,29 +19,29 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --body-bg-color: #121212;
-    --content-bg-color: #1d1d1d;
-    --card-bg-color: #282828;
-    --text-color: #e1e1e1;
-    --link-color: #e1e1e1;
-    --link-hover-color: #fff;
-    --brand-color: #fff;
-    --brand-hover-color: #fff;
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #ccc;
+    --link-color: #ccc;
+    --link-hover-color: #eee;
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
     --table-row-odd-bg-color: #282828;
     --table-row-hover-bg-color: #363636;
-    --menu-item-bg-color: #333;
+    --menu-item-bg-color: #555;
     --btn-default-bg: #222;
-    --btn-default-color: #e1e1e1;
-    --btn-default-border-color: #333;
-    --btn-default-hover-bg: #555;
-    --btn-default-hover-color: #e1e1e1;
-    --btn-default-hover-border-color: #555;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #666;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #666;
   }
   img {
     opacity: 0.75;
   }
   img:hover {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 html {
@@ -194,7 +194,7 @@ template {
 }
 ::selection {
   background: #262a30;
-  color: #fff;
+  color: #eee;
 }
 html,
 body {
@@ -419,19 +419,10 @@ td {
 .copy-btn {
   color: #333;
   cursor: pointer;
-  display: inline-block;
-  font-weight: bold;
   line-height: 1.6;
   opacity: 0;
-  outline: 0;
   padding: 2px 6px;
   position: absolute;
-  vertical-align: middle;
-  white-space: nowrap;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -456,6 +447,12 @@ td {
   margin-top: -20px;
   position: absolute;
   width: 12px;
+}
+.highlight-container .highlight {
+  border-radius: 0 0 5px 5px;
+}
+.highlight-container .highlight .table-container {
+  border-radius: 0 0 5px 5px;
 }
 .highlight,
 pre {
@@ -494,7 +491,7 @@ code {
   padding: 0;
 }
 .highlight figcaption {
-  background: #eee;
+  background: #eff2f3;
   color: #4d4d4c;
   display: flex;
   font-size: 0.875em;
@@ -1021,7 +1018,7 @@ pre .javascript .function {
   }
 }
 .comments {
-  margin: 60px 20px 0;
+  margin-top: 60px;
   overflow: hidden;
 }
 .comment-button-group {
@@ -1073,6 +1070,11 @@ pre .javascript .function {
     width: 73%;
   }
 }
+@media (max-width: 767px) {
+  .content-wrap {
+    padding: 0 20px;
+  }
+}
 .header {
   background: transparent;
 }
@@ -1120,12 +1122,10 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  display: inline-block;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
-  line-height: 1.5;
-  vertical-align: top;
+  margin: 0;
 }
 .site-subtitle {
   color: #ddd;
@@ -1370,7 +1370,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #03ffeb;
+  background: #58c7a8;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1737,13 +1737,12 @@ pre .javascript .function {
 }
 .posts-collapse {
   margin-left: 35px;
-  margin-top: 35px;
   position: relative;
 }
 @media (max-width: 767px) {
   .posts-collapse {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
 .posts-collapse .collection-title {
@@ -1764,6 +1763,8 @@ pre .javascript .function {
   width: 10px;
 }
 .posts-collapse .collection-year {
+  font-size: 1.5em;
+  font-weight: bold;
   margin: 60px 0;
   position: relative;
 }
@@ -1780,7 +1781,7 @@ pre .javascript .function {
   width: 8px;
 }
 .posts-collapse .collection-header {
-  display: inline-block;
+  display: block;
   margin: 0 0 0 20px;
 }
 .posts-collapse .collection-header small {
@@ -1826,8 +1827,6 @@ pre .javascript .function {
 }
 .posts-collapse .post-title {
   display: inline;
-  font-size: 1em;
-  font-weight: normal;
 }
 .posts-collapse .post-title a,
 .posts-collapse .post-title span.exturl {
@@ -1855,16 +1854,11 @@ pre .javascript .function {
   text-align: center;
   width: 8%;
 }
-.post-block:last-child .post-eof {
+.post-block:last-of-type .post-eof {
   display: none;
 }
-.posts-expand {
+.content {
   padding-top: 40px;
-}
-@media (max-width: 767px) {
-  .posts-expand {
-    margin: 0 20px;
-  }
 }
 @media (min-width: 992px) {
   .post-body {
@@ -1957,6 +1951,7 @@ pre .javascript .function {
   font-size: 1.125em;
 }
 .posts-expand .post-title {
+  font-size: 1.5em;
   font-weight: normal;
   margin: initial;
   text-align: center;
@@ -2688,14 +2683,13 @@ ul.breadcrumb li + li:last-child {
   background: var(--content-bg-color);
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin: auto;
   margin-top: 12px;
   padding: 40px;
 }
 .tabs-comment {
   margin-top: 1em;
 }
-.posts-expand {
+.content {
   padding-top: initial;
 }
 .post-eof {
@@ -2753,9 +2747,6 @@ ul.breadcrumb li + li:last-child {
   .content-wrap {
     padding: 10px;
   }
-  .posts-expand {
-    margin: initial;
-  }
   .posts-expand .post-button {
     margin-top: 20px;
   }
@@ -2778,9 +2769,6 @@ ul.breadcrumb li + li:last-child {
 @media (max-width: 767px) {
   .content-wrap {
     padding: 8px;
-  }
-  .posts-expand {
-    margin: initial;
   }
   .posts-expand .post-button {
     margin: 12px 0;

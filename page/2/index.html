@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">35</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -173,6 +173,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/golang-excelize-read-date-type-data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/golang-excelize-read-date-type-data/" class="post-title-link" itemprop="url">golang excelize read date type data</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-22T00:00:00Z">2020-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>excelize 介绍</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>时间格式读取</p>
+</li>
+</ol>
+<p>excel表格操作库，对日期格式的数据读写还不是很完善，能识别的日期格式返回一个01-02-06（day-month-day）格式的字符串，无法识别时直接返回的是excel表格中的原始数据，一个浮点型数，在excel中支持很多种日期格式显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">file,err:&#x3D;excelize.OpenFile(filepath)</span><br><span class="line">if err!&#x3D;nil&#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">strTime,err:&#x3D;file.GetCellValue(&quot;Sheet1&quot;,&quot;A1&quot;)</span><br><span class="line">if err!&#x3D;nil&#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 方式一：正常识别，通过time的库函数转换</span><br><span class="line">resTime, err &#x3D; time.ParseInLocation(&quot;01-02-06&quot;, strTime, time.Local)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 方式二：未正常识别，先转换成int型数据再转换</span><br><span class="line">intTime,err:&#x3D;strconv.Atoi(strTime)</span><br><span class="line">if err!&#x3D;nil&#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;转换为time.Time</span><br><span class="line">time.Time&#x3D;excelize.ExcelDateToTime(float64(intTime),false)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>时间格式写入<br>通过excelize写入时间格式的数据到文件，需要设置单元格格式，excelize支持写入的格式包含有time.Time,但是写入时需要使用UTC格式。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">file:&#x3D;excelize.NewFile()</span><br><span class="line">&#x2F;&#x2F;style 格式编号</span><br><span class="line">style,err:&#x3D;file.NewStyle(&#96;&#123;&quot;number_format&quot;: 14&#125;&#96;)</span><br><span class="line">if err!&#x3D;nil&#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line">file.SetCellValue(&quot;Sheet1&quot;,&quot;A1&quot;,time.Now().UTC())</span><br><span class="line">file.SetCellStyle(&quot;Sheet1&quot;,&quot;A1&quot;,&quot;A1&quot;,style)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/github-action-hexo-next/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,7 +283,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -274,7 +353,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -347,7 +426,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -425,7 +504,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -497,7 +576,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -571,7 +650,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -635,7 +714,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -710,7 +789,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -787,7 +866,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
+                <time title="修改时间：2021-03-11 12:08:18" itemprop="dateModified" datetime="2021-03-11T12:08:18Z">2021-03-11</time>
               </span>
 
           
@@ -802,82 +881,6 @@
 
       
           
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/cudnn-failed-to-initialize/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ProgramNotes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/cudnn-failed-to-initialize/" class="post-title-link" itemprop="url">cuDNN failed to initialize</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T00:00:00Z">2019-08-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 10:47:08" itemprop="dateModified" datetime="2021-03-10T10:47:08Z">2021-03-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><p>问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Failed to get convolution algorithm. This is probably because cuDNN </span><br><span class="line">failed to initialize, so try looking to see if a warning log message was</span><br><span class="line">printed above.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>描述</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/cudnn-failed-to-initialize/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -963,7 +966,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -986,15 +989,6 @@
       </span>
       <span class="links-of-author-item">
         <a href="mailto:support@programnotes.cn" title="E-Mail → mailto:support@programnotes.cn"><i class="envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/qwertyuiop_123abc/" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;qwertyuiop_123abc&#x2F;" rel="noopener" target="_blank"><i class="bullhorn fa-fw"></i>CSDN</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://author.baidu.com/home/1606698439337896" title="Baidu → https:&#x2F;&#x2F;author.baidu.com&#x2F;home&#x2F;1606698439337896" rel="noopener" target="_blank"><i class="paper-plane fa-fw"></i>Baidu</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/deeplearning-cv" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;deeplearning-cv" rel="noopener" target="_blank"><i class="user fa-fw"></i>Zhihu</a>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">

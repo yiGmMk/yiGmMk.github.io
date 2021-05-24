@@ -22,16 +22,16 @@
     var CONFIG = {"hostname":"programnotes.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan | disqus | disqusjs | gitalk | livere | valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="阅读更多 &lt; !–more– &gt;  1、排版 一般情况下，源程序有效注释量必须在20％以上。  说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。  相对独立的程序块之间、变量说明之后必须加空行。">
+  <meta name="description" content="阅读更多 &lt; !–more– &gt; 1、排版 一般情况下，源程序有效注释量必须在20％以上。  说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。  相对独立的程序块之间、变量说明之后必须加空行。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coding Standard">
 <meta property="og:url" content="https://programnotes.cn/coding%20standard/index.html">
 <meta property="og:site_name" content="ProgramNotes">
-<meta property="og:description" content="阅读更多 &lt; !–more– &gt;  1、排版 一般情况下，源程序有效注释量必须在20％以上。  说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。  相对独立的程序块之间、变量说明之后必须加空行。">
+<meta property="og:description" content="阅读更多 &lt; !–more– &gt; 1、排版 一般情况下，源程序有效注释量必须在20％以上。  说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。  相对独立的程序块之间、变量说明之后必须加空行。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://programnotes.cn/coding%20standard/media/image1.png">
 <meta property="article:published_time" content="2019-07-12T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-24T08:13:00.236Z">
+<meta property="article:modified_time" content="2021-05-24T08:20:25.268Z">
 <meta property="article:author" content="yigmmk">
 <meta property="article:tag" content="OpenCV;Golang;Tensorflow;Deep Learning;Distributed System">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">7</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -213,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 08:13:00" itemprop="dateModified" datetime="2021-05-24T08:13:00Z">2021-05-24</time>
+                <time title="修改时间：2021-05-24 08:20:25" itemprop="dateModified" datetime="2021-05-24T08:20:25Z">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,7 +221,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
                 </span>
             </span>
 
@@ -243,7 +243,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>阅读更多 &lt; !–more– &gt; </p>
+        <p>阅读更多 &lt; !–more– &gt;</p>
 <h2 id="1、排版"><a href="#1、排版" class="headerlink" title="1、排版"></a>1、排版</h2><ol>
 <li>一般情况下，源程序有效注释量必须在20％以上。</li>
 </ol>
@@ -292,8 +292,8 @@
 <p>for (i = 0, j = 0; (i &lt; BufferKeyword[word_index].word_length)</p>
 <pre><code>&amp;&amp; (j \&lt; NewKeyword.word\_length); i++, j++)</code></pre><p>{</p>
 <pre><code>\... // program code</code></pre><p>}</p>
-<p>for (i = 0, j = 0; </p>
-<pre><code>(i \&lt; first\_word\_length) &amp;&amp; (j \&lt; second\_word\_length); 
+<p>for (i = 0, j = 0;</p>
+<pre><code>(i \&lt; first\_word\_length) &amp;&amp; (j \&lt; second\_word\_length);
 
 i++, j++)</code></pre><p>{</p>
 <pre><code>\... // program code</code></pre><p>}</p>
@@ -367,7 +367,7 @@ sizeof (\_STAT\_OBJECT));</code></pre><p>n7stat_flash_act_duration( stat_item, f
 <p><strong>说明：</strong>注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁</p>
 </blockquote>
 <ol start="2">
-<li><p>注释格式尽量统一，建议单行注释采用”//…”，多行注释采用”/* …… </p>
+<li><p>注释格式尽量统一，建议单行注释采用”//…”，多行注释采用”/* ……</p>
 <p>//*/“。注释采用中文</p>
 </li>
 <li><p>源文件头部（如头文件.h文件、.inc文件、.def文件、编译说明文件.cfg等）应进行注释，列出：版权说明、版本号、生成日期、作者、模块目的/功能、主要函数及其功能、修改日志等，头文件的注释中还应有函数功能简要说明。</p>
@@ -385,7 +385,7 @@ sizeof (\_STAT\_OBJECT));</code></pre><p>n7stat_flash_act_duration( stat_item, f
 // 制、顺序、独立或依赖等关系</code></pre><p>  Others:          // 其它内容的说明</p>
 <p>  Function List:   // 主要函数列表，每条记录应包括函数名及功能简要说明</p>
 <pre><code>1. \....</code></pre><p>  History:         // 修改历史记录列表，每条修改记录应包括修改日期、修改</p>
-<pre><code>               // 者及修改内容简述 
+<pre><code>               // 者及修改内容简述
 
 1. Date:
 
@@ -441,7 +441,7 @@ sizeof (\_STAT\_OBJECT));</code></pre><p>n7stat_flash_act_duration( stat_item, f
 </li>
 </ol>
 <blockquote>
-<p><strong>示例：</strong>如下例子不符合规范。 </p>
+<p><strong>示例：</strong>如下例子不符合规范。</p>
 <p>repssn_ind = ssn_data[index].repssn_index;</p>
 <p>repssn_ni = ssn_data[index].ni;</p>
 <p>/* get replicate sub system index and net indicator */</p>
@@ -1172,7 +1172,7 @@ for (count = 0; count \&lt; num; count ++)
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

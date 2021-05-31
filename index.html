@@ -209,7 +209,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
 
           
@@ -296,7 +296,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
 
           
@@ -373,7 +373,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
 
           
@@ -440,7 +440,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
 
           
@@ -513,7 +513,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
 
           
@@ -577,7 +577,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
 
           
@@ -641,7 +641,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -735,7 +735,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -769,6 +769,9 @@
 <ul>
 <li>gorm v2文档: <a href="https://gorm.io/zh_CN/docs/query.html#Order" target="_blank" rel="noopener">https://gorm.io/zh_CN/docs/query.html#Order</a><h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3></li>
 </ul>
+<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="ConnPool"><a href="#ConnPool" class="headerlink" title="ConnPool"></a>ConnPool</h3><ol>
+<li>gorm 连接池配置通过sql.DB实现<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  gormDB,err:=gorm.Open(...)</span><br><span class="line">  db,err:=gormDB.DB()</span><br><span class="line">  <span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  db.SetConnMaxLifetime() <span class="comment">//连接最长复用时间</span></span><br><span class="line">  db.SetConnMaxIdleTime() <span class="comment">//maximum amount of time a connection may be idle,最长空闲时间</span></span><br><span class="line">  db.SetMaxIdleConns()  <span class="comment">// 最长空闲时间 maximum number of connections in the idle connection pool</span></span><br><span class="line">db.SetMaxOpenConns()  <span class="comment">// 最大连接数  maximum number of open connections to the database</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -819,7 +822,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
 
           
@@ -908,7 +911,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 12:30:31" itemprop="dateModified" datetime="2021-05-25T12:30:31Z">2021-05-25</time>
+                <time title="修改时间：2021-05-31 09:00:14" itemprop="dateModified" datetime="2021-05-31T09:00:14Z">2021-05-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">

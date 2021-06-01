@@ -22,18 +22,20 @@
     var CONFIG = {"hostname":"programnotes.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan | disqus | disqusjs | gitalk | livere | valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="learn &amp;  share &amp; note">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ProgramNotes">
-<meta property="og:url" content="https://programnotes.cn/archives/2021/index.html">
+  <meta name="description" content="WahtHOWSetting 查看相关参数12show variables like &#39;long%&#39;;show variables like &#39;slow%&#39;;  long_query_time,SQL语句执行时间超过此数值,记录日志 slow_query_log,是否开启慢查询(ON&#x2F;OFF) slow_query_log_file,慢查询日志文件 slow_launch_time   设置参数1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql-slow-query">
+<meta property="og:url" content="https://programnotes.cn/mysql-slow-query/index.html">
 <meta property="og:site_name" content="ProgramNotes">
-<meta property="og:description" content="learn &amp;  share &amp; note">
+<meta property="og:description" content="WahtHOWSetting 查看相关参数12show variables like &#39;long%&#39;;show variables like &#39;slow%&#39;;  long_query_time,SQL语句执行时间超过此数值,记录日志 slow_query_log,是否开启慢查询(ON&#x2F;OFF) slow_query_log_file,慢查询日志文件 slow_launch_time   设置参数1">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-01T13:09:56.122Z">
 <meta property="article:author" content="yigmmk">
-<meta property="article:tag" content="OpenCV;Golang;Tensorflow;Deep Learning;Distributed System">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://programnotes.cn/archives/2021/">
+<link rel="canonical" href="https://programnotes.cn/mysql-slow-query/">
 
 
 <script id="page-configurations">
@@ -41,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | ProgramNotes</title>
+  <title>mysql-slow-query | ProgramNotes</title>
   
 
 
@@ -172,217 +174,156 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 42 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/mysql-slow-query/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mysql-slow-query
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-30T00:00:00Z">2020-05-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-01 13:09:56" itemprop="dateModified" datetime="2021-06-01T13:09:56Z">2021-06-01</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h3 id="Waht"><a href="#Waht" class="headerlink" title="Waht"></a>Waht</h3><h3 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h3><h4 id="Setting"><a href="#Setting" class="headerlink" title="Setting"></a>Setting</h4><ol>
+<li>查看相关参数<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'long%'</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'slow%'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>long_query_time,SQL语句执行时间超过此数值,记录日志</li>
+<li>slow_query_log,是否开启慢查询(ON/OFF)</li>
+<li>slow_query_log_file,慢查询日志文件</li>
+<li>slow_launch_time</li>
+</ul>
+</li>
+<li>设置参数<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> long_query_time=<span class="number">0.5</span>;</span><br></pre></td></tr></table></figure>
+开启慢查询日志,需要设置如下参数:<ul>
+<li>long_query_time,慢查询时间</li>
+<li>slow_query_log,是否开启<h4 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h4></li>
+</ul>
+</li>
+<li>通过sql查询</li>
+<li>通过文件查询<br>查询slow_query_log_file参数得到慢查询日志文件所在位置,查看文件.</li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-16T00:00:00Z"
-              content="2021-05-16">
-          05-16
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>yigmmk
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://programnotes.cn/mysql-slow-query/" title="mysql-slow-query">https://programnotes.cn/mysql-slow-query/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/m3u8/" itemprop="url">
-            <span itemprop="name">download m3u8 file by ffmpeg</span>
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/Image/WeChat.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-25T00:00:00Z"
-              content="2021-04-25">
-          04-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/redis_base_1/" itemprop="url">
-            <span itemprop="name">redis base</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-13T00:00:00Z"
-              content="2021-03-13">
-          03-13
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/don't-use-pointer-in-request-param/" itemprop="url">
-            <span itemprop="name">在请求参数中慎用指针</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-07T00:00:00Z"
-              content="2021-03-07">
-          03-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Lack-of-sapce-result-in-Jenkins-build-failed/" itemprop="url">
-            <span itemprop="name">磁盘不足导致Jenkins构建失败</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-07T00:00:00Z"
-              content="2021-03-07">
-          03-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/distributed-transaction/" itemprop="url">
-            <span itemprop="name">distributed-transaction</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-07T00:00:00Z"
-              content="2021-03-07">
-          03-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/idempotent/" itemprop="url">
-            <span itemprop="name">幂等/idempotent</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-03T00:00:00Z"
-              content="2021-02-03">
-          02-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/go-technique/" itemprop="url">
-            <span itemprop="name">golang technique</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-03T00:00:00Z"
-              content="2021-02-03">
-          02-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/using-gorm/" itemprop="url">
-            <span itemprop="name">using gorm</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-19T00:00:00Z"
-              content="2021-01-19">
-          01-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/memcached/" itemprop="url">
-            <span itemprop="name">memcached</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># mysql</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/CWnd-AssertVaild/" rel="prev" title="CWnd-AssertVaild">
+      <i class="fa fa-chevron-left"></i> CWnd-AssertVaild
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/bug-fix-/" rel="next" title="bug">
+      bug <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -429,6 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Waht"><span class="nav-number">1.</span> <span class="nav-text">Waht</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HOW"><span class="nav-number">2.</span> <span class="nav-text">HOW</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Setting"><span class="nav-number">2.1.</span> <span class="nav-text">Setting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Search"><span class="nav-number">2.2.</span> <span class="nav-text">Search</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -607,6 +549,25 @@
 
   
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'fcf73fdf87327a259978',
+      clientSecret: 'ebe0512fd10af5e7b10228ce7b1e0bfd1cb488a9',
+      repo        : 'comment_blog',
+      owner       : 'yiGmMk',
+      admin       : ['yiGmMk'],
+      id          : '0f8b1393e128dcddb714350f091e38f6',
+        language: 'en',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>

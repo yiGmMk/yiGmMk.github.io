@@ -22,19 +22,21 @@
     var CONFIG = {"hostname":"programnotes.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan | disqus | disqusjs | gitalk | livere | valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="条件格式 求交&#x2F;差集使用条件格式&#x3D;&gt;突出显示单元规则&#x3D;&gt;重复值,可以将两列数据相同的值高亮显示:高亮部分为交集,其余为差集&lt;% img Image&#x2F;excel_1.bmp%&gt;">
+  <meta name="description" content="条件格式 求交&#x2F;差集使用条件格式&#x3D;&gt;突出显示单元规则&#x3D;&gt;重复值,可以将两列数据相同的值高亮显示:高亮部分为交集,其余为差集    数据过滤 锁定表头,数据自动筛选  参考 知乎https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;318265721&#x2F;answer&#x2F;735373221">
 <meta property="og:type" content="article">
 <meta property="og:title" content="excel-usage">
 <meta property="og:url" content="https://programnotes.cn/excel/index.html">
 <meta property="og:site_name" content="ProgramNotes">
-<meta property="og:description" content="条件格式 求交&#x2F;差集使用条件格式&#x3D;&gt;突出显示单元规则&#x3D;&gt;重复值,可以将两列数据相同的值高亮显示:高亮部分为交集,其余为差集&lt;% img Image&#x2F;excel_1.bmp%&gt;">
+<meta property="og:description" content="条件格式 求交&#x2F;差集使用条件格式&#x3D;&gt;突出显示单元规则&#x3D;&gt;重复值,可以将两列数据相同的值高亮显示:高亮部分为交集,其余为差集    数据过滤 锁定表头,数据自动筛选  参考 知乎https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;318265721&#x2F;answer&#x2F;735373221">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://programnotes.cn/Image/excel_1.png">
 <meta property="article:published_time" content="2021-12-27T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-27T08:42:34.969Z">
+<meta property="article:modified_time" content="2022-01-02T14:45:05.337Z">
 <meta property="article:author" content="yigmmk">
 <meta property="article:tag" content="tool">
 <meta property="article:tag" content="excel">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://programnotes.cn/Image/excel_1.png">
 
 <link rel="canonical" href="https://programnotes.cn/excel/">
 
@@ -133,17 +135,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">87</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">89</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">59</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">60</span></a>
 
   </li>
         <li class="menu-item menu-item-微服务">
@@ -204,10 +206,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-12-27 00:00:00 / 修改时间：08:42:34" itemprop="dateCreated datePublished" datetime="2021-12-27T00:00:00Z">2021-12-27</time>
+              <time title="创建时间：2021-12-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-27T00:00:00Z">2021-12-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -237,7 +245,15 @@
 
       
         <h2 id="条件格式"><a href="#条件格式" class="headerlink" title="条件格式"></a>条件格式</h2><ol>
-<li>求交/差集<br>使用条件格式=&gt;突出显示单元规则=&gt;重复值,可以将两列数据相同的值高亮显示:<br>高亮部分为交集,其余为差集<br>&lt;% img Image/excel_1.bmp%&gt;</li>
+<li>求交/差集<br>使用条件格式=&gt;突出显示单元规则=&gt;重复值,可以将两列数据相同的值高亮显示:<br>高亮部分为交集,其余为差集<img src="/Image/excel_1.png" class="">
+
+</li>
+</ol>
+<h2 id="数据过滤"><a href="#数据过滤" class="headerlink" title="数据过滤"></a>数据过滤</h2><ol>
+<li>锁定表头,数据自动筛选</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>知乎<a href="https://www.zhihu.com/question/318265721/answer/735373221" target="_blank" rel="noopener">https://www.zhihu.com/question/318265721/answer/735373221</a></li>
 </ol>
 
     </div>
@@ -294,8 +310,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/golang-1000-question-answer/" rel="prev" title="Go语言一千问解答">
-      <i class="fa fa-chevron-left"></i> Go语言一千问解答
+    <a href="/go-zero-usage/" rel="prev" title="go-zeo usage">
+      <i class="fa fa-chevron-left"></i> go-zeo usage
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -357,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#条件格式"><span class="nav-number">1.</span> <span class="nav-text">条件格式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#条件格式"><span class="nav-number">1.</span> <span class="nav-text">条件格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据过滤"><span class="nav-number">2.</span> <span class="nav-text">数据过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -373,20 +389,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -431,7 +447,7 @@
 <div class="copyright">
   
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="user"></i>
   </span>

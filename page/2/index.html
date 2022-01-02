@@ -130,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">87</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">89</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">59</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">60</span></a>
 
   </li>
         <li class="menu-item menu-item-微服务">
@@ -178,6 +178,130 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/docker/" class="post-title-link" itemprop="url">using docker in centos7</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-28T00:00:00Z">2021-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h2><h3 id="docker-amp-docker-compose-安装配置"><a href="#docker-amp-docker-compose-安装配置" class="headerlink" title="docker &amp; docker-compose 安装配置"></a>docker &amp; docker-compose 安装配置</h3><ol>
+<li><p>使用轻量服务器预装docker的镜像<br>操作系统信息,lsb_release -a</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LSB Version:    :core<span class="number">-4.1</span>-amd64:core<span class="number">-4.1</span>-noarch</span><br><span class="line">Distributor ID: CentOS</span><br><span class="line">Description:    CentOS Linux release <span class="number">7.9</span><span class="number">.2009</span> (Core)</span><br><span class="line">Release:        <span class="number">7.9</span><span class="number">.2009</span></span><br><span class="line">Codename:       Core</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>yum update,更新预装软件docker等</p>
+</li>
+<li><p>设置用户组<br>将当前用户加入docker用户组</p>
+</li>
+<li><p>安装docker-compose<br>yum安装的版本太老使用安装包安装,可以在github仓库的release页面下载<br>下载解压到/usr/local/bin/目录下,增加执行权限,可使用如下命令安装</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)"</span> -o /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure></li>
+<li><p>设置阿里云容器加速</p>
+<ul>
+<li><p>安装／升级Docker客户端<br>  推荐安装1.10.0以上版本的Docker客户端，参考文档docker-ce</p>
+</li>
+<li><p>配置镜像加速器<br>  针对Docker客户端版本大于 1.10.0 的用户<br>  您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</p>
+  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">'EOF'</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://6ly480gk.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>参考:</p>
+<ul>
+<li>安装compose,docker.com:  <a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener">https://docs.docker.com/compose/install/</a></li>
+<li>设置阿里云镜像加速: <a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors" target="_blank" rel="noopener">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></li>
+<li>guid生成: <a href="https://www.iamwawa.cn/guid.html" target="_blank" rel="noopener">https://www.iamwawa.cn/guid.html</a></li>
+</ul>
+</li>
+</ol>
+<h3 id="git-安装配置"><a href="#git-安装配置" class="headerlink" title="git 安装配置"></a>git 安装配置</h3><p> 在centos上使用yum安装的git版本太老,需要自己编译或通过第三方安装如ius</p>
+<ol>
+<li><p>在阿里云提供的镜像上已有阿里云的镜像配置,在执行以下命令安装依赖时自动安装了v2.24.4版本的git:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置用户</p>
+<p>使用git config配置用户名,邮箱</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"xxx"</span></span><br><span class="line">git config --global user.email <span class="string">"xxx"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置~/.ssh/config</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_git  <span class="comment">//秘钥位置</span></span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">User xxxx <span class="comment">//这里填用户名</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ssh配置了key,在非root用户目录下,且以非root用户登录,ssh -T <a href="mailto:git@github.com">git@github.com</a>报”Permission denied (publickey).”,使用-i指定秘钥后就ok了,是什么问题,没有使用当前目录下的key?<br>通过ssh -vT <a href="mailto:git@github.com">git@github.com</a>调试发现,ssh确实在~/.ssh下寻找了id_rsa的key,不存在,而配置文件config名错误(写成了congfig),<br>导致ssh没有去读上面配置的id_rsa_git秘钥,没有找到秘钥就报错了</p>
+</li>
+<li><p>修改git秘钥的密码[可选]<br>ssh-keygen  -f id_rsa_git -p</p>
+</li>
+</ol>
+<h3 id="其他工具安装"><a href="#其他工具安装" class="headerlink" title="其他工具安装"></a>其他工具安装</h3><ol>
+<li>fish安装 yum install fish</li>
+</ol>
+<h3 id="issue"><a href="#issue" class="headerlink" title="issue"></a>issue</h3><ol>
+<li><p>通过秘钥ssh到服务器,配置并连接过服务器,更换秘钥后无法连接,报错.<br>此时需要通过 ssh-keygen -R 服务器ip 删除记录,更换密钥后需要删除信息，不然无法使用新密钥登录<br>-R命令作用:Removes all keys belonging to hostname from a known_hosts file.  This option is useful to delete hashed hosts (see the -H option above).</p>
+</li>
+<li><p>centos设置go/bin到PATH<br>将export PATH=$PATH:/home/xxxx_user_name_xxxx/go/bin添加到~/.bash_profile不起效,还是每次都要重新source才能使用go安装到bin目录下的可执行程序.<br>默认的bash和fish都是这样.</p>
+<p>解决: 将export PATH=$PATH:/home/xxxx_user_name_xxxx/go/bin添加到~/.bashrc后执行</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p> 通过docker和compose可以很方便的部署搭建基础环境,部署应用,在github有个项目awesome-compose包含很多常用环境的样例配置文件,<br> 通过这些样例可以快速搭建环境</p>
+<h3 id="ElasticSearch应用-ELK-搭建"><a href="#ElasticSearch应用-ELK-搭建" class="headerlink" title="ElasticSearch应用(ELK)搭建"></a>ElasticSearch应用(ELK)搭建</h3><ol>
+<li>基于awesome-compose中elasticsearch-logstash-kibana搭建</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -209,7 +333,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -286,7 +410,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -373,7 +497,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -499,7 +623,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -566,7 +690,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -639,7 +763,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -703,7 +827,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -767,7 +891,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -862,7 +986,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -895,116 +1019,6 @@
 <li>uptime</li>
 </ol>
 <h4 id="task-and-cpu-states-任务和cpu状态"><a href="#task-and-cpu-states-任务和cpu状态" class="headerlink" title="task and cpu states 任务和cpu状态"></a>task and cpu states 任务和cpu状态</h4><h4 id="memory-usage-内存使用"><a href="#memory-usage-内存使用" class="headerlink" title="memory usage 内存使用"></a>memory usage 内存使用</h4><h4 id="process-amp-thread-state-进程-线程状态"><a href="#process-amp-thread-state-进程-线程状态" class="headerlink" title="process &amp; thread state 进程/线程状态"></a>process &amp; thread state 进程/线程状态</h4>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/using-gorm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ProgramNotes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/using-gorm/" class="post-title-link" itemprop="url">using gorm</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-03T00:00:00Z">2021-02-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="CURD"><a href="#CURD" class="headerlink" title="CURD"></a>CURD</h2><h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><h4 id="json自定义字段使用"><a href="#json自定义字段使用" class="headerlink" title="json自定义字段使用"></a>json自定义字段使用</h4><ol>
-<li>如下为system使用自定义字段<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> System <span class="keyword">struct</span>&#123;</span><br><span class="line">   Version <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>为自定义类型实现接口Value/Scan<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">func</span> <span class="params">(s System)</span><span class="title">Value</span><span class="params">()</span><span class="params">(driver.Value, error)</span></span> &#123;</span><br><span class="line">   bytes, err := json.Marshal(s)</span><br><span class="line">  	<span class="keyword">return</span> <span class="keyword">string</span>(bytes), err</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="params">(s *System)</span> <span class="title">Scan</span><span class="params">(value <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">error</span></span> &#123;</span><br><span class="line"><span class="keyword">var</span> bytes []<span class="keyword">byte</span></span><br><span class="line">   <span class="keyword">switch</span> v := value.(<span class="keyword">type</span>) &#123;</span><br><span class="line">   <span class="keyword">case</span> []<span class="keyword">byte</span>:</span><br><span class="line">   	bytes = v</span><br><span class="line">   <span class="keyword">case</span> <span class="keyword">string</span>:</span><br><span class="line">   	bytes = []<span class="keyword">byte</span>(v)</span><br><span class="line">   <span class="keyword">default</span>:</span><br><span class="line">   	<span class="keyword">return</span> fmt.Errorf(<span class="string">"解析失败,原始数据:%v"</span>, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result := System&#123;&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(bytes) &lt;= <span class="number">0</span> &#123;</span><br><span class="line">	*s = result</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line">err := json.Unmarshal(bytes, &amp;result)</span><br><span class="line">   *s = result</span><br><span class="line">   <span class="keyword">return</span> err</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
-<li>json查询,例如这里要查询version=1.0的System<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_t</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">system</span>-&gt;<span class="string">'$.version'</span> = <span class="string">"1.0"</span></span><br></pre></td></tr></table></figure>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><h3 id="Retrieve"><a href="#Retrieve" class="headerlink" title="Retrieve"></a>Retrieve</h3><h4 id="预加载-preload"><a href="#预加载-preload" class="headerlink" title="预加载,preload"></a>预加载,preload</h4><h5 id="外键tag"><a href="#外键tag" class="headerlink" title="外键tag"></a>外键tag</h5>预加载依赖在领域层结构体变量的gorm tag,需要在结构体上变量上增加外键tag,tag有多种写法,根<br>领域对象间的不同关系如:belongs to/has one/has many等有不同写法.<ol>
-<li>belongs to 参考: <a href="https://gorm.io/zh_CN/docs/belongs_to.html" target="_blank" rel="noopener">https://gorm.io/zh_CN/docs/belongs_to.html</a></li>
-<li>has one</li>
-<li>has many</li>
-<li>many to many<br>在项目ForeignKey,References这两个标签最常用,主要用于Preload相关数据<h5 id="自定义预加载-可在预加载时添加条件实现排序等功能"><a href="#自定义预加载-可在预加载时添加条件实现排序等功能" class="headerlink" title="自定义预加载,可在预加载时添加条件实现排序等功能"></a>自定义预加载,可在预加载时添加条件实现排序等功能</h5></li>
-</ol>
-</li>
-<li>排序<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文档:https://gorm.io/zh_CN/docs/preload.html</span></span><br><span class="line"><span class="comment">//您可以通过 func(db *gorm.DB) *gorm.DB 实现自定义预加载 SQL，例如：</span></span><br><span class="line"></span><br><span class="line">db.Preload(<span class="string">"Users"</span>, <span class="function"><span class="keyword">func</span><span class="params">(db *gorm.DB)</span> *<span class="title">gorm</span>.<span class="title">DB</span></span> &#123;</span><br><span class="line">  <span class="keyword">return</span> db.Order(<span class="string">"user.age DESC"</span>)</span><br><span class="line">&#125;).Find(&amp;users)</span><br><span class="line"><span class="comment">// SELECT * FROM user WHERE id IN (1,2,3,4) order by user.age DESC;</span></span><br></pre></td></tr></table></figure></li>
-<li><h4 id="order-by"><a href="#order-by" class="headerlink" title="order by"></a>order by</h4></li>
-<li>常用<br>指定从数据库检索记录时的排序方式<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">db.Order(<span class="string">"age desc, name"</span>).Find(&amp;users)</span><br><span class="line"><span class="comment">// SELECT * FROM users ORDER BY age desc, name;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个 order</span></span><br><span class="line">db.Order(<span class="string">"age desc"</span>).Order(<span class="string">"name"</span>).Find(&amp;users)</span><br><span class="line"><span class="comment">// SELECT * FROM users ORDER BY age desc, name;</span></span><br><span class="line"></span><br><span class="line">db.Clauses(clause.OrderBy&#123;</span><br><span class="line">  Expression: clause.Expr&#123;SQL: <span class="string">"FIELD(id,?)"</span>, Vars: []<span class="keyword">interface</span>&#123;&#125;&#123;[]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;&#125;, WithoutParentheses: <span class="literal">true</span>&#125;,</span><br><span class="line">&#125;).Find(&amp;User&#123;&#125;)</span><br><span class="line"><span class="comment">// SELECT * FROM users ORDER BY FIELD(id,1,2,3)</span></span><br></pre></td></tr></table></figure></li>
-<li>order by field 自定义排序<br>使用上面的写法通过自定义字段排序时注意,WithoutParentheses为true,为false是构建的sql为order by field(column,(“f1,f2,f3,…”)),会报错</li>
-<li>组合排序<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">status</span>,create_time</span><br><span class="line"><span class="keyword">FROM</span> <span class="string">`order`</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">FIELD</span>(<span class="keyword">status</span>,<span class="string">'s3'</span>,<span class="string">'s2'</span>,<span class="string">'s1'</span>)<span class="keyword">desc</span>,create_time <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
-如上的sql使用gorm框架可以这么写:<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> res:=[]*Order&#123;&#125;</span><br><span class="line"> db.Clauses(clause.OrderBy&#123;</span><br><span class="line">Expression: clause.Expr&#123;</span><br><span class="line">	SQL: <span class="string">"FIELD(status,?) DESC,create_time DESC"</span>,</span><br><span class="line">	Vars: []<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">		[]<span class="keyword">string</span>&#123;<span class="string">"s3"</span>,<span class="string">"s2"</span>,<span class="string">"s1"</span>&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">	WithoutParentheses: <span class="literal">true</span>&#125;&#125;).</span><br><span class="line">Find(&amp;res)</span><br></pre></td></tr></table></figure>
-不能使用链式调用(gorm v2版本,版本号:gorm.io/gorm v1.20.11),如:<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> db.Clauses(clause.OrderBy&#123;</span><br><span class="line">Expression: clause.Expr&#123;</span><br><span class="line">	SQL: <span class="string">"FIELD(status,?) DESC"</span>,</span><br><span class="line">	Vars: []<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">		[]<span class="keyword">string</span>&#123;<span class="string">"s3"</span>,<span class="string">"s2"</span>,<span class="string">"s1"</span>&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">	WithoutParentheses: <span class="literal">true</span>&#125;&#125;).</span><br><span class="line">      Order(<span class="string">"create_time DESC"</span>).</span><br><span class="line">Find(&amp;res)</span><br></pre></td></tr></table></figure></li>
-<li>参考文档</li>
-</ol>
-<ul>
-<li>gorm v2文档: <a href="https://gorm.io/zh_CN/docs/query.html#Order" target="_blank" rel="noopener">https://gorm.io/zh_CN/docs/query.html#Order</a></li>
-</ul>
-<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><ol>
-<li>强制索引<ul>
-<li>文档: <a href="https://learnku.com/docs/gorm/v2/performance/9762" target="_blank" rel="noopener">https://learnku.com/docs/gorm/v2/performance/9762</a><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"gorm.io/hints"</span></span><br><span class="line"></span><br><span class="line">db.Clauses(hints.UseIndex(<span class="string">"idx_user_name"</span>)).Find(&amp;User&#123;&#125;)</span><br><span class="line"><span class="comment">// SELECT * FROM `users` USE INDEX (`idx_user_name`)</span></span><br><span class="line"></span><br><span class="line">db.Clauses(hints.ForceIndex(<span class="string">"idx_user_name"</span>, <span class="string">"idx_user_id"</span>).ForJoin  ()).Find(&amp;User&#123;&#125;)</span><br><span class="line"><span class="comment">// SELECT * FROM `users` FORCE INDEX FOR JOIN (`idx_user_name`,   `idx_user_id`)"</span></span><br><span class="line"></span><br><span class="line">db.Clauses(</span><br><span class="line">    hints.ForceIndex(<span class="string">"idx_user_name"</span>, <span class="string">"idx_user_id"</span>).ForOrderBy(),</span><br><span class="line">    hints.IgnoreIndex(<span class="string">"idx_user_name"</span>).ForGroupBy(),</span><br><span class="line">).Find(&amp;User&#123;&#125;)</span><br></pre></td></tr></table></figure>
-Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器提供了在查询处理过程中如何选择索引的信息。与 optimizer 相比，它可以更灵活地选择更有效的执行计划</li>
-<li>加了join<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.Table(<span class="string">"`order` FORCE INDEX (order_create_time_d977ab1e,idx_demand_number,idx_stocked_number,idx_di)"</span>).</span><br><span class="line"><span class="comment">//Clauses(hints.CommentBefore("from", "FORCE INDEX (order_create_time_d977ab1e,idx_demand_number,idx_stocked_number,idx_di)")).</span></span><br><span class="line"><span class="comment">// 这样写,生成的sql语句有问题,force index位置在where条件中间</span></span><br><span class="line">Joins(<span class="string">"left join servicelist on order.service_list_id=servicelist.id"</span>).Find(&amp;orders)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="ConnPool"><a href="#ConnPool" class="headerlink" title="ConnPool"></a>ConnPool</h3><ol>
-<li>gorm 连接池配置通过sql.DB实现<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  gormDB,err:=gorm.Open(...)</span><br><span class="line">  db,err:=gormDB.DB()</span><br><span class="line">  <span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  db.SetConnMaxLifetime() <span class="comment">//连接最长复用时间</span></span><br><span class="line">  db.SetConnMaxIdleTime() <span class="comment">//maximum amount of time a connection may be idle,最长空闲时间</span></span><br><span class="line">  db.SetMaxIdleConns()  <span class="comment">// 最长空闲时间 maximum number of connections in the idle connection pool</span></span><br><span class="line">db.SetMaxOpenConns()  <span class="comment">// 最大连接数  maximum number of open connections to the database</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
       
     </div>
 
@@ -1090,20 +1104,20 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1148,7 +1162,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
 <div class="copyright">
   
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="user"></i>
   </span>

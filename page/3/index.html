@@ -130,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">87</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">89</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">59</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">60</span></a>
 
   </li>
         <li class="menu-item menu-item-微服务">
@@ -178,6 +178,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/using-gorm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/using-gorm/" class="post-title-link" itemprop="url">using gorm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-03T00:00:00Z">2021-02-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="CURD"><a href="#CURD" class="headerlink" title="CURD"></a>CURD</h2><h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><h4 id="json自定义字段使用"><a href="#json自定义字段使用" class="headerlink" title="json自定义字段使用"></a>json自定义字段使用</h4><ol>
+<li>如下为system使用自定义字段<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> System <span class="keyword">struct</span>&#123;</span><br><span class="line">   Version <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>为自定义类型实现接口Value/Scan<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">func</span> <span class="params">(s System)</span><span class="title">Value</span><span class="params">()</span><span class="params">(driver.Value, error)</span></span> &#123;</span><br><span class="line">   bytes, err := json.Marshal(s)</span><br><span class="line">  	<span class="keyword">return</span> <span class="keyword">string</span>(bytes), err</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="params">(s *System)</span> <span class="title">Scan</span><span class="params">(value <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">error</span></span> &#123;</span><br><span class="line"><span class="keyword">var</span> bytes []<span class="keyword">byte</span></span><br><span class="line">   <span class="keyword">switch</span> v := value.(<span class="keyword">type</span>) &#123;</span><br><span class="line">   <span class="keyword">case</span> []<span class="keyword">byte</span>:</span><br><span class="line">   	bytes = v</span><br><span class="line">   <span class="keyword">case</span> <span class="keyword">string</span>:</span><br><span class="line">   	bytes = []<span class="keyword">byte</span>(v)</span><br><span class="line">   <span class="keyword">default</span>:</span><br><span class="line">   	<span class="keyword">return</span> fmt.Errorf(<span class="string">"解析失败,原始数据:%v"</span>, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result := System&#123;&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(bytes) &lt;= <span class="number">0</span> &#123;</span><br><span class="line">	*s = result</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line">err := json.Unmarshal(bytes, &amp;result)</span><br><span class="line">   *s = result</span><br><span class="line">   <span class="keyword">return</span> err</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li>json查询,例如这里要查询version=1.0的System<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_t</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">system</span>-&gt;<span class="string">'$.version'</span> = <span class="string">"1.0"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><h3 id="Retrieve"><a href="#Retrieve" class="headerlink" title="Retrieve"></a>Retrieve</h3><h4 id="预加载-preload"><a href="#预加载-preload" class="headerlink" title="预加载,preload"></a>预加载,preload</h4><h5 id="外键tag"><a href="#外键tag" class="headerlink" title="外键tag"></a>外键tag</h5>预加载依赖在领域层结构体变量的gorm tag,需要在结构体上变量上增加外键tag,tag有多种写法,根<br>领域对象间的不同关系如:belongs to/has one/has many等有不同写法.<ol>
+<li>belongs to 参考: <a href="https://gorm.io/zh_CN/docs/belongs_to.html" target="_blank" rel="noopener">https://gorm.io/zh_CN/docs/belongs_to.html</a></li>
+<li>has one</li>
+<li>has many</li>
+<li>many to many<br>在项目ForeignKey,References这两个标签最常用,主要用于Preload相关数据<h5 id="自定义预加载-可在预加载时添加条件实现排序等功能"><a href="#自定义预加载-可在预加载时添加条件实现排序等功能" class="headerlink" title="自定义预加载,可在预加载时添加条件实现排序等功能"></a>自定义预加载,可在预加载时添加条件实现排序等功能</h5></li>
+</ol>
+</li>
+<li>排序<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文档:https://gorm.io/zh_CN/docs/preload.html</span></span><br><span class="line"><span class="comment">//您可以通过 func(db *gorm.DB) *gorm.DB 实现自定义预加载 SQL，例如：</span></span><br><span class="line"></span><br><span class="line">db.Preload(<span class="string">"Users"</span>, <span class="function"><span class="keyword">func</span><span class="params">(db *gorm.DB)</span> *<span class="title">gorm</span>.<span class="title">DB</span></span> &#123;</span><br><span class="line">  <span class="keyword">return</span> db.Order(<span class="string">"user.age DESC"</span>)</span><br><span class="line">&#125;).Find(&amp;users)</span><br><span class="line"><span class="comment">// SELECT * FROM user WHERE id IN (1,2,3,4) order by user.age DESC;</span></span><br></pre></td></tr></table></figure></li>
+<li><h4 id="order-by"><a href="#order-by" class="headerlink" title="order by"></a>order by</h4></li>
+<li>常用<br>指定从数据库检索记录时的排序方式<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">db.Order(<span class="string">"age desc, name"</span>).Find(&amp;users)</span><br><span class="line"><span class="comment">// SELECT * FROM users ORDER BY age desc, name;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个 order</span></span><br><span class="line">db.Order(<span class="string">"age desc"</span>).Order(<span class="string">"name"</span>).Find(&amp;users)</span><br><span class="line"><span class="comment">// SELECT * FROM users ORDER BY age desc, name;</span></span><br><span class="line"></span><br><span class="line">db.Clauses(clause.OrderBy&#123;</span><br><span class="line">  Expression: clause.Expr&#123;SQL: <span class="string">"FIELD(id,?)"</span>, Vars: []<span class="keyword">interface</span>&#123;&#125;&#123;[]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;&#125;, WithoutParentheses: <span class="literal">true</span>&#125;,</span><br><span class="line">&#125;).Find(&amp;User&#123;&#125;)</span><br><span class="line"><span class="comment">// SELECT * FROM users ORDER BY FIELD(id,1,2,3)</span></span><br></pre></td></tr></table></figure></li>
+<li>order by field 自定义排序<br>使用上面的写法通过自定义字段排序时注意,WithoutParentheses为true,为false是构建的sql为order by field(column,(“f1,f2,f3,…”)),会报错</li>
+<li>组合排序<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">status</span>,create_time</span><br><span class="line"><span class="keyword">FROM</span> <span class="string">`order`</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">FIELD</span>(<span class="keyword">status</span>,<span class="string">'s3'</span>,<span class="string">'s2'</span>,<span class="string">'s1'</span>)<span class="keyword">desc</span>,create_time <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+如上的sql使用gorm框架可以这么写:<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> res:=[]*Order&#123;&#125;</span><br><span class="line"> db.Clauses(clause.OrderBy&#123;</span><br><span class="line">Expression: clause.Expr&#123;</span><br><span class="line">	SQL: <span class="string">"FIELD(status,?) DESC,create_time DESC"</span>,</span><br><span class="line">	Vars: []<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">		[]<span class="keyword">string</span>&#123;<span class="string">"s3"</span>,<span class="string">"s2"</span>,<span class="string">"s1"</span>&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">	WithoutParentheses: <span class="literal">true</span>&#125;&#125;).</span><br><span class="line">Find(&amp;res)</span><br></pre></td></tr></table></figure>
+不能使用链式调用(gorm v2版本,版本号:gorm.io/gorm v1.20.11),如:<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> db.Clauses(clause.OrderBy&#123;</span><br><span class="line">Expression: clause.Expr&#123;</span><br><span class="line">	SQL: <span class="string">"FIELD(status,?) DESC"</span>,</span><br><span class="line">	Vars: []<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">		[]<span class="keyword">string</span>&#123;<span class="string">"s3"</span>,<span class="string">"s2"</span>,<span class="string">"s1"</span>&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">	WithoutParentheses: <span class="literal">true</span>&#125;&#125;).</span><br><span class="line">      Order(<span class="string">"create_time DESC"</span>).</span><br><span class="line">Find(&amp;res)</span><br></pre></td></tr></table></figure></li>
+<li>参考文档</li>
+</ol>
+<ul>
+<li>gorm v2文档: <a href="https://gorm.io/zh_CN/docs/query.html#Order" target="_blank" rel="noopener">https://gorm.io/zh_CN/docs/query.html#Order</a></li>
+</ul>
+<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><ol>
+<li>强制索引<ul>
+<li>文档: <a href="https://learnku.com/docs/gorm/v2/performance/9762" target="_blank" rel="noopener">https://learnku.com/docs/gorm/v2/performance/9762</a><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"gorm.io/hints"</span></span><br><span class="line"></span><br><span class="line">db.Clauses(hints.UseIndex(<span class="string">"idx_user_name"</span>)).Find(&amp;User&#123;&#125;)</span><br><span class="line"><span class="comment">// SELECT * FROM `users` USE INDEX (`idx_user_name`)</span></span><br><span class="line"></span><br><span class="line">db.Clauses(hints.ForceIndex(<span class="string">"idx_user_name"</span>, <span class="string">"idx_user_id"</span>).ForJoin  ()).Find(&amp;User&#123;&#125;)</span><br><span class="line"><span class="comment">// SELECT * FROM `users` FORCE INDEX FOR JOIN (`idx_user_name`,   `idx_user_id`)"</span></span><br><span class="line"></span><br><span class="line">db.Clauses(</span><br><span class="line">    hints.ForceIndex(<span class="string">"idx_user_name"</span>, <span class="string">"idx_user_id"</span>).ForOrderBy(),</span><br><span class="line">    hints.IgnoreIndex(<span class="string">"idx_user_name"</span>).ForGroupBy(),</span><br><span class="line">).Find(&amp;User&#123;&#125;)</span><br></pre></td></tr></table></figure>
+Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器提供了在查询处理过程中如何选择索引的信息。与 optimizer 相比，它可以更灵活地选择更有效的执行计划</li>
+<li>加了join<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.Table(<span class="string">"`order` FORCE INDEX (order_create_time_d977ab1e,idx_demand_number,idx_stocked_number,idx_di)"</span>).</span><br><span class="line"><span class="comment">//Clauses(hints.CommentBefore("from", "FORCE INDEX (order_create_time_d977ab1e,idx_demand_number,idx_stocked_number,idx_di)")).</span></span><br><span class="line"><span class="comment">// 这样写,生成的sql语句有问题,force index位置在where条件中间</span></span><br><span class="line">Joins(<span class="string">"left join servicelist on order.service_list_id=servicelist.id"</span>).Find(&amp;orders)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="ConnPool"><a href="#ConnPool" class="headerlink" title="ConnPool"></a>ConnPool</h3><ol>
+<li>gorm 连接池配置通过sql.DB实现<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  gormDB,err:=gorm.Open(...)</span><br><span class="line">  db,err:=gormDB.DB()</span><br><span class="line">  <span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  db.SetConnMaxLifetime() <span class="comment">//连接最长复用时间</span></span><br><span class="line">  db.SetConnMaxIdleTime() <span class="comment">//maximum amount of time a connection may be idle,最长空闲时间</span></span><br><span class="line">  db.SetMaxIdleConns()  <span class="comment">// 最长空闲时间 maximum number of connections in the idle connection pool</span></span><br><span class="line">db.SetMaxOpenConns()  <span class="comment">// 最大连接数  maximum number of open connections to the database</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/vscode-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -209,7 +319,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +412,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -391,7 +501,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -473,7 +583,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -540,7 +650,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -639,7 +749,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -712,7 +822,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -785,7 +895,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -873,7 +983,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
+                <time title="修改时间：2022-01-02 14:45:05" itemprop="dateModified" datetime="2022-01-02T14:45:05Z">2022-01-02</time>
               </span>
 
           
@@ -893,93 +1003,6 @@
 <p>设置workflow等</p>
 <p>由于使用了子模块</p>
 <p>checkout的workflow最好找对应的submodule  checkout</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/bug-fix-/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ProgramNotes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/bug-fix-/" class="post-title-link" itemprop="url">bug</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00Z">2020-10-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-27 08:42:34" itemprop="dateModified" datetime="2021-12-27T08:42:34Z">2021-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a>系统依赖</h3><ul>
-<li>Jenkins</li>
-<li>nginx</li>
-<li>golang后端</li>
-<li>前端</li>
-</ul>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
-<li>接口调用失败,到服务器上本地请求接口失败</li>
-<li>通过ps搜索后端进程,发现服务进程不存在,判定=&gt;Jenkins构建失败</li>
-<li>然后到Jenkins上查看构建日志,发现报错信息,’sudo stop xxxx [no runing]’,错误判定为有人修改了服务器配置,问了一圈人,没有修改</li>
-<li>排除员工原因,查找代码原因,尝试直接执行在服务器本地的后端可执行程序,报错</li>
-<li>排查代码原因</li>
-</ol>
-<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><p>  大部分错误最先从代码层面开始找,比较有效率,服务器配置之类的改动毕竟比较少;错误日志需要仔细查看,往往兜兜转转找了一圈会发现<br>错误提示一开始就清晰地摆在面前.<br>  下决定前多思考.</p>
 
       
     </div>
@@ -1066,20 +1089,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1124,7 +1147,7 @@
 <div class="copyright">
   
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="user"></i>
   </span>

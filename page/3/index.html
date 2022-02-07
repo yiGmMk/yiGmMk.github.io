@@ -130,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">91</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">93</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">61</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">62</span></a>
 
   </li>
         <li class="menu-item menu-item-微服务">
@@ -178,6 +178,122 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go-technique/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/go-technique/" class="post-title-link" itemprop="url">golang technique</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-03T00:00:00Z">2021-02-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="go-repo-code-snippet"><a href="#go-repo-code-snippet" class="headerlink" title="go-repo code snippet"></a>go-repo code snippet</h2><ol>
+<li><p>判断机器位数</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> intSize = <span class="number">32</span> &lt;&lt; (^<span class="keyword">uint</span>(<span class="number">0</span>) &gt;&gt; <span class="number">63</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 在64平台系统:<br>　　1. uint(0)在平台底层是0x0000000000000000<br>　　2. ^uint(0)在平台底层是0xFFFFFFFFFFFFFFFF<br>　　3. ^uint(0) &gt;&gt; 63 在底层平台是0x0000000000000001,也就是1<br>　　4. 32 &lt;&lt; 1 结果是32*2  =  64</p>
+</li>
+</ol>
+<h2 id="data-conversion"><a href="#data-conversion" class="headerlink" title="data conversion"></a>data conversion</h2><ol>
+<li>充分利用已有的实现</li>
+</ol>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Sorter <span class="keyword">interface</span>&#123;</span><br><span class="line">    Sort()[]<span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自己实现需要为Sequence实现container包内的接口,转换可以利用已有的代码</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span>  Sequence []<span class="keyword">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s Sequence)</span><span class="title">Sort</span><span class="params">()</span>[]<span class="title">int</span></span>&#123;</span><br><span class="line">    <span class="built_in">copy</span>:=<span class="built_in">make</span>(Sequence,<span class="number">0</span>,<span class="built_in">len</span>(s))</span><br><span class="line">    <span class="built_in">append</span>(<span class="built_in">copy</span>,s...)</span><br><span class="line">    sort.IntSlice(s).Sort()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>断言防止panic,使用安全方式</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">list=&amp;Sequence&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>&#125;</span><br><span class="line"><span class="comment">// 不安全方式,assertion不成功,会panic</span></span><br><span class="line">convert:=list.(*Sequence)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安全方式</span></span><br><span class="line">convert,ok:=list.(*Sequence)</span><br><span class="line"><span class="keyword">if</span> !ok&#123;</span><br><span class="line">    <span class="keyword">return</span> errors.New(<span class="string">"convert error"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>反射,通过CanSet()判断反射得到的值能否修改</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f <span class="keyword">float64</span>=<span class="number">3</span></span><br><span class="line">val:=reflect.ValueOf(x)</span><br><span class="line">val.CanSet()</span><br></pre></td></tr></table></figure>
+
+<p>反射在标准库中大量使用,fmt.Fprintf及其他格式化函数大多使用反射实现;</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fmt.Fprintf</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fprintf</span><span class="params">(w io.Writer, format <span class="keyword">string</span>, a ...<span class="keyword">interface</span>&#123;&#125;)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line"> p := newPrinter()</span><br><span class="line"> p.doPrintf(format, a)</span><br><span class="line"> n, err = w.Write(p.buf)</span><br><span class="line"> p.free()</span><br><span class="line"> <span class="keyword">return</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 判断interface的类型,在go 1.15 ".(type)"只能在switch使用</span></span><br><span class="line"> <span class="keyword">var</span> i <span class="keyword">interface</span>&#123;&#125;=&amp;os.File&#123;&#125;</span><br><span class="line"> <span class="keyword">switch</span> val.(<span class="keyword">type</span>)&#123;</span><br><span class="line">     <span class="keyword">case</span> <span class="keyword">int</span>:</span><br><span class="line">     <span class="keyword">case</span> *os.File:</span><br><span class="line">     <span class="keyword">case</span> <span class="keyword">string</span>:</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ol>
+<li>golang官方文档 <a href="https://golang.google.cn/doc/effective_go#pointers_vs_values" target="_blank" rel="noopener">https://golang.google.cn/doc/effective_go#pointers_vs_values</a></li>
+<li>uber代码规范 (<a href="https://github.com/uber-go/guide" target="_blank" rel="noopener">https://github.com/uber-go/guide</a>)</li>
+<li>code snippet <a href="https://www.cnblogs.com/keystone/p/13930136.html" target="_blank" rel="noopener">https://www.cnblogs.com/keystone/p/13930136.html</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/linux-top/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -209,7 +325,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,7 +421,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -429,7 +545,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -536,7 +652,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
 
           <br>
@@ -639,7 +755,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -735,7 +851,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
 
           <br>
@@ -816,7 +932,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
 
           <br>
@@ -929,7 +1045,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1016,7 +1132,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
+                <time title="修改时间：2022-02-07 02:58:54" itemprop="dateModified" datetime="2022-02-07T02:58:54Z">2022-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1054,108 +1170,6 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
 
       
           <h3 id="什么是微服务，微服务概览"><a href="#什么是微服务，微服务概览" class="headerlink" title="什么是微服务，微服务概览"></a>什么是微服务，微服务概览</h3><h3 id="微服务设计"><a href="#微服务设计" class="headerlink" title="微服务设计"></a>微服务设计</h3><h3 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h3><h3 id="服务发现"><a href="#服务发现" class="headerlink" title="服务发现"></a>服务发现</h3><h3 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a>grpc</h3><h3 id="多租户-amp-多集群"><a href="#多租户-amp-多集群" class="headerlink" title="多租户&amp;多集群"></a>多租户&amp;多集群</h3><h3 id="service-mesh"><a href="#service-mesh" class="headerlink" title="service mesh"></a>service mesh</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/golang-excelize-read-date-type-data/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ProgramNotes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/golang-excelize-read-date-type-data/" class="post-title-link" itemprop="url">golang excelize read date type data</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-22T00:00:00Z">2020-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-11 09:36:11" itemprop="dateModified" datetime="2022-01-11T09:36:11Z">2022-01-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>858</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>excelize 介绍</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>时间格式读取</li>
-</ol>
-<p>excel表格操作库，对日期格式的数据读写还不是很完善，能识别的日期格式返回一个01-02-06（day-month-day）格式的字符串，无法识别时直接返回的是excel表格中的原始数据，一个浮点型数，在excel中支持很多种日期格式显示。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">file,err:=excelize.OpenFile(filepath)</span><br><span class="line"><span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">strTime,err:=file.GetCellValue(<span class="string">"Sheet1"</span>,<span class="string">"A1"</span>)</span><br><span class="line"><span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式一：正常识别，通过time的库函数转换</span></span><br><span class="line">resTime, err = time.ParseInLocation(<span class="string">"01-02-06"</span>, strTime, time.Local)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二：未正常识别，先转换成int型数据再转换</span></span><br><span class="line">intTime,err:=strconv.Atoi(strTime)</span><br><span class="line"><span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//转换为time.Time</span></span><br><span class="line">time.Time=excelize.ExcelDateToTime(<span class="keyword">float64</span>(intTime),<span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>时间格式写入<br>通过excelize写入时间格式的数据到文件，需要设置单元格格式，excelize支持写入的格式包含有time.Time,但是写入时需要使用UTC格式。</li>
-</ol>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">file:=excelize.NewFile()</span><br><span class="line"><span class="comment">//style 格式编号</span></span><br><span class="line">style,err:=file.NewStyle(<span class="string">`&#123;"number_format": 14&#125;`</span>)</span><br><span class="line"><span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">file.SetCellValue(<span class="string">"Sheet1"</span>,<span class="string">"A1"</span>,time.Now().UTC())</span><br><span class="line">file.SetCellStyle(<span class="string">"Sheet1"</span>,<span class="string">"A1"</span>,<span class="string">"A1"</span>,style)</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -1241,20 +1255,20 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">91</span>
+        <span class="site-state-item-count">93</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1309,13 +1323,13 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">68k</span>
+    <span title="站点总字数">69k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:02</span>
+    <span title="站点阅读时长">1:03</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

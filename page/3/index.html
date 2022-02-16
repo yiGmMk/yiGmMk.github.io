@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">93</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">96</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">62</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">63</span></a>
 
   </li>
         <li class="menu-item menu-item-微服务">
@@ -178,6 +178,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/linux-port/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/linux-port/" class="post-title-link" itemprop="url">linux port</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-16 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-16T00:00:00Z">2021-02-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
+<h2 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h2><p> lsof(list open files)是一个列出当前系统打开文件的工具。</p>
+<h3 id="lsof-查看端口"><a href="#lsof-查看端口" class="headerlink" title="lsof 查看端口"></a>lsof 查看端口</h3><ul>
+<li><p>lsof -i:端口号</p>
+<p>查看服务器 8000 端口的占用情况：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lsof -i:8000</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME</span><br><span class="line">nodejs  26993 root   10u  IPv4 37999514      0t0  TCP *:8000 (LISTEN)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他参数</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:8080：查看8080端口占用</span><br><span class="line"></span><br><span class="line">lsof abc.txt：显示开启文件abc.txt的进程</span><br><span class="line"></span><br><span class="line">lsof -c abc：显示abc进程现在打开的文件</span><br><span class="line"></span><br><span class="line">lsof -c -p 1234：列出进程号为1234的进程所打开的文件</span><br><span class="line"></span><br><span class="line">lsof -g gid：显示归属gid的进程情况</span><br><span class="line"></span><br><span class="line">lsof +d /usr/<span class="built_in">local</span>/：显示目录下被进程开启的文件</span><br><span class="line"></span><br><span class="line">lsof +D /usr/<span class="built_in">local</span>/：同上，但是会搜索目录下的目录，时间较长</span><br><span class="line"></span><br><span class="line">lsof -d 4：显示使用fd为4的进程</span><br><span class="line"></span><br><span class="line">lsof -i -U：显示所有打开的端口和UNIX domain文件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><p> netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。</p>
+<h3 id="netstat-查看端口占用语法格式"><a href="#netstat-查看端口占用语法格式" class="headerlink" title="netstat 查看端口占用语法格式"></a>netstat 查看端口占用语法格式</h3> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp | grep 端口号</span><br><span class="line"></span><br><span class="line">-t (tcp) 仅显示tcp相关选项</span><br><span class="line">-u (udp)仅显示udp相关选项</span><br><span class="line">-n 拒绝显示别名，能显示数字的全部转化为数字</span><br><span class="line">-l 仅列出在Listen(监听)的服务状态</span><br><span class="line">-p 显示建立相关链接的程序名</span><br></pre></td></tr></table></figure>
+
+<p> 更多命令</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp              //查看当前所有tcp端口</span><br><span class="line">netstat -ntulp | grep 80   //查看所有80端口使用情况</span><br><span class="line">netstat -ntulp | grep 3306 //查看所有3306端口使用情况</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go-technique/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -209,7 +299,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -311,7 +401,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -393,7 +483,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -503,7 +593,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -596,7 +686,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
 
           
@@ -685,7 +775,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -767,7 +857,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
 
           
@@ -834,7 +924,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
 
           
@@ -849,14 +939,18 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
 
       
           <h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><ul>
-<li>-i指定密钥</li>
-<li>-o加option<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-o TCPKeepAlive&#x3D;yes        &#x2F;&#x2F;长连接</span><br><span class="line">-o ServerAliveInterval&#x3D;30  &#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+<li><p>-i指定密钥</p>
+</li>
+<li><p>-o加option</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-o TCPKeepAlive=yes        //长连接</span><br><span class="line">-o ServerAliveInterval=30  //</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
+<h4 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h4> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh -L local_port:localhost:remote_port -N -T user@server_address -p   server_ssh_port</span><br><span class="line">如:</span><br><span class="line">ssh -L 9999:localhost:8888 -N -T user_test@111.111.111.111 -p 22</span><br><span class="line">将发送到本地端口9999的请求数据转发到111.111.111.111转发到8888端口</span><br></pre></td></tr></table></figure>
+
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
 <li><p>config文件配置: ~/.ssh/config</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#配置</span><br><span class="line">Host gitee.com</span><br><span class="line">    HostName gitee.com</span><br><span class="line">    IdentityFile xxx&#x2F;xxx&#x2F;_id_rsa</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    User xxx</span><br><span class="line">    TCPKeepAlive&#x3D;yes</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置</span></span><br><span class="line"><span class="string">Host</span> <span class="string">gitee.com</span></span><br><span class="line">    <span class="string">HostName</span> <span class="string">gitee.com</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">xxx/xxx/_id_rsa</span></span><br><span class="line">    <span class="string">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line">    <span class="string">User</span> <span class="string">xxx</span></span><br><span class="line">    <span class="string">TCPKeepAlive=yes</span></span><br><span class="line">    <span class="string">ServerAliveInterval</span> <span class="number">60</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置服务端</p>
 </li>
@@ -876,12 +970,14 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
 </ul>
 <ol start="3">
 <li>认证秘钥,将公钥写入该文件(authorized_keys),就可使用该公钥登陆<ul>
-<li>位置: ~/.authorized_keys<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3></li>
+<li>位置: ~/.authorized_keys</li>
 </ul>
 </li>
 </ol>
-<ul>
-<li>windows terminal<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">连接远程机器使用 ssh 配置</span><br><span class="line">&#123;</span><br><span class="line">    &quot;guid&quot;: &quot;&#123;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;,</span><br><span class="line">    &quot;hidden&quot;: false,</span><br><span class="line">    &quot;name&quot;: &quot;xxxxxxx&quot;,</span><br><span class="line">	&#x2F;&#x2F;密钥放在本地，-i 指定密钥位置</span><br><span class="line">    &quot;commandline&quot;: &quot;ssh -i xxxxxxx_id_rsa user@host -p xxxxxxxx  -o TCPKeepAlive&#x3D;yes -o ServerAliveInterval&#x3D;30&quot;,</span><br><span class="line">	&quot;startingDirectory&quot;: &quot;&#x2F;home&#x2F;xxxxxxx&quot;,</span><br><span class="line">	&quot;icon&quot; : &quot;ms-appx:&#x2F;&#x2F;&#x2F;ProfileIcons&#x2F;&#123;9acb9455-ca41-5af7-950f-6bca1bc9722f&#125;.png&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul>
+<li><p>windows terminal</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">连接远程机器使用 ssh 配置</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"guid"</span>: <span class="string">"&#123;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#125;"</span>,</span><br><span class="line">    <span class="attr">"hidden"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"xxxxxxx"</span>,</span><br><span class="line"> <span class="comment">//密钥放在本地，-i 指定密钥位置</span></span><br><span class="line">    <span class="attr">"commandline"</span>: <span class="string">"ssh -i xxxxxxx_id_rsa user@host -p xxxxxxxx  -o TCPKeepAlive=yes -o   ServerAliveInterval=30"</span>,</span><br><span class="line"> <span class="attr">"startingDirectory"</span>: <span class="string">"/home/xxxxxxx"</span>,</span><br><span class="line"> <span class="attr">"icon"</span> : <span class="string">"ms-appx:///ProfileIcons/&#123;9acb9455-ca41-5af7-950f-6bca1bc9722f&#125;.png"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
@@ -933,7 +1029,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
+                <time title="修改时间：2022-02-16 03:50:49" itemprop="dateModified" datetime="2022-02-16T03:50:49Z">2022-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -957,79 +1053,6 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
 
       
           <h3 id="golang中error处理方式"><a href="#golang中error处理方式" class="headerlink" title="golang中error处理方式"></a>golang中error处理方式</h3><h3 id="github-com-pkg-errors包使用"><a href="#github-com-pkg-errors包使用" class="headerlink" title="github.com/pkg/errors包使用"></a>github.com/pkg/errors包使用</h3><h3 id="错误处理原则"><a href="#错误处理原则" class="headerlink" title="错误处理原则"></a>错误处理原则</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ProgramNotes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">微服务总结帖</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-27 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-27T00:00:00Z">2020-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 10:31:09" itemprop="dateModified" datetime="2022-02-15T10:31:09Z">2022-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="什么是微服务，微服务概览"><a href="#什么是微服务，微服务概览" class="headerlink" title="什么是微服务，微服务概览"></a>什么是微服务，微服务概览</h3><h3 id="微服务设计"><a href="#微服务设计" class="headerlink" title="微服务设计"></a>微服务设计</h3><h3 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h3><h3 id="服务发现"><a href="#服务发现" class="headerlink" title="服务发现"></a>服务发现</h3><h3 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a>grpc</h3><h3 id="多租户-amp-多集群"><a href="#多租户-amp-多集群" class="headerlink" title="多租户&amp;多集群"></a>多租户&amp;多集群</h3><h3 id="service-mesh"><a href="#service-mesh" class="headerlink" title="service mesh"></a>service mesh</h3>
       
     </div>
 
@@ -1115,7 +1138,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1128,7 +1151,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-count">96</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

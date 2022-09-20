@@ -22,18 +22,23 @@
     var CONFIG = {"hostname":"programnotes.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan | disqus | disqusjs | gitalk | livere | valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="learn &amp;  share &amp; note">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ProgramNotes">
-<meta property="og:url" content="https://programnotes.cn/tags/golang/index.html">
+  <meta name="description" content="This function returns a string result with the concatenated non-NULL values from a group. It returns NULL if there are no non-NULL values  group_concat将非NULL的值拼接返回字符串,当没有非NULL的值时返回NULL.有长度限制,遇到过一个由于长">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql group_concat数据过长截断">
+<meta property="og:url" content="https://programnotes.cn/mysql-group_concat-truncated/index.html">
 <meta property="og:site_name" content="ProgramNotes">
-<meta property="og:description" content="learn &amp;  share &amp; note">
+<meta property="og:description" content="This function returns a string result with the concatenated non-NULL values from a group. It returns NULL if there are no non-NULL values  group_concat将非NULL的值拼接返回字符串,当没有非NULL的值时返回NULL.有长度限制,遇到过一个由于长">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-20T07:49:42.666Z">
 <meta property="article:author" content="yigmmk">
-<meta property="article:tag" content="OpenCV;Golang;Tensorflow;Deep Learning;Distributed System">
+<meta property="article:tag" content="go">
+<meta property="article:tag" content="string">
+<meta property="article:tag" content="unicode">
+<meta property="article:tag" content="UTF-8">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://programnotes.cn/tags/golang/">
+<link rel="canonical" href="https://programnotes.cn/mysql-group_concat-truncated/">
 
 
 <script id="page-configurations">
@@ -41,12 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: golang | ProgramNotes</title>
+  <title>mysql group_concat数据过长截断 | ProgramNotes</title>
   
 
 
@@ -172,243 +177,165 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">golang
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/mysql-group_concat-truncated/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mysql group_concat数据过长截断
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-20 00:00:00 / 修改时间：07:49:42" itemprop="dateCreated datePublished" datetime="2022-09-20T00:00:00Z">2022-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/go/" itemprop="url" rel="index"><span itemprop="name">go</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <blockquote>
+<p>This function returns a string result with the concatenated non-NULL values from a group. It returns NULL if there are no non-NULL values</p>
+</blockquote>
+<p>group_concat将非NULL的值拼接返回字符串,当没有非NULL的值时返回NULL.<br>有长度限制,遇到过一个由于长度限制数据截断导致的bug,sql如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 这里id,price都是int,4字节</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,SUBSTRING_INDEX(<span class="keyword">GROUP_CONCAT</span>(price <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span>), <span class="string">','</span>, <span class="number">-1</span>) <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> xxx</span><br><span class="line"><span class="keyword">where</span> xxxx=xxx</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">id</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这里将price拼接,再通过SUBSTRING_INDEX取最后一个price,由于数据截断,GROUP_CONCAT返回的字符串最后一个是”,”而不是price,导致SUBSTRING_INDEX取到的是””(字符串),在业务逻辑里直接转为int报错了,由此产生bug.<br>且只有当数据量足够多时才会触发(超过171行时,1024=171<em>4+170</em>2,引擎为InnnoDB,MySQL8.0,字符集为utf8mb4_0900_ai_ci)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 有兴趣的可以复现下,查一个int类型的数据就行</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">GROUP_CONCAT</span>(price) <span class="keyword">FROM</span> (</span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">`price`</span> </span><br><span class="line"><span class="keyword">FROM</span> xxx</span><br><span class="line"><span class="keyword">where</span> <span class="string">`xxx`</span> = <span class="string">"xxx"</span> <span class="keyword">limit</span> <span class="number">171</span> ) <span class="keyword">as</span> t;</span><br></pre></td></tr></table></figure>
+
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">GROUP_CONCAT([DISTINCT] expr [,expr ...]</span><br><span class="line">             [ORDER BY &#123;unsigned_integer | col_name | expr&#125;</span><br><span class="line">                 [ASC | DESC] [,col_name ...]]</span><br><span class="line">             [SEPARATOR str_val])</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> student_name,</span><br><span class="line">        <span class="keyword">GROUP_CONCAT</span>(test_score)</span><br><span class="line">       <span class="keyword">FROM</span> student</span><br><span class="line">       <span class="keyword">GROUP</span> <span class="keyword">BY</span> student_name;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> student_name,</span><br><span class="line">        <span class="keyword">GROUP_CONCAT</span>(<span class="keyword">DISTINCT</span> test_score</span><br><span class="line">                      <span class="keyword">ORDER</span> <span class="keyword">BY</span> test_score <span class="keyword">DESC</span> SEPARATOR <span class="string">' '</span>)</span><br><span class="line">       <span class="keyword">FROM</span> student</span><br><span class="line">       <span class="keyword">GROUP</span> <span class="keyword">BY</span> student_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><ol>
+<li><p>数据长度,group_concat_max_len</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询长度显示,默认值为1024</span></span><br><span class="line"><span class="keyword">SELECT</span>  @@group_concat_max_len;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 设置</span></span><br><span class="line"><span class="keyword">SET</span> [<span class="keyword">GLOBAL</span> | <span class="keyword">SESSION</span>] group_concat_max_len = val;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>The result is truncated to the maximum length that is given by the group_concat_max_len system variable, which has a default value of 1024. The value can be set higher, although the effective maximum length of the return value is constrained by the value of max_allowed_packet.</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>mysql文档 <a href="https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html</a></li>
+<li>csdn <a href="http://t.csdn.cn/G8xdm" target="_blank" rel="noopener">http://t.csdn.cn/G8xdm</a></li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-10T00:00:00Z"
-              content="2022-01-10">
-          01-10
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>yigmmk
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://programnotes.cn/mysql-group_concat-truncated/" title="mysql group_concat数据过长截断">https://programnotes.cn/mysql-group_concat-truncated/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/go_regexp/" itemprop="url">
-            <span itemprop="name">Go 正则匹配</span>
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/Image/WeChat.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-27T00:00:00Z"
-              content="2021-12-27">
-          12-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/go-zero-usage/" itemprop="url">
-            <span itemprop="name">go-zeo usage</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-20T00:00:00Z"
-              content="2021-12-20">
-          12-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/golang-1000-question-answer/" itemprop="url">
-            <span itemprop="name">Go语言一千问解答</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-20T00:00:00Z"
-              content="2021-12-20">
-          12-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/golang-1000-question/" itemprop="url">
-            <span itemprop="name">Go语言一千问</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-09T00:00:00Z"
-              content="2021-11-09">
-          11-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/go-module/" itemprop="url">
-            <span itemprop="name">go module</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-07T00:00:00Z"
-              content="2021-03-07">
-          03-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Lack-of-sapce-result-in-Jenkins-build-failed/" itemprop="url">
-            <span itemprop="name">磁盘不足导致Jenkins构建失败</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-07T00:00:00Z"
-              content="2021-03-07">
-          03-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/distributed-transaction/" itemprop="url">
-            <span itemprop="name">distributed-transaction</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-07T00:00:00Z"
-              content="2021-03-07">
-          03-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/idempotent/" itemprop="url">
-            <span itemprop="name">幂等/idempotent</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-03T00:00:00Z"
-              content="2021-02-03">
-          02-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/go-technique/" itemprop="url">
-            <span itemprop="name">golang technique</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-03T00:00:00Z"
-              content="2021-02-03">
-          02-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/using-gorm/" itemprop="url">
-            <span itemprop="name">using gorm</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/go/" rel="tag"># go</a>
+              <a href="/tags/string/" rel="tag"># string</a>
+              <a href="/tags/unicode/" rel="tag"># unicode</a>
+              <a href="/tags/UTF-8/" rel="tag"># UTF-8</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/go-string/" rel="prev" title="go语言string按下标访问和for range访问有什么区别">
+      <i class="fa fa-chevron-left"></i> go语言string按下标访问和for range访问有什么区别
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/golang/page/2/">2</a><a class="extend next" rel="next" href="/tags/golang/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -455,6 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#限制"><span class="nav-number">1.1.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -633,6 +561,25 @@
 
   
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'fcf73fdf87327a259978',
+      clientSecret: 'ebe0512fd10af5e7b10228ce7b1e0bfd1cb488a9',
+      repo        : 'comment_blog',
+      owner       : 'yiGmMk',
+      admin       : ['yiGmMk'],
+      id          : '03fd59e0e41982b17d5d8e78ce3fa801',
+        language: 'en',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>

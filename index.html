@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,120 +231,14 @@ img{
 
 <p>建立ssl/tls连接需要若干步骤,协议结合使用了对称加密和非对称加密,客户机和服务端需要协商所使用的算法并交换密钥信息.<br>下面以TLS 1.2为例介绍下流程(TlS1.3做了很多优化)</p>
 <h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p><img src="../Image/network/tls-handshake.jpg" alt="tls" title="tls handshake"></p>
-<h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><ol>
-<li><p>Client Hello<br>客户端发送的’Client Hello’包括一下信息:</p>
-<ul>
-<li><p>Client Version<br>客户端发送一组支持的TSL/SSL协议版本(首选版本放在最前面,通常是最新可用的版本)</p>
-</li>
-<li><p>Client Random<br>32 byte的随机数,client random和server random被用于生成用于加密的密钥.<br>在最初的 TLS 1.2规范中,前4个字节表示客户机的当前日期和时间(以纪元格式,即时间戳,’2022-09-27 10:32:51’的毫秒级时间戳:1664245971662),剩下的28个字节应该是随机生成的数字。<br>然而,IETF后来建议不要这样做</p>
-</li>
-<li><p>Session ID<br>用于连接的会话ID,如果session_id 不是空的,服务器将搜索以前缓存的会话,并在找到匹配的会话时恢复该会话</p>
-</li>
-<li><p>Compression_Method<br>用于压缩SSL的数据包,可提升传输速度,但有风险(<a href="https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/" target="_blank" rel="noopener">https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/</a>)</p>
-</li>
-<li><p>Cipher Suites<br>Cipher Suites是密码算法的组合.通常,每个密码套件包含一个用于以下任务的加密算法</p>
-<ul>
-<li>密钥交换(key exchange)</li>
-<li>身份验证(authentication)</li>
-<li>批量(数据)加密(bulk data encryption)</li>
-<li>消息身份验证(message authentication)<br>客户端按照偏好顺序发送它所支持的所有密码套件的列表,理想情况下,client希望使用发送的第一个cipher suite建立连接<br>样例(TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256)</li>
-<li>TLS is the protocol being used</li>
-<li>ECDHE is the key exchange algorithm (Elliptic curve Diffie–Hellman)</li>
-<li>ECDSA is the authentication algorithm (Elliptic Curve Digital Signature Algorithm)</li>
-<li>AES_128_GCM is the data encryption algorithm (Advanced Encryption Standard 128 bit Galois/Counter Mode)</li>
-<li>SHA256 is the Message Authentication Code (MAC) algorithm (Secure Hash Algorithm 256 bit)</li>
-</ul>
-</li>
-<li><p>Extensions<br>附加功能,可以通过扩展来实现,比如支持(elliptic curve cryptography, point formats for elliptic curve cryptography, signature algorithms…)<br>如果服务器不能提供附加功能，客户端可能会中止握手</p>
-</li>
-<li><p>example</p>
-<p><img src="../Image/network/tsl-ClientHello.png" alt="Client Hello" title="client hello"></p>
-</li>
-</ul>
-</li>
-<li><p>Server Hello<br>服务端收到’Client Hello’会恢复’Server Hello’,可能包含选定的选项(来自’Client Hello’建议的选项),也可能是握手失败消息<br>包含:</p>
-<ul>
-<li><p>Server Version<br>从客户端提供的版本中选择 SSL/TLS 协议的首选版本(preferred version)</p>
-</li>
-<li><p>Server Random<br>和客户端发送的类似,32 byte的随机数</p>
-</li>
-<li><p>Session ID<br>如果客户端Session ID不是空的,服务器将搜索以前缓存的会话,如果找到匹配,则使用该会话ID恢复会话<br>如果客户端会话ID为空,则服务器可以创建一个新会话并将其发送出去</p>
-</li>
-<li><p>Cipher Suites</p>
-</li>
-<li><p>CompressionMethods</p>
-</li>
-<li><p>Server Certificate(Sever-&gt;Client)<br>server向client发送经过签名的 TLS/SSL 证书，以证明其身份,还包含sever的公钥。</p>
-</li>
-<li><p>Client Certificate(Client-&gt;Server,Optional)<br>在极少数情况下,server可能要求client使用client证书进行身份验证。如果是,client将向server提供其已签名的证书</p>
-</li>
-<li><p>Server Key Exchange(Sever-&gt;Client)<br>只有在server提供的证书不足以让client交换pre-master secret时,才会发送服务器密钥交换消息。<br>(如:DHE_DSS,DHE_RSA,DH_anon 是这样的)。</p>
-</li>
-<li><p>Server Hello Done(Server-&gt;Client)<br>sever将此消息发送到client以确认Server Hello消息已完成</p>
-</li>
-<li><p>example</p>
-<p><img src="../Image/network/tsl-ServerHello.png" alt="Server Hello" title="server hello"></p>
-</li>
-</ul>
-</li>
-<li><p>Client Key Exchange<br> 在接收到’Server Hello Done’后开始.</p>
-<ul>
-<li><p>Pre-Master Secret<br>client使用接收自server的非对称密钥(asymmetric encryption)加密’pre-master secret’,这样只要server才能解密得到’pre-master secret’</p>
-<p><img src="../Image/network/tls-pre-master-secret.png" alt="pre-master secret"></p>
-</li>
-<li><p>Master Secret<br>server接收到’pre-master secret’后会使用私钥解密数据,client和server使用伪随机函数(PRF)根据前面交换的随机值(Client Random 和 Server Random)计算’master secret’<br>PRF 是一个用来产生任意数量的伪随机数据的函数<br>‘master secret’占48 byte,是对称加密秘钥,随后,client和server都将使用对称加密的数据进行其余的通信(使用’master secret’生成一组秘钥用于加密/解密数据)</p>
-<ul>
-<li>client_write_MAC_key: Authentication and Integrity check</li>
-<li>server_write_MAC_key: Authentication and Integrity check</li>
-<li>client_write_key: Message encryption using symmetric key</li>
-<li>server_write_key: Message encryption using symmetric key</li>
-<li>client_write_IV: Initialization Vector used by some AHEAD ciphers</li>
-<li>server_write_IV: Initialization Vector used by some AHEAD ciphers</li>
-</ul>
-</li>
-<li><p>Client Change Cipher Spec<br>此时client已经准备好切换到一个安全的、加密的环境。’Change Cipher Spec’协议用于更改加密算法<br>从现在起,client发送的任何数据都将使用对称共享密钥进行加密。</p>
-<p><img src="../Image/network/tls-Change-Cipher-Spec.png" alt="Change Cipher Spec" title="Change Cipher Spec"></p>
-</li>
-<li><p>Client Handshake Finished<br>来自client的握手过程的最后一条消息表示握手已经完成。这也是安全连接的第一条加密消息。</p>
-</li>
-</ul>
-</li>
-<li><p>Server Finished</p>
-<ul>
-<li>Server Change Cipher Spec<br>server准备好切换到加密的环境。<br>从现在起，服务器发送的任何数据都将使用对称共享密钥进行加密。</li>
-<li>Server Handshake Finished<br>来自server的握手过程的最后一条消息,表示握手结束。</li>
-</ul>
-</li>
-</ol>
-<h3 id="TLS1-3的握手"><a href="#TLS1-3的握手" class="headerlink" title="TLS1.3的握手"></a>TLS1.3的握手</h3><p>在TLS 1.2及更早版本中,TLS握手需要完成两个round trips</p>
-<ul>
-<li>第一次round trip是交换问候(hellos)</li>
-<li>第二次round trip是密钥交换(key exchange)和changing the cipher spec(加密方式,加密算法)</li>
-</ul>
-<p>在TLS 1.3中,这个过程是流线型的，只需要一次round trip。<br>TLS 1.3也不再支持 TLS 压缩。</p>
-<p><img src="../Image/network/tls-1.3.png" alt="tls 1.3" title="tls 1.3"></p>
-<p>在 TLS 1.3中,当server发送 hello 时会猜测server最可能选择的密钥协商协议。同时,它使用猜测协议共享密钥。<br>server的 hello 消息还包含共享密钥(shared key)、证书和服务器完成的消息。<br>不需要cipher change,因为在交换信息之后，双方都已经拥有了加密通信所需要的一切。</p>
-<h3 id="Cipher-Suites"><a href="#Cipher-Suites" class="headerlink" title="Cipher Suites"></a>Cipher Suites</h3><p>Cipher suites are sets of encryption algorithms(加密算法)</p>
-<blockquote>
-<p>A cipher suite always includes four different algorithms for four purposes: the key exchange algorithm, the authentication algorithm, the data encryption algorithm, and the Message Authentication Code (MAC) algorithm.</p>
-</blockquote>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><ol>
-<li><p>使用curl -v观察支持https的站点</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http/1.1的站点,如百度</span></span><br><span class="line">curl  https://baidu.com -v</span><br><span class="line"><span class="comment"># 输出如下:</span></span><br><span class="line"><span class="comment"># * Rebuilt URL to: https://baidu.com/</span></span><br><span class="line"><span class="comment"># * Trying 39.156.66.10...</span></span><br><span class="line"><span class="comment"># * TCP_NODELAY set</span></span><br><span class="line"><span class="comment"># * Connected to baidu.com (39.156.66.10) port 443 (#0)</span></span><br><span class="line"><span class="comment"># * ALPN, offering h2</span></span><br><span class="line"><span class="comment"># * ALPN, offering http/1.1</span></span><br><span class="line"><span class="comment"># * successfully set certificate verify locations:</span></span><br><span class="line"><span class="comment"># * CAfile: /etc/ssl/certs/ca-certificates.crt</span></span><br><span class="line"><span class="comment">#   CApath: /etc/ssl/certs</span></span><br><span class="line"><span class="comment"># * TLSv1.3 (OUT), TLS handshake, Client hello (1):</span></span><br><span class="line"><span class="comment"># * TLSv1.3 (IN), TLS handshake, Server hello (2):</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Certificate (11):</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Server key exchange (12):</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Server finished (14):</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (OUT), TLS handshake, Client key exchange (16):</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (OUT), TLS change cipher, Client hello (1):</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (OUT), TLS handshake, Finished (20):</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Finished (20):</span></span><br><span class="line"><span class="comment"># * SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256</span></span><br><span class="line"><span class="comment"># * ALPN, server accepted to use http/1.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#http2的站点,如本站</span></span><br><span class="line">* ALPN, offering h2</span><br><span class="line"><span class="comment"># * ALPN, offering http/1.1</span></span><br><span class="line"><span class="comment"># * successfully set certificate verify locations:</span></span><br><span class="line"><span class="comment"># * CAfile: /etc/ssl/certs/ca-certificates.crt</span></span><br><span class="line"><span class="comment">#   CApath: /etc/ssl/certs</span></span><br><span class="line"><span class="comment"># &#125; [5 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.3 (OUT), TLS handshake, Client hello (1):</span></span><br><span class="line"><span class="comment"># &#125; [512 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.3 (IN), TLS handshake, Server hello (2):</span></span><br><span class="line"><span class="comment"># &#123; [106 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Certificate (11):</span></span><br><span class="line"><span class="comment"># &#123; [4053 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Server key exchange (12):</span></span><br><span class="line"><span class="comment"># &#123; [300 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Server finished (14):</span></span><br><span class="line"><span class="comment"># &#123; [4 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (OUT), TLS handshake, Client key exchange (16):</span></span><br><span class="line"><span class="comment"># &#125; [37 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (OUT), TLS change cipher, Client hello (1):</span></span><br><span class="line"><span class="comment"># &#125; [1 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (OUT), TLS handshake, Finished (20):</span></span><br><span class="line"><span class="comment"># &#125; [16 bytes data]</span></span><br><span class="line"><span class="comment"># * TLSv1.2 (IN), TLS handshake, Finished (20):</span></span><br><span class="line"><span class="comment"># &#123; [16 bytes data]</span></span><br><span class="line"><span class="comment"># * SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256</span></span><br><span class="line"><span class="comment"># * ALPN, server accepted to use h2</span></span><br><span class="line"><span class="comment"># * Server certificate:</span></span><br><span class="line"><span class="comment"># * subject: CN=www.programnotes.cn</span></span><br><span class="line"><span class="comment"># * start date: May 22 00:00:00 2022 GMT</span></span><br><span class="line"><span class="comment"># * expire date: May 22 23:59:59 2023 GMT</span></span><br><span class="line"><span class="comment"># * subjectAltName: host "programnotes.cn" matched cert's "programnotes.cn"</span></span><br><span class="line"><span class="comment"># * issuer: C=CN; O=TrustAsia Technologies, Inc.; CN=TrustAsia RSA DV TLS CA G2</span></span><br><span class="line"><span class="comment"># * SSL certificate verify ok.</span></span><br><span class="line"><span class="comment"># * Using HTTP2, server supports multi-use</span></span><br><span class="line"><span class="comment"># * Connection state changed (HTTP/2 confirmed)</span></span><br><span class="line"><span class="comment"># * Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0</span></span><br><span class="line"><span class="comment"># &#125; [5 bytes data]</span></span><br><span class="line"><span class="comment"># * Using Stream ID: 1 (easy handle 0x56113a3fd580)</span></span><br><span class="line"><span class="comment"># &#125; [5 bytes data]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>inet netmask broadcast</p>
-</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>图示,详细流程 <a href="https://tls12.xargs.org/" target="_blank" rel="noopener">https://tls12.xargs.org/</a></li>
-<li><a href="https://www.ibm.com/docs/en/cics-tg-zos/9.3.0?topic=ssl-how-connection-is-established" target="_blank" rel="noopener">https://www.ibm.com/docs/en/cics-tg-zos/9.3.0?topic=ssl-how-connection-is-established</a></li>
-<li><a href="https://www.acunetix.com/blog/articles/establishing-tls-ssl-connection-part-5/" target="_blank" rel="noopener">https://www.acunetix.com/blog/articles/establishing-tls-ssl-connection-part-5/</a></li>
-<li>使用压缩算法有什么风险 <a href="https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/" target="_blank" rel="noopener">https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/</a></li>
-<li>pre-master secret <a href="https://juejin.cn/post/6906126429381984264" target="_blank" rel="noopener">https://juejin.cn/post/6906126429381984264</a></li>
-<li>图解SSL/SSL协议 <a href="https://ruanyifeng.com/blog/2014/09/illustration-ssl.html" target="_blank" rel="noopener">https://ruanyifeng.com/blog/2014/09/illustration-ssl.html</a></li>
-<li>master secret</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tls/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -394,7 +288,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -425,23 +319,14 @@ img{
 
 <p>这里将price拼接,再通过SUBSTRING_INDEX取最后一个price,由于数据截断,GROUP_CONCAT返回的字符串最后一个是”,”而不是price,导致SUBSTRING_INDEX取到的是””(字符串),在业务逻辑里直接转为int报错了,由此产生bug.<br>且只有当数据量足够多时才会触发(超过171行时,1024=171<em>4+170</em>2,引擎为InnnoDB,MySQL8.0,字符集为utf8mb4_0900_ai_ci)</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 有兴趣的可以复现下,查一个int类型的数据就行</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">GROUP_CONCAT</span>(price) <span class="keyword">FROM</span> (</span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">`price`</span> </span><br><span class="line"><span class="keyword">FROM</span> xxx</span><br><span class="line"><span class="keyword">where</span> <span class="string">`xxx`</span> = <span class="string">"xxx"</span> <span class="keyword">limit</span> <span class="number">171</span> ) <span class="keyword">as</span> t;</span><br></pre></td></tr></table></figure>
-
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">GROUP_CONCAT([DISTINCT] expr [,expr ...]</span><br><span class="line">             [ORDER BY &#123;unsigned_integer | col_name | expr&#125;</span><br><span class="line">                 [ASC | DESC] [,col_name ...]]</span><br><span class="line">             [SEPARATOR str_val])</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> student_name,</span><br><span class="line">        <span class="keyword">GROUP_CONCAT</span>(test_score)</span><br><span class="line">       <span class="keyword">FROM</span> student</span><br><span class="line">       <span class="keyword">GROUP</span> <span class="keyword">BY</span> student_name;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> student_name,</span><br><span class="line">        <span class="keyword">GROUP_CONCAT</span>(<span class="keyword">DISTINCT</span> test_score</span><br><span class="line">                      <span class="keyword">ORDER</span> <span class="keyword">BY</span> test_score <span class="keyword">DESC</span> SEPARATOR <span class="string">' '</span>)</span><br><span class="line">       <span class="keyword">FROM</span> student</span><br><span class="line">       <span class="keyword">GROUP</span> <span class="keyword">BY</span> student_name;</span><br></pre></td></tr></table></figure>
-
-<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><ol>
-<li><p>数据长度,group_concat_max_len</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询长度显示,默认值为1024</span></span><br><span class="line"><span class="keyword">SELECT</span>  @@group_concat_max_len;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 设置</span></span><br><span class="line"><span class="keyword">SET</span> [<span class="keyword">GLOBAL</span> | <span class="keyword">SESSION</span>] group_concat_max_len = val;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<blockquote>
-<p>The result is truncated to the maximum length that is given by the group_concat_max_len system variable, which has a default value of 1024. The value can be set higher, although the effective maximum length of the return value is constrained by the value of max_allowed_packet.</p>
-</blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>mysql文档 <a href="https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html</a></li>
-<li>csdn <a href="http://t.csdn.cn/G8xdm" target="_blank" rel="noopener">http://t.csdn.cn/G8xdm</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/mysql-group_concat-truncated/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -491,7 +376,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -517,25 +402,14 @@ img{
           <h2 id="下标访问"><a href="#下标访问" class="headerlink" title="下标访问"></a>下标访问</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestStr</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line"> str := <span class="string">`中\a`</span></span><br><span class="line"> log.Println(unsafe.Sizeof(<span class="keyword">rune</span>(<span class="string">'中'</span>)), unsafe.Sizeof(str[<span class="number">0</span>]), str[<span class="number">0</span>], <span class="keyword">string</span>(str[<span class="number">0</span>]))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出: 2022/09/15 19:55:27 4 1 228 ä</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nihongo = <span class="string">"日本語"</span></span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> nihongo &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%#U starts at byte position %d\n"</span>, v, i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出:</span></span><br><span class="line"><span class="comment">// U+65E5 '日' starts at byte position 0</span></span><br><span class="line"><span class="comment">// U+672C '本' starts at byte position 3</span></span><br><span class="line"><span class="comment">// U+8A9E '語' starts at byte position 6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><blockquote>
-<p>To answer the question posed at the beginning: Strings are built from bytes so indexing them yields bytes, not characters. A string might not even hold characters. In fact, the definition of “character” is ambiguous and it would be a mistake to try to resolve the ambiguity by defining that strings are made of characters.</p>
-</blockquote>
-<ul>
-<li>go的string是UTF-8,由一组byte表示</li>
-<li>按下标访问得到的是byte,如果不是ascall码,下标访问拿不到完整的数据</li>
-<li>for range 访问得到的是rune(int32),4字节</li>
-<li>UTF-8的一个”code point”,在go中使用3 byte储存,3字节</li>
-<li>Go source code is always UTF-8.</li>
-<li>A string holds arbitrary bytes.</li>
-<li>A string literal, absent byte-level escapes, always holds valid UTF-8 sequences.</li>
-<li>Those sequences represent Unicode code points, called runes.</li>
-<li>No guarantee is made in Go that characters in strings are normalized.</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>Strings, bytes, runes and characters in Go <a href="https://golang.google.cn/blog/strings" target="_blank" rel="noopener">https://golang.google.cn/blog/strings</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/go-string/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -585,7 +459,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -693,7 +567,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -778,7 +652,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -862,7 +736,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -939,7 +813,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1023,7 +897,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1101,7 +975,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-27 17:47:25" itemprop="dateModified" datetime="2022-09-27T17:47:25+08:00">2022-09-27</time>
+                <time title="修改时间：2022-09-27 17:54:34" itemprop="dateModified" datetime="2022-09-27T17:54:34+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">

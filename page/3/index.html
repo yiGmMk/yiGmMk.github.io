@@ -125,7 +125,7 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">69</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">70</span></a>
 
   </li>
         <li class="menu-item menu-item-home">
@@ -135,12 +135,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">102</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">104</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">14</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">15</span></a>
 
   </li>
   </ul>
@@ -164,6 +164,139 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/redis_base_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ProgramNotes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/redis_base_1/" class="post-title-link" itemprop="url">redis base</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-25T00:00:00+08:00">2021-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><h3 id="redis的string是动态字符串，可以修改"><a href="#redis的string是动态字符串，可以修改" class="headerlink" title="redis的string是动态字符串，可以修改"></a>redis的string是动态字符串，可以修改</h3><h4 id="底层结构，分为embStr和raw两种格式"><a href="#底层结构，分为embStr和raw两种格式" class="headerlink" title="底层结构，分为embStr和raw两种格式"></a>底层结构，分为embStr和raw两种格式</h4><pre><code>较短的使用embStr存储，最多44字节，更长的使用raw格式存储。两种格式的底层结构不同。</code></pre><ol>
+<li><p>emb</p>
+</li>
+<li><p>raw</p>
+</li>
+</ol>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><h3 id="底层数据结构：链表"><a href="#底层数据结构：链表" class="headerlink" title="底层数据结构：链表"></a>底层数据结构：链表</h3><ol>
+<li>插入、删除 O（1）</li>
+<li>查询O（n）</li>
+<li>redis底层存储使用的不是简单的链表，使用了quicklist（快速链表：A doubly linked list of ziplists意思为一个由ziplist组成的双向链表）。<br> ziplist，压缩列表。它将所有的元素紧挨着一起存储，分配的是一块连续的内存。当数据量比较多的时候才会<br>改成 quicklist。因为普通的链表需要的附加指针空间太大，会比较浪费空间，而且会加重内存的碎片化。</li>
+</ol>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><ol>
+<li><p>api</p>
+<p>redis support sadd,members…</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// using go-zero</span></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">for</span> &#123;</span><br><span class="line">    s := time.Now().Second()</span><br><span class="line">    redis.Sadd(<span class="string">"order_id"</span>+strconv.Itoa(s), strconv.Itoa(s))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;()</span><br><span class="line">tt := time.NewTicker(time.Second)</span><br><span class="line"><span class="keyword">for</span> now := <span class="keyword">range</span> tt.C &#123;</span><br><span class="line">  vs, _ := rr.Smembers(<span class="string">"order_id"</span> + strconv.Itoa(now.Second() ))</span><br><span class="line">  fmt.Println(now.Second(), vs)</span><br><span class="line">  redis.Del(<span class="string">"order_id"</span> + strconv.Itoa(now.Second()))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="redis-安全"><a href="#redis-安全" class="headerlink" title="redis 安全"></a>redis 安全</h2><p>Reids 支持tcp，不支持ssl安全链接，可以通过ssl代理软件实现安全通讯，在公网使用时需要考虑加上ssl保证服务安全。</p>
+<ol>
+<li><p>spiped：redis官方推荐的代理软件<br> 会在客户端和服务器各启动一个spiped 进程。redis客户端和服务端通信需要通过sniped。</p>
+</li>
+<li><p>单节点设置password</p>
+<ul>
+<li>config file:<ul>
+<li>redis.conf (位置: /etc/redis.conf)</li>
+</ul>
+</li>
+<li>setting:<ul>
+<li>requirepass “hello world”</li>
+<li>注意需要带上引号</li>
+<li>这种设置方式需要重启redis</li>
+<li>重启命令: sudo redis-server /etc/redis.conf</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>集群</p>
+</li>
+</ol>
+<h2 id="redis性能"><a href="#redis性能" class="headerlink" title="redis性能"></a>redis性能</h2><h3 id="指标查看"><a href="#指标查看" class="headerlink" title="指标查看"></a>指标查看</h3><p> 通过客户端执行info,可查看,加上参数可以查询特定指标,如memory查看内存相关的,包含:</p>
+<ul>
+<li>server: 查看 Redis 服务器信息，如 Redis 的版本</li>
+<li>clients: 客户端的连接部分</li>
+<li>memory: 内存消耗相关信息</li>
+<li>persistence: RDB和AOF相关信息</li>
+<li>stats: 一般统计</li>
+<li>replication: 主/从复制信息</li>
+<li>cpu: 统计CPU的消耗</li>
+<li>commandstats: Redis命令统计</li>
+<li>cluster: Redis集群信息</li>
+<li>keyspace: 数据库的相关统计</li>
+<li>modules: Module 相关信息<br>它也可以采取以下值:</li>
+<li>all: 返回所有信息</li>
+<li>default: 值返回默认设置的信息</li>
+<li>everything: 包括 all 和 modules</li>
+</ul>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><ol>
+<li>evicted_keys: 因为maxmemory限制被回收的key</li>
+<li>expired_keys:过期的key数量</li>
+<li>keyspace_hits: 在主字典中成功查找到key的次数</li>
+<li>keyspace_misses: 在主字典中查找key失败的次数</li>
+<li>阿里云dms,redis监控图例<img src="/Image/redis_info.png" class="">
+
+</li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://www.redis.com.cn/commands/info.html" target="_blank" rel="noopener">https://www.redis.com.cn/commands/info.html</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -199,7 +332,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
 
           
@@ -266,7 +399,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
 
           
@@ -339,7 +472,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
 
           
@@ -403,7 +536,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
 
           
@@ -467,7 +600,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -557,7 +690,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -659,7 +792,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -741,7 +874,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -834,7 +967,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-27 17:39:28" itemprop="dateModified" datetime="2022-09-27T17:39:28+08:00">2022-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -895,95 +1028,6 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
 </li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/memcached/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ProgramNotes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/memcached/" class="post-title-link" itemprop="url">memcached</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-19T00:00:00+08:00">2021-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 15:58:53" itemprop="dateModified" datetime="2022-09-24T15:58:53+08:00">2022-09-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li><p>What</p>
-<ul>
-<li><p>高性能</p>
-</li>
-<li><p>分布式 </p>
-<p>   多个分布式节点共享分布式内存,与传统部署方式不同,节点越多,memcached的可用内存越多.</p>
-</li>
-<li><p>memory object caching system</p>
-</li>
-<li><p>key-value</p>
-</li>
-<li><p>LRU (memory manage algorithm)</p>
-</li>
-</ul>
-</li>
-</ol>
-<hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/memcached/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1069,20 +1113,20 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-count">104</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

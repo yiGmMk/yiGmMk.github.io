@@ -130,12 +130,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">69</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">70</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">103</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">104</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -164,6 +164,95 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/vscode-java-debug/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vscode-java-debug/index.html" class="post-title-link" itemprop="url">vscode java debug,Could not find or load main class x</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-01-29 00:00:00 / 修改时间：18:09:14" itemprop="dateCreated datePublished" datetime="2023-01-29T00:00:00+08:00">2023-01-29</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>970</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>vscode + 插件 (Extension Pack for Java,多个插件集合)</p>
+<h2 id="issues"><a href="#issues" class="headerlink" title="issues"></a>issues</h2><h3 id="Program-Error-Could-not-find-or-load-main-class-x"><a href="#Program-Error-Could-not-find-or-load-main-class-x" class="headerlink" title="Program Error: Could not find or load main class x"></a>Program Error: Could not find or load main class x</h3><p>报错,”Program Error: Could not find or load main class x”</p>
+<p>可能是launch.josn中的主类名称错误或者文件不再classpath<br>主要检测以下几项:</p>
+<ul>
+<li>Check whether the class name specified in mainClass exists and is in the right form.</li>
+<li>Run VS Code command “Java: List all Java source paths” to show all source paths recognized by the workspace.</li>
+<li>Check the Java file you are running is under any source path? If not, go to File Explorer, right click the folder containing your Java file, and run the menu “Add Folder to Java Source Path” to mark the containing folder as a Java source root.</li>
+<li>Run VS Code command “Java: Force Java compilation” to rebuild your workspace.</li>
+<li>If the problem persists, it’s probably because the language server doesn’t load your project correctly. Please reference the language server troubleshooting paragraph for more troubleshooting info.</li>
+</ul>
+<p>首先确认下java源文件是否在”Java source paths”,不在可以右击所在目录选择”Add Folder to Java Source Path”添加<br>然后确认源文件文件名称是否与主类名称一致.<br>点击Run或Debug Vscode会自动在.vscode/launch.json中添加配置,如图</p>
+<p><img src="../Image/java/vscode-java.png" alt="vscode,java,debug"></p>
+<p>参考:</p>
+<ul>
+<li><a href="https://github.com/microsoft/vscode-java-debug/blob/main/Troubleshooting.md" target="_blank" rel="noopener">vscode java常见问题,troubleshooting guide</a></li>
+<li><a href="https://code.visualstudio.com/docs/java/java-debugging" target="_blank" rel="noopener">vscode java常见问题</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -397,7 +486,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-20 11:19:36" itemprop="dateModified" datetime="2022-12-20T11:19:36+08:00">2022-12-20</time>
+                <time title="修改时间：2023-01-29 18:09:14" itemprop="dateModified" datetime="2023-01-29T18:09:14+08:00">2023-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1057,122 +1146,6 @@ img{
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/golang-1000-question-answer/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/golang-1000-question-answer/index.html" class="post-title-link" itemprop="url">Go语言一千问解答</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-20 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-20T00:00:00+08:00">2021-12-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-02 22:42:46" itemprop="dateModified" datetime="2022-01-02T22:42:46+08:00">2022-01-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>519</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li><a href="https://programnotes.cn/golang-1000-question/">https://programnotes.cn/golang-1000-question/</a></li>
-<li>code,repo in github &lt;git@github.com:yiGmMk/golang-1000-question.git&gt;</li>
-<li>代码允许环境:<ul>
-<li>go version go1.15.3 linux/amd64</li>
-</ul>
-</li>
-</ol>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol>
-<li><p>[001]iota,有常量如下,second数值是?</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    first = <span class="number">1</span></span><br><span class="line">    second =<span class="literal">iota</span></span><br><span class="line">    third</span><br><span class="line">    fourth</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>答: 1</li>
-<li>参考:<ul>
-<li>go官方文档: <a href="https://golang.google.cn/pkg/builtin/#iota" target="_blank" rel="noopener">https://golang.google.cn/pkg/builtin/#iota</a></li>
-<li>go by example: <a href="https://golangbyexample.com/iota-in-golang/" target="_blank" rel="noopener">https://golangbyexample.com/iota-in-golang/</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><ol>
-<li><p>[002]strings.ReplaceAll,代码如下,replace的值是?</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">origin := <span class="string">"   特斯拉Model X    "</span></span><br><span class="line">replace := strings.ReplaceAll(origin, <span class="string">" "</span>, <span class="string">""</span>)</span><br><span class="line"></span><br><span class="line">fmt.Printf(<span class="string">"origin:%s\nreplace:%s\n"</span>, origin, replace)</span><br></pre></td></tr></table></figure>
-
-<p>答: “   特斯拉Model X    “,即origin</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1244,7 +1217,7 @@ img{
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1257,7 +1230,7 @@ img{
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">103</span>
+        <span class="site-state-item-count">104</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1305,7 +1278,7 @@ img{
 <div class="copyright">
   
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="user"></i>
   </span>
@@ -1315,13 +1288,13 @@ img{
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">82k</span>
+    <span title="站点总字数">83k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:15</span>
+    <span title="站点阅读时长">1:16</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

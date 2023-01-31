@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://programnotes.cn//mysql-slow-query/index.html</loc>
+    <lastmod>2023-01-31</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//network-test/index.html</loc>
+    <lastmod>2023-01-31</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//nginx/index.html</loc>
+    <lastmod>2023-01-31</lastmod>
+  </url>
+  <url>
     <loc>https://programnotes.cn//optimization-method/index.html</loc>
     <lastmod>2023-01-31</lastmod>
   </url>
@@ -246,18 +258,6 @@
   </url>
   <url>
     <loc>https://programnotes.cn//mysql-group_concat-truncated/index.html</loc>
-    <lastmod>2023-01-31</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//mysql-slow-query/index.html</loc>
-    <lastmod>2023-01-31</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//network-test/index.html</loc>
-    <lastmod>2023-01-31</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//nginx/index.html</loc>
     <lastmod>2023-01-31</lastmod>
   </url>
   <url>

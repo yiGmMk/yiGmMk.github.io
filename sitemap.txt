@@ -1,6 +1,7 @@
 https://programnotes.cn/index.html
 https://programnotes.cn/photo/index.html
 https://programnotes.cn/tags/index.html
+https://programnotes.cn/redis_base_1/index.html
 https://programnotes.cn/supervised-learning/index.html
 https://programnotes.cn/tensorflow/index.html
 https://programnotes.cn/test-gitalk/index.html
@@ -14,6 +15,7 @@ https://programnotes.cn/vscode-config/index.html
 https://programnotes.cn/window-terminal-config/index.html
 https://programnotes.cn/wrk/index.html
 https://programnotes.cn/wsl-set-ulimit/index.html
+https://programnotes.cn/ssh-usage/index.html
 https://programnotes.cn/vscode-java-debug-2/index.html
 https://programnotes.cn/vscode-java-debug/index.html
 https://programnotes.cn/about/index.html
@@ -67,14 +69,12 @@ https://programnotes.cn/nginx/index.html
 https://programnotes.cn/optimization-method/index.html
 https://programnotes.cn/overwrite/index.html
 https://programnotes.cn/practice-in-tensorflow/index.html
-https://programnotes.cn/redis_base_1/index.html
 https://programnotes.cn/linux-lsb_release/index.html
 https://programnotes.cn/micro-service/index.html
 https://programnotes.cn/a-set-of-notes-blogs/index.html
 https://programnotes.cn/beego-cors/index.html
 https://programnotes.cn/donot-use-pointer-in-request-param/index.html
 https://programnotes.cn/hexo-config/index.html
-https://programnotes.cn/ssh-usage/index.html
 https://programnotes.cn/html/references/mysql/0.html
 https://programnotes.cn/html/references/mysql/51.html
 https://programnotes.cn/html/references/mysql/50.html

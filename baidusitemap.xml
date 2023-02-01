@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://programnotes.cn//redis_base_1/index.html</loc>
+    <lastmod>2023-02-01</lastmod>
+  </url>
+  <url>
     <loc>https://programnotes.cn//supervised-learning/index.html</loc>
     <lastmod>2023-02-01</lastmod>
   </url>
@@ -50,6 +54,10 @@
   </url>
   <url>
     <loc>https://programnotes.cn//wsl-set-ulimit/index.html</loc>
+    <lastmod>2023-02-01</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//ssh-usage/index.html</loc>
     <lastmod>2023-02-01</lastmod>
   </url>
   <url>
@@ -253,10 +261,6 @@
     <lastmod>2023-02-01</lastmod>
   </url>
   <url>
-    <loc>https://programnotes.cn//redis_base_1/index.html</loc>
-    <lastmod>2023-02-01</lastmod>
-  </url>
-  <url>
     <loc>https://programnotes.cn//linux-lsb_release/index.html</loc>
     <lastmod>2023-02-01</lastmod>
   </url>
@@ -278,10 +282,6 @@
   </url>
   <url>
     <loc>https://programnotes.cn//hexo-config/index.html</loc>
-    <lastmod>2023-02-01</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//ssh-usage/index.html</loc>
     <lastmod>2023-02-01</lastmod>
   </url>
 </urlset> 

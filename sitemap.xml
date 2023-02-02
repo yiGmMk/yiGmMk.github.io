@@ -29,123 +29,6 @@
   </url>
   
   <url>
-    <loc>https://programnotes.cn/unix-learn/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/use-gitalk-in-next-theme/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/using-gorm/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/vscode-config/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/window-terminal-config/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/wrk/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/wsl-set-ulimit/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/vscode-java-debug-2/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/vscode-java-debug/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/about/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/categories/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/baidu_verify_codeva-cgkgUacZYo.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/googlebaedd4fc51a2efb8.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://programnotes.cn/CImageList-CBitmap-Usage/index.html</loc>
     
     <lastmod>2023-02-02</lastmod>
@@ -641,6 +524,69 @@
   </url>
   
   <url>
+    <loc>https://programnotes.cn/unix-learn/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/use-gitalk-in-next-theme/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/using-gorm/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/vscode-config/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/window-terminal-config/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/wrk/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/wsl-set-ulimit/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://programnotes.cn/linux-lsb_release/index.html</loc>
     
     <lastmod>2023-02-02</lastmod>
@@ -696,6 +642,51 @@
   
   <url>
     <loc>https://programnotes.cn/ssh-usage/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/vscode-java-debug-2/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/vscode-java-debug/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/about/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/categories/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/baidu_verify_codeva-cgkgUacZYo.html</loc>
     
     <lastmod>2023-02-02</lastmod>
     

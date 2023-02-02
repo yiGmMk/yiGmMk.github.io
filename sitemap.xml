@@ -29,24 +29,6 @@
   </url>
   
   <url>
-    <loc>https://programnotes.cn/nginx/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/optimization-method/index.html</loc>
-    
-    <lastmod>2023-02-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://programnotes.cn/overwrite/index.html</loc>
     
     <lastmod>2023-02-02</lastmod>
@@ -624,6 +606,24 @@
   
   <url>
     <loc>https://programnotes.cn/network-test/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/nginx/index.html</loc>
+    
+    <lastmod>2023-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/optimization-method/index.html</loc>
     
     <lastmod>2023-02-02</lastmod>
     

@@ -197,10 +197,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-02-08 00:00:00 / 修改时间：19:06:25" itemprop="dateCreated datePublished" datetime="2023-02-08T00:00:00+08:00">2023-02-08</time>
+              <time title="创建时间：2023-02-08 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-08T00:00:00+08:00">2023-02-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -285,7 +291,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
 
           <br>
@@ -318,14 +324,14 @@
 <li>下载相应的jar包</li>
 <li>加入Referenced Libraries中<br>比如下面日志用了Commons Logging(一个第三方日志库)</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> base;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.logging.Log;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.logging.LogFactory;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* Logging</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Logging</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 标准库中的log</span></span><br><span class="line">        Logger logger = Logger.getGlobal();</span><br><span class="line">        logger.info(<span class="string">"start process..."</span>);</span><br><span class="line">        logger.warning(<span class="string">"memory is running out..."</span>);</span><br><span class="line">        logger.fine(<span class="string">"ignored."</span>);</span><br><span class="line">        logger.severe(<span class="string">"process will be terminated..."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 外部包,手动导入需要下载相应的jar包并加入Referenced Libraries中</span></span><br><span class="line">        Log log = LogFactory.getLog(Logging<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        log.info(<span class="string">"start..."</span>);</span><br><span class="line">        log.warn(<span class="string">"end."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>安装了”Extension Pack for Java(一组插件)”后左下角有Java项目栏,在”Referenced Libraries”添加jar就能使用了,如图<br><img src="../Image/java/java-import-package.png" alt="导入外部jar包"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1264738932870688" target="_blank" rel="noopener">使用Commons Logging</a></li>
-<li><a href="https://commons.apache.org/proper/commons-logging/download_logging.cgi" target="_blank" rel="noopener">Apache Commons Logging</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vscode-java-import-package/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -375,7 +381,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
 
           <br>
@@ -465,7 +471,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
 
           <br>
@@ -552,7 +558,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -654,7 +660,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -756,7 +762,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -853,7 +859,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -975,7 +981,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1074,7 +1080,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-08 19:06:25" itemprop="dateModified" datetime="2023-02-08T19:06:25+08:00">2023-02-08</time>
+                <time title="修改时间：2023-02-18 10:46:58" itemprop="dateModified" datetime="2023-02-18T10:46:58+08:00">2023-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">

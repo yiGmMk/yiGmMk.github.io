@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">76</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">78</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">110</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">111</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -174,6 +174,183 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go%20struct%20sort/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/go%20struct%20sort/index.html" class="post-title-link" itemprop="url">go-struct-sort</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-03 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-03T00:00:00+08:00">2020-12-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>629</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用于staff的排序</span></span><br><span class="line"><span class="keyword">type</span> StaffWrapper <span class="keyword">struct</span> &#123;</span><br><span class="line"> Staffs  []*Staff</span><br><span class="line"> Compare <span class="function"><span class="keyword">func</span><span class="params">(a, b *Staff)</span> <span class="title">bool</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(sw StaffWrapper)</span> <span class="title">Len</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="built_in">len</span>(sw.Staffs)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(sw StaffWrapper)</span> <span class="title">Swap</span><span class="params">(a, b <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line"> sw.Staffs[a], sw.Staffs[b] = sw.Staffs[b], sw.Staffs[a]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(sw StaffWrapper)</span> <span class="title">Less</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line"> <span class="keyword">return</span> sw.Compare(sw.Staffs[i], sw.Staffs[j])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SortStaff</span><span class="params">(staffs []*Staff, by SortBy)</span></span> &#123;</span><br><span class="line"> sort.Sort(StaffWrapper&#123;</span><br><span class="line">  Staffs:  staffs,</span><br><span class="line">  Compare: by,</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SortStaff(staffs, <span class="function"><span class="keyword">func</span><span class="params">(a, b *Staff)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">  <span class="keyword">return</span> a.BelongCorpID &lt; b.BelongCorpID</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>//参考：<a href="https://www.cnblogs.com/wangchaowei/p/7802811.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangchaowei/p/7802811.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/beego-cors/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/beego-cors/index.html" class="post-title-link" itemprop="url">beego跨域问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-03 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-03T00:00:00+08:00">2020-12-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>848</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>what is it</li>
+<li>how it looks like<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>how to solve</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &quot;github.com&#x2F;astaxie&#x2F;beego&#x2F;plugins&#x2F;cors&quot;</span><br><span class="line">&#x2F;&#x2F; 跨域问题尝试解决</span><br><span class="line">	beego.InsertFilter(&quot;*&quot;, beego.BeforeRouter, cors.Allow(&amp;cors.Options&#123;</span><br><span class="line">		&#x2F;&#x2F;允许访问所有源</span><br><span class="line">		AllowAllOrigins: true,</span><br><span class="line">		&#x2F;&#x2F;可选参数&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot; (*为所有)</span><br><span class="line">		&#x2F;&#x2F;其中Options跨域复杂请求预检</span><br><span class="line">		AllowMethods: []string&#123;&quot;*&quot;&#125;,</span><br><span class="line">		&#x2F;&#x2F;指的是允许的Header的种类</span><br><span class="line">		AllowHeaders: []string&#123;&quot;*&quot;&#125;,</span><br><span class="line">		&#x2F;&#x2F;公开的HTTP标头列表</span><br><span class="line">		ExposeHeaders: []string&#123;&quot;Content-Length&quot;&#125;,</span><br><span class="line">		&#x2F;&#x2F;如果设置，则允许共享身份验证凭据，例如cookie</span><br><span class="line">		AllowCredentials: true,</span><br><span class="line">	&#125;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	beego.Controller.Ctx.ResponseWriter.Header().Set(&quot;Access-Control-Allow-Origin&quot;,</span><br><span class="line">		beego.Controller.Ctx.Request.Header.Get(&quot;Origin&quot;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>why</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/ssh-usage/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +382,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -324,7 +501,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -419,7 +596,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -456,7 +633,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="什么是微服务，微服务概览"><a href="#什么是微服务，微服务概览" class="headerlink" title="什么是微服务，微服务概览"></a>什么是微服务，微服务概览</h3><h3 id="微服务设计"><a href="#微服务设计" class="headerlink" title="微服务设计"></a>微服务设计</h3><h3 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h3><h3 id="服务发现"><a href="#服务发现" class="headerlink" title="服务发现"></a>服务发现</h3><h3 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a>grpc</h3><h3 id="多租户-amp-多集群"><a href="#多租户-amp-多集群" class="headerlink" title="多租户&amp;多集群"></a>多租户&amp;多集群</h3><h3 id="service-mesh"><a href="#service-mesh" class="headerlink" title="service mesh"></a>service mesh</h3>
+          <h2 id="什么是微服务，微服务概览"><a href="#什么是微服务，微服务概览" class="headerlink" title="什么是微服务，微服务概览"></a>什么是微服务，微服务概览</h2><h2 id="微服务设计"><a href="#微服务设计" class="headerlink" title="微服务设计"></a>微服务设计</h2><h2 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h2><h2 id="服务发现"><a href="#服务发现" class="headerlink" title="服务发现"></a>服务发现</h2><h2 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a>grpc</h2><h2 id="多租户-amp-多集群"><a href="#多租户-amp-多集群" class="headerlink" title="多租户&amp;多集群"></a>多租户&amp;多集群</h2><h2 id="service-mesh"><a href="#service-mesh" class="headerlink" title="service mesh"></a>service mesh</h2>
       
     </div>
 
@@ -506,7 +683,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -608,7 +785,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -695,7 +872,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -796,7 +973,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -878,7 +1055,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -912,355 +1089,6 @@
 <h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LSB Version:    :core-4.1-amd64:core-4.1-noarch</span><br><span class="line">Distributor ID: CentOS</span><br><span class="line">Description:    CentOS Linux release 8.2.2004 (Core)</span><br><span class="line">Release:        8.2.2004</span><br><span class="line">Codename:       Core</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/mysql-slow-query/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/mysql-slow-query/index.html" class="post-title-link" itemprop="url">mysql-slow-query</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-30T00:00:00+08:00">2020-05-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Waht"><a href="#Waht" class="headerlink" title="Waht"></a>Waht</h3><h4 id="slow-log-table"><a href="#slow-log-table" class="headerlink" title="slow_log table"></a>slow_log table</h4><ol>
-<li><p>table</p>
-<table>
-<thead>
-<tr>
-<th>column</th>
-<th>type</th>
-<th>null</th>
-<th>default</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>start_time</td>
-<td>timestamp(6)</td>
-<td>NO</td>
-<td>CURRENT_TIMESTAMP(6)</td>
-<td>Time the query began.</td>
-</tr>
-<tr>
-<td>user_host</td>
-<td>mediumtext</td>
-<td>NO</td>
-<td>NULL</td>
-<td>User and host combination.</td>
-</tr>
-<tr>
-<td>query_time</td>
-<td>time(6)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Total time the query took to execute.</td>
-</tr>
-<tr>
-<td>lock_time</td>
-<td>time(6)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Total time the query was locked.</td>
-</tr>
-<tr>
-<td>rows_sent</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Number of rows sent.</td>
-</tr>
-<tr>
-<td>rows_examined</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Number of rows examined.</td>
-</tr>
-<tr>
-<td>db</td>
-<td>varchar(512)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Default database.</td>
-</tr>
-<tr>
-<td>last_insert_id</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>last_insert_id.</td>
-</tr>
-<tr>
-<td>insert_id</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Insert id.</td>
-</tr>
-<tr>
-<td>server_id</td>
-<td>int(10) unsigned</td>
-<td>NO</td>
-<td>NULL</td>
-<td>The server’s id.</td>
-</tr>
-<tr>
-<td>sql_text</td>
-<td>mediumtext</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Full query.</td>
-</tr>
-<tr>
-<td>thread_id</td>
-<td>bigint(21) unsigned</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Thread id.</td>
-</tr>
-<tr>
-<td>rows_affected</td>
-<td>int(11)</td>
-<td>NO</td>
-<td>NULL</td>
-<td>Number of rows affected by an UPDATE or DELETE (from MariaDB 10.1.2)</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>reference</p>
-</li>
-</ol>
-<ul>
-<li>slow_log <a href="https://mariadb.com/kb/en/mysqlslow_log-table/" target="_blank" rel="noopener">https://mariadb.com/kb/en/mysqlslow_log-table/</a><h3 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h3><h4 id="Setting"><a href="#Setting" class="headerlink" title="Setting"></a>Setting</h4></li>
-</ul>
-<ol>
-<li>查看相关参数<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'long%'</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'slow%'</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>long_query_time,SQL语句执行时间超过此数值,记录日志</li>
-<li>slow_query_log,是否开启慢查询(ON/OFF)</li>
-<li>slow_query_log_file,慢查询日志文件</li>
-<li>slow_launch_time</li>
-<li>log_output,慢查询日志输出方式,可选FILE(文件,通过slow_query_log_file查询),TABLE(数据表是mysql.slow_log表)</li>
-</ul>
-</li>
-<li>设置参数<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> long_query_time=<span class="number">0.5</span>;</span><br></pre></td></tr></table></figure>
-开启慢查询日志,需要设置如下参数:<ul>
-<li>long_query_time,慢查询时间</li>
-<li>slow_query_log,是否开启</li>
-<li>log_output,日志输出方式,这个是全局变量.<br>通过set global设置,如:<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAl</span> log_output=<span class="string">'TABLE'</span>;</span><br><span class="line">或</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAl</span> log_output=<span class="string">'FILE'</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h4></li>
-</ul>
-</li>
-<li>通过sql查询<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> mysql.slow_log;</span><br></pre></td></tr></table></figure></li>
-<li>通过文件查询<br>查询slow_query_log_file参数得到慢查询日志文件所在位置,查看文件.</li>
-</ol>
-<h3 id="Solution-性能优化"><a href="#Solution-性能优化" class="headerlink" title="Solution 性能优化"></a>Solution 性能优化</h3><h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><p>   在无索引的表中查询会进行全表扫描,如果表的数据量很大，则扫描大量的数据，执行效率过<br>慢，占用数据库连接，连接数堆积很快达到数据库的最大连接数设置，新的应用请求将会被拒绝导致故障发生。<br>   隐式转换也会导致索引无法使用.</p>
-<h5 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h5><ol>
-<li>在经常查询而不经常增删改操作的字段加索引。</li>
-<li>order by与group by后应直接使用字段，而且字段应该是索引字段。</li>
-<li>一个表上的索引不应该超过6个。</li>
-<li>索引字段的长度固定，且长度较短。</li>
-<li>索引字段重复不能过多。</li>
-<li>在过滤性高的字段上加索引。</li>
-</ol>
-<h5 id="使用索引注意事项"><a href="#使用索引注意事项" class="headerlink" title="使用索引注意事项"></a>使用索引注意事项</h5><ol>
-<li>使用like关键字时，前置%会导致索引失效。</li>
-<li>使用null值会被自动从索引中排除，索引一般不会建立在有空值的列上。</li>
-<li>使用or关键字时，or左右字段如果存在一个没有索引，有索引字段也会失效。</li>
-<li>使用!=操作符时，将放弃使用索引。因为范围不确定，使用索引效率不高，会被引擎自动改为全表扫描。</li>
-<li>不要在索引字段进行运算。</li>
-<li>在使用复合索引时，最左前缀原则，查询时必须使用索引的第一个字段，否则索引失效；并且应尽量让字段顺序与索引顺序一致。</li>
-<li>避免隐式转换，定义的数据类型与传入的数据类型保持一致。</li>
-</ol>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p>   使用mysql的explain分析sql,查看执行计划.</p>
-<ol>
-<li>执行计划参数含义</li>
-<li>例如一个sql执行计划如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  &#x2F;&#x2F; type为ALL，是全表扫描，每次执行需要扫描505560行数据</span><br><span class="line">            id: 1</span><br><span class="line">  select_type: SIMPLE</span><br><span class="line">        table: customers</span><br><span class="line">         type: ALL</span><br><span class="line">possible_keys: NULL</span><br><span class="line">          key: NULL</span><br><span class="line">      key_len: NULL</span><br><span class="line">          ref: NULL</span><br><span class="line">         rows: 505560</span><br><span class="line">        Extra: Using where</span><br></pre></td></tr></table></figure>
-增加索引后:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  &#x2F;&#x2F; 执行计划看到type为ref，基于索引的等值查询，或者表间等值连接</span><br><span class="line">              id: 1</span><br><span class="line">  select_type: SIMPLE</span><br><span class="line">        table: customers</span><br><span class="line">         type: ref</span><br><span class="line">possible_keys: idx_cus</span><br><span class="line">          key: idx_cus</span><br><span class="line">      key_len: 31</span><br><span class="line">          ref: const</span><br><span class="line">         rows: 4555</span><br><span class="line">        Extra: Using index condition</span><br></pre></td></tr></table></figure>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4></li>
-<li>阿里云: <a href="https://help.aliyun.com/document_detail/52274.html?spm=a2c4g.11186623.2.8.1b1945135Wahhf" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/52274.html?spm=a2c4g.11186623.2.8.1b1945135Wahhf</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/network-test/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/network-test/index.html" class="post-title-link" itemprop="url">test network iperf3 and ssh</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-30T00:00:00+08:00">2020-05-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="通过iperf-iperf3测试网络"><a href="#通过iperf-iperf3测试网络" class="headerlink" title="通过iperf,iperf3测试网络"></a>通过iperf,iperf3测试网络</h3><h4 id="iperf用法"><a href="#iperf用法" class="headerlink" title="iperf用法"></a>iperf用法</h4><p>tldr工具获取的iperf用法如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">iperf</span><br><span class="line"></span><br><span class="line"> Measure network bandwidth between computers.</span><br><span class="line"> More information: https:&#x2F;&#x2F;iperf.fr.</span><br><span class="line"> - Run on server:</span><br><span class="line">   iperf -s</span><br><span class="line"></span><br><span class="line"> - Run on server using UDP mode and set server port to listen on 5001:</span><br><span class="line">   iperf -u -s -p 5001</span><br><span class="line"></span><br><span class="line"> - Run on client:</span><br><span class="line">   iperf -c server_address</span><br><span class="line"></span><br><span class="line"> - Run on client every 2 seconds:</span><br><span class="line">   iperf -c server_address -i 2</span><br><span class="line"></span><br><span class="line"> - Run on client with 5 parallel threads:</span><br><span class="line">   iperf -c server_address -P 5</span><br><span class="line"></span><br><span class="line"> - Run on client using UDP mode:</span><br><span class="line">   iperf -u -c server_address -p 5001</span><br></pre></td></tr></table></figure>
-
-<p>分别启动server和client进行测试,如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iperf -s -p 9988 -f M</span><br><span class="line">iperf -c 111.111.111.111 -p 9988 -t 300 -d -f M -i 2</span><br></pre></td></tr></table></figure>
-
-<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><ol>
-<li>-f 格式/单位:Kbits, Mbits, KBytes, MBytes</li>
-<li>-i</li>
-<li>-p</li>
-<li>-P</li>
-<li>-u</li>
-<li>-c</li>
-<li>-s</li>
-</ol>
-<h4 id="在阿里云服务器上遇到的问题"><a href="#在阿里云服务器上遇到的问题" class="headerlink" title="在阿里云服务器上遇到的问题"></a>在阿里云服务器上遇到的问题</h4><ol>
-<li>问题<br>阿里云服务器上仅开放了80和443,及ssh端口,其他端口未开放,不能使用其他端口进行测试,也无权限开放新的端口用<br>于测试,服务上提供api接口的服务也都是通过nginx反向代理实现.</li>
-<li>测试代码</li>
-</ol>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">address, err := net.ResolveTCPAddr(<span class="string">"tcp"</span>, <span class="string">"http://server_address:18090"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line"> fmt.Println(err)</span><br><span class="line">&#125;</span><br><span class="line">conn, err := net.DialTCP(<span class="string">"tcp4"</span>, <span class="literal">nil</span>, address)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line"> fmt.Println(err)</span><br><span class="line">&#125;</span><br><span class="line">conn.Write([]<span class="keyword">byte</span>(<span class="string">"test connect"</span>))</span><br></pre></td></tr></table></figure>
-
-<p>无法建立tcp连接,timeout</p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>  服务器上无可用端口用于测试,仅开放的80,443等端口已被网页服务服务占用,可以通过ssh端口转发到一个未暴露的端口,在该端口启动iperf的服务端进行测试.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh -L local_port:localhost:server_port_for_iperf -N -T user@server_address -p   server_ssh_port</span><br><span class="line">如:</span><br><span class="line">ssh -L 9999:localhost:8888 -N -T user_test@111.111.111.111 -p 22</span><br><span class="line">将发送到本地端口9999的请求数据转发到111.111.111.111转发到8888端口</span><br></pre></td></tr></table></figure>
-
-<p>  在服务器上启动iperf server</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iperf -s -p port -f M</span><br><span class="line">如</span><br><span class="line">iperf -s -p 8888</span><br><span class="line">使用TCP方式,在8888端口启动服务端,监听</span><br></pre></td></tr></table></figure>
-
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[ ID] Interval       Transfer     Bandwidth</span><br><span class="line">[ 13]  0.0-44.1 sec  30.5 MBytes  0.69 MBytes&#x2F;sec</span><br><span class="line">[  7]  0.0-44.2 sec  30.6 MBytes  0.69 MBytes&#x2F;sec</span><br><span class="line">[  9]  0.0-44.2 sec  30.6 MBytes  0.69 MBytes&#x2F;sec</span><br><span class="line">[ 11]  0.0-44.2 sec  30.6 MBytes  0.69 MBytes&#x2F;sec</span><br><span class="line">[ 15]  0.0-44.2 sec  30.6 MBytes  0.69 MBytes&#x2F;sec</span><br><span class="line">[ 21]  0.0-44.9 sec  31.6 MBytes  0.70 MBytes&#x2F;sec</span><br><span class="line">[ 17]  0.0-45.1 sec  31.9 MBytes  0.71 MBytes&#x2F;sec</span><br><span class="line">[  4]  0.0-45.2 sec  32.5 MBytes  0.72 MBytes&#x2F;sec</span><br><span class="line">[ 18]  0.0-45.2 sec  32.1 MBytes  0.71 MBytes&#x2F;sec</span><br><span class="line">[  5]  0.0-45.2 sec  32.5 MBytes  0.72 MBytes&#x2F;sec</span><br><span class="line">[SUM]  0.0-45.2 sec   314 MBytes  6.94 MBytes&#x2F;sec</span><br></pre></td></tr></table></figure>
-
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
-<li>ssh端口转发: 玩转SSH端口转发 <a href="https://zhuanlan.zhihu.com/p/26547381" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26547381</a></li>
-<li>nginx反向代理:</li>
-</ol>
-<p>3.</p>
 
       
     </div>
@@ -1347,7 +1175,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1360,7 +1188,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">110</span>
+        <span class="site-state-item-count">111</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1434,13 +1262,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">89k</span>
+    <span title="站点总字数">92k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:21</span>
+    <span title="站点阅读时长">1:23</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

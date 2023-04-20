@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">76</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">78</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">110</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">111</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -174,6 +174,194 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/mysql-backend-index-scan/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/mysql-backend-index-scan/index.html" class="post-title-link" itemprop="url">MySQL8 backend index scan</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-04-20 00:00:00 / 修改时间：15:41:13" itemprop="dateCreated datePublished" datetime="2023-04-20T00:00:00+08:00">2023-04-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在分析一个sql执行计划</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span>  </span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,user_id</span><br><span class="line"><span class="keyword">FROM</span> <span class="string">`order`</span></span><br><span class="line"><span class="keyword">WHERE</span> shop_id = xxx <span class="keyword">and</span> (corp_id = xxx) </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> create_time <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p>在返回值的extra中看到一个陌生的字眼”Backward index scan”,下面探索下这是个啥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Extra:  Using index condition; Backward index scan</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/mysql-backend-index-scan/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/mysql-explain/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn &  share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/mysql-explain/index.html" class="post-title-link" itemprop="url">MySQL8 explain</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2023-04-19T00:00:00+08:00">2023-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="explain"><a href="#explain" class="headerlink" title="explain"></a>explain</h2><h3 id="output"><a href="#output" class="headerlink" title="output"></a>output</h3><p>Table 8.1 EXPLAIN Output Columns<br>| <strong>Column</strong>        | <strong>JSON Name</strong> | <strong>Meaning</strong>                                    |<br>|——————-|—————|————————————————|<br>| <strong>id</strong>            | select_id     | The SELECT identifier                          |<br>| <strong>select_type</strong>   | None          | The SELECT type                                |<br>| <strong>table</strong>         | table_name    | The table for the output row                   |<br>| <strong>partitions</strong>    | partitions    | The matching partitions                        |<br>| <strong>type</strong>          | access_type   | The join type                                  |<br>| <strong>possible_keys</strong> | possible_keys | The possible indexes to choose                 |<br>| <strong>key</strong>           | key           | The index actually chosen                      |<br>| <strong>key_len</strong>       | key_length    | The length of the chosen key                   |<br>| <strong>ref</strong>           | ref           | The columns compared to the index              |<br>| <strong>rows</strong>          | rows          | Estimate of rows to be examined                |<br>| <strong>filtered</strong>      | filtered      | Percentage of rows filtered by table condition |<br>| <strong>Extra</strong>         | None          | Additional information                         |</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/mysql-explain/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/3d-matrix/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +393,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -310,7 +498,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -409,7 +597,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -496,7 +684,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -582,7 +770,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -672,7 +860,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -762,7 +950,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
 
           <br>
@@ -849,7 +1037,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
+                <time title="修改时间：2023-04-20 15:41:13" itemprop="dateModified" datetime="2023-04-20T15:41:13+08:00">2023-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -897,205 +1085,6 @@ img{
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/tls/index.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/mysql-group_concat-truncated/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/mysql-group_concat-truncated/index.html" class="post-title-link" itemprop="url">mysql group_concat数据过长截断</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-20T00:00:00+08:00">2022-09-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>This function returns a string result with the concatenated non-NULL values from a group. It returns NULL if there are no non-NULL values</p>
-</blockquote>
-<p>group_concat将非NULL的值拼接返回字符串,当没有非NULL的值时返回NULL.<br>有长度限制,遇到过一个由于长度限制数据截断导致的bug,sql如下</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 这里id,price都是int,4字节</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,SUBSTRING_INDEX(<span class="keyword">GROUP_CONCAT</span>(price <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span>), <span class="string">','</span>, <span class="number">-1</span>) <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> xxx</span><br><span class="line"><span class="keyword">where</span> xxxx=xxx</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">id</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这里将price拼接,再通过SUBSTRING_INDEX取最后一个price,由于数据截断,GROUP_CONCAT返回的字符串最后一个是”,”而不是price,导致SUBSTRING_INDEX取到的是””(字符串),在业务逻辑里直接转为int报错了,由此产生bug.<br>且只有当数据量足够多时才会触发(超过171行时,1024=171<em>4+170</em>2,引擎为InnnoDB,MySQL8.0,字符集为utf8mb4_0900_ai_ci)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 有兴趣的可以复现下,查一个int类型的数据就行</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">GROUP_CONCAT</span>(price) <span class="keyword">FROM</span> (</span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">`price`</span> </span><br><span class="line"><span class="keyword">FROM</span> xxx</span><br><span class="line"><span class="keyword">where</span> <span class="string">`xxx`</span> = <span class="string">"xxx"</span> <span class="keyword">limit</span> <span class="number">171</span> ) <span class="keyword">as</span> t;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/mysql-group_concat-truncated/index.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go-string/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn &  share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/go-string/index.html" class="post-title-link" itemprop="url">go语言string按下标访问和for range访问有什么区别</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-19T00:00:00+08:00">2022-09-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-02 12:47:16" itemprop="dateModified" datetime="2023-04-02T12:47:16+08:00">2023-04-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/go/" itemprop="url" rel="index"><span itemprop="name">go</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="下标访问"><a href="#下标访问" class="headerlink" title="下标访问"></a>下标访问</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestStr</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line"> str := <span class="string">`中\a`</span></span><br><span class="line"> log.Println(unsafe.Sizeof(<span class="keyword">rune</span>(<span class="string">'中'</span>)), unsafe.Sizeof(str[<span class="number">0</span>]), str[<span class="number">0</span>], <span class="keyword">string</span>(str[<span class="number">0</span>]))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出: 2022/09/15 19:55:27 4 1 228 ä</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nihongo = <span class="string">"日本語"</span></span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> nihongo &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%#U starts at byte position %d\n"</span>, v, i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出:</span></span><br><span class="line"><span class="comment">// U+65E5 '日' starts at byte position 0</span></span><br><span class="line"><span class="comment">// U+672C '本' starts at byte position 3</span></span><br><span class="line"><span class="comment">// U+8A9E '語' starts at byte position 6</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/go-string/index.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1186,7 +1175,7 @@ img{
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1199,7 +1188,7 @@ img{
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">110</span>
+        <span class="site-state-item-count">111</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1273,13 +1262,13 @@ img{
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">89k</span>
+    <span title="站点总字数">92k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:21</span>
+    <span title="站点阅读时长">1:23</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

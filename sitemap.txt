@@ -1,10 +1,8 @@
 https://programnotes.cn/index.html
 https://programnotes.cn/photo/index.html
 https://programnotes.cn/tags/index.html
-https://programnotes.cn/window-terminal-config/index.html
 https://programnotes.cn/wrk/index.html
 https://programnotes.cn/wsl-set-ulimit/index.html
-https://programnotes.cn/vscode-java-import-package/index.html
 https://programnotes.cn/about/index.html
 https://programnotes.cn/categories/index.html
 https://programnotes.cn/CImageList-CBitmap-Usage/index.html
@@ -66,6 +64,7 @@ https://programnotes.cn/unix-learn/index.html
 https://programnotes.cn/use-gitalk-in-next-theme/index.html
 https://programnotes.cn/using-gorm/index.html
 https://programnotes.cn/vscode-config/index.html
+https://programnotes.cn/window-terminal-config/index.html
 https://programnotes.cn/linux-lsb_release/index.html
 https://programnotes.cn/micro-service/index.html
 https://programnotes.cn/a-set-of-notes-blogs/index.html
@@ -73,10 +72,13 @@ https://programnotes.cn/beego-cors/index.html
 https://programnotes.cn/donot-use-pointer-in-request-param/index.html
 https://programnotes.cn/hexo-config/index.html
 https://programnotes.cn/ssh-usage/index.html
-https://programnotes.cn/3d-matrix/index.html
 https://programnotes.cn/3d-base/index.html
+https://programnotes.cn/3d-matrix/index.html
 https://programnotes.cn/idea-springboot-nacos-issue/index.html
 https://programnotes.cn/maven-mirror-config/index.html
+https://programnotes.cn/mysql-backend-index-scan/index.html
+https://programnotes.cn/mysql-explain/index.html
+https://programnotes.cn/vscode-java-import-package/index.html
 https://programnotes.cn/vscode-java-debug-2/index.html
 https://programnotes.cn/vscode-java-debug/index.html
 https://programnotes.cn/html/references/mysql/0.html
@@ -241,6 +243,7 @@ https://programnotes.cn/tags/java/
 https://programnotes.cn/tags/spingboot/
 https://programnotes.cn/tags/nacos/
 https://programnotes.cn/tags/maven/
+https://programnotes.cn/tags/mysql-explain/
 https://programnotes.cn/tags/extension/
 https://programnotes.cn/categories/system/
 https://programnotes.cn/categories/python/

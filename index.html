@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -214,14 +214,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -234,41 +234,15 @@
 
       
           <p> 近来,serverless这个词出现次数愈加频繁,各云厂商也纷纷推出相关的产品和工具,最近也尝试在公<br>司项目上使用severless去解决一些问题,这里讲讲我的体验.</p>
-<h2 id="阿里云FC"><a href="#阿里云FC" class="headerlink" title="阿里云FC"></a>阿里云FC</h2><p>  阿里云的severless产品,从对已有框架的支持上说,FC的体验非常好,go,java,js,python的各种框架基本都支持,也通过社区/官方提供了完善的demo和模板(<a href="https://docs.serverless-devs.com/fc/readme" target="_blank" rel="noopener">serverless devs,工具</a>, <a href="http://www.devsapp.cn/application.html" target="_blank" rel="noopener">demo,模板</a>)<br>  像java的Springboot,go的beego,gin,Python的Django…,官方都有提供模板,在创建应用时可以根据模板一键创建,如图:<br>  <img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/serverless.PNG" alt="FC,应用模板"></p>
-<p>  使用时也支持多个环境,和正常开发流程类型,一个应用可以创建开发,测试,生产等多套<br>环境,每套环境的配置可以分开配置,做到环境间的隔离.<br>  <img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/serverless-env.PNG" alt="FC多多环境"></p>
-<h3 id="访问其他服务"><a href="#访问其他服务" class="headerlink" title="访问其他服务"></a>访问其他服务</h3><p>在项目中使用一般都需要配合其他基础设施,如数据库,缓存,消息队列等,可以参考阿里云文档<a href="https://help.aliyun.com/document_detail/147915.html" target="_blank" rel="noopener">访问其他服务</a>,如果都是使用阿里云云产品,建议都通过vpc访问,保证安全性且设置也便捷.</p>
-<p>在将函数设置为仅通过VPC访问时,必须通过内网访问地址(如:<a href="http://beego-dev-serverlss-beego-ewihavwzni.cn-hangzhou-vpc.fcapp.run)调用函数,如果使用了Nacos等服务发现,直接使用注册的ip是无法调用的,函数的内网ip与服务发现里注册的ip不同,ping不同也无法调用" target="_blank" rel="noopener">http://beego-dev-serverlss-beego-ewihavwzni.cn-hangzhou-vpc.fcapp.run)调用函数,如果使用了Nacos等服务发现,直接使用注册的ip是无法调用的,函数的内网ip与服务发现里注册的ip不同,ping不同也无法调用</a>.</p>
-<h3 id="流水线部署"><a href="#流水线部署" class="headerlink" title="流水线部署"></a>流水线部署</h3><p>使用阿里云创建应用时自动配置的流水部署函数时,可以设置为仅更新函数,这样函数的配置不会丢失(否则需要把配置写入配置文件,使用serverless-devs工具的情况下为s.yml)</p>
-<p>如果未在流水线管理中设置,每次更新默认会更新服务及函数的配置</p>
-<h3 id="冷启动"><a href="#冷启动" class="headerlink" title="冷启动"></a>冷启动</h3><p>FC函数实例在未设置预留实例的情况下’续存时长’有限,在实例销毁后调用函数,有个冷启动过程,go的项目冷启动时间很短,相比下Springboot项目由于应用启动时间很长,冷启动也变得难以接受(尝试过一个公司项目启动需要20s左右),而go在毫秒级,从这点看Springboot在FC上仅适合与异步任务(官方有个尚在实验期的解决方案:Spring-Native,java 11起支持).</p>
-<p>针对冷启动通过社区也看到一些解决方案,如:</p>
-<ul>
-<li>官方提供的’弹性管理’(通过预留实例保存实力不销毁解决冷启动问题)</li>
-<li>通过预热,定时激活函数,减少冷启动时间</li>
-</ul>
-<h2 id="其他厂商"><a href="#其他厂商" class="headerlink" title="其他厂商"></a>其他厂商</h2><h3 id="AWS-Lambda"><a href="#AWS-Lambda" class="headerlink" title="AWS Lambda"></a>AWS Lambda</h3><p>云厂商当之无愧的老大,也是最早做serverless的</p>
-<h3 id="netlify-vercel-serverless-function"><a href="#netlify-vercel-serverless-function" class="headerlink" title="netlify/vercel serverless function"></a>netlify/vercel serverless function</h3><p> netlify,vercel 使用的都是AWS的Lambda,这里就归于一处.两家的业务也很像<br> 使用过两家的服务部署go语言的serverless function,体验相差不大,不过vercel由于政策原因,<br>部署的应用,函数在国内无法直接访问,必须绑定自定义域名.<br> 从部署go的体验来说,适合于做一些小应用和api,对于已有的框架如gin,beego,go-micro之类的,无法直接将整个应用部署上去,需要做比较多调整.</p>
-<h3 id="腾讯云-serverless"><a href="#腾讯云-serverless" class="headerlink" title="腾讯云 serverless"></a>腾讯云 serverless</h3><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
-<li><a href="https://docs.serverless-devs.com/serverless-devs/readme" target="_blank" rel="noopener">serverless devs</a> 官方定位是无厂商锁定的工具,支持部署函数到aws,阿里云等多家厂商,实际只有阿里云FC做的比较完善,大部分案例,模板也是用的FC</li>
-<li><a href="https://cn.serverless.com/" target="_blank" rel="noopener">serverless</a> 开源工具,国内腾讯针对自家产品做了优化,对AWS等国外厂商也支持,需访问国际站查看</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://netlify.com" target="_blank" rel="noopener">netlify</a></li>
-<li><a href="https://vercel.com/docs" target="_blank" rel="noopener">vercel</a></li>
-<li>[AWS]</li>
-<li><a href="https://help.aliyun.com/product/50980.html" target="_blank" rel="noopener">阿里云 FC</a></li>
-<li><a href="https://developer.aliyun.com/ask/512024" target="_blank" rel="noopener">函数冷启动很慢,如何解决</a></li>
-<li><a href="https://developer.aliyun.com/ask/512024" target="_blank" rel="noopener">https://developer.aliyun.com/ask/512024</a></li>
-<li><a href="https://developer.aliyun.com/article/859628" target="_blank" rel="noopener">https://developer.aliyun.com/article/859628</a></li>
-<li><a href="https://www.infoq.cn/article/mi0lpquvxi7bpcq7ou9u" target="_blank" rel="noopener">定时预热</a></li>
-<li>冷启动延时缩短50%-80%，阿里云函数计算发布冷启动加速技术-阿里云开发者社区</li>
-<li>弹性管理 <a href="https://help.aliyun.com/document_detail/185038.htm?spm=5176.fcnext.help.dexternal.2fab78c8CvrsvI#task-2538034" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/185038.htm?spm=5176.fcnext.help.dexternal.2fab78c8CvrsvI#task-2538034</a></li>
-<li>闲置计费 <a href="https://developer.aliyun.com/article/903899" target="_blank" rel="noopener">https://developer.aliyun.com/article/903899</a></li>
-<li><a href="http://www.devsapp.cn/application.html" target="_blank" rel="noopener">serverless devs,应用,demo,模板</a></li>
-<li><a href="https://docs.serverless-devs.com/serverless-devs/readme" target="_blank" rel="noopener">serverless devs</a></li>
-<li><a href="https://cn.serverless.com/" target="_blank" rel="noopener">工具 serverless</a></li>
-</ul>
-
+<h2 id="阿里云FC"><a href="#阿里云FC" class="headerlink" title="阿里云FC"></a>阿里云FC</h2><p>  阿里云的severless产品,从对已有框架的支持上说,FC的体验非常好,go,java,js,python的各种框架基本都支持,也通过社区/官方提供了完善的demo和模板(<a href="https://docs.serverless-devs.com/fc/readme" target="_blank" rel="noopener">serverless devs,工具</a>, <a href="http://www.devsapp.cn/application.html" target="_blank" rel="noopener">demo,模板</a>)<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/serverless-startup/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -318,7 +292,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -412,7 +386,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -511,7 +485,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -675,7 +649,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -780,7 +754,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -879,7 +853,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -966,7 +940,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -1052,7 +1026,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -1142,7 +1116,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 15:23:04" itemprop="dateModified" datetime="2023-07-24T15:23:04+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:31:31" itemprop="dateModified" datetime="2023-07-24T15:31:31+08:00">2023-07-24</time>
               </span>
 
           <br>

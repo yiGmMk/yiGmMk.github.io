@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">79</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">80</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">112</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">113</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -174,6 +174,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/m3u8/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/m3u8/index.html" class="post-title-link" itemprop="url">download m3u8 file by ffmpeg</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-16 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-16T00:00:00+08:00">2021-05-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>455</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="what"><a href="#what" class="headerlink" title="what"></a>what</h3><ol>
+<li><p>m3u8</p>
+</li>
+<li><p>ffmpeg</p>
+</li>
+</ol>
+<h3 id="how"><a href="#how" class="headerlink" title="how"></a>how</h3><ol>
+<li><p>通过fiddler等工具拿到m3u8文件,查看文件内容是否规范<br> 下载时通过文件类型,url过滤快速找出含有m3u8文件的数据,在pc端抓包比较方便.手机端抓包https需要安装证书.</p>
+</li>
+<li><p>通过ffmpeg下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i input.m3u8 -c copy output.mp4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-i 指定输入参数,m3u8文件</li>
+<li>-c copy 指定输出文件</li>
+</ul>
+</li>
+<li><p>在m3u8文件内的视频文件如果是通过http/https下载需要指定白名单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-protocol_whitelist &quot;file,http,https,tls,tcp&quot;</span><br></pre></td></tr></table></figure>
+<p>把这个参数加上,指定协议白名单即可,完整的命令如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -protocol_whitelist &quot;file,http,https,tls,tcp&quot; -i input.m3u8 -c copy output.mp4</span><br></pre></td></tr></table></figure>
+<p>不指定白名单ffmpeg会报错:”Protocol ‘https’ not on whitelist ‘file,crypto’!”</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/redis_base_1/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +306,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -352,7 +453,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -433,7 +534,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -520,7 +621,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -598,7 +699,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
 
           <br>
@@ -676,7 +777,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -780,7 +881,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -896,7 +997,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -992,7 +1093,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
+                <time title="修改时间：2023-07-24 15:22:28" itemprop="dateModified" datetime="2023-07-24T15:22:28+08:00">2023-07-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1081,113 +1182,6 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/vscode-config/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/vscode-config/index.html" class="post-title-link" itemprop="url">vscode config</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-03T00:00:00+08:00">2021-02-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 10:49:13" itemprop="dateModified" datetime="2023-07-24T10:49:13+08:00">2023-07-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>609</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="推荐插件"><a href="#推荐插件" class="headerlink" title="推荐插件"></a>推荐插件</h3><ol>
-<li>koroFileHeader<ul>
-<li>功能: 自动在文件头或函数头增加注释</li>
-<li>url: <a href="https://marketplace.visualstudio.com/items?itemName=OBKoro1.korofileheader" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=OBKoro1.korofileheader</a></li>
-<li>函数   <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @description:</span></span><br><span class="line"><span class="comment">* @param &#123;*&#125;</span></span><br><span class="line"><span class="comment">* @return &#123;*&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>文件<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line"> * @Author: your name</span><br><span class="line"> * @Date: <span class="number">2021</span><span class="number">-06</span><span class="number">-25</span> <span class="number">10</span>:<span class="number">10</span>:<span class="number">19</span></span><br><span class="line"> * @LastEditTime: <span class="number">2021</span><span class="number">-10</span><span class="number">-29</span> <span class="number">14</span>:<span class="number">24</span>:<span class="number">21</span></span><br><span class="line"> * @LastEditors: your name</span><br><span class="line"> * @Description: In User Settings Edit</span><br><span class="line"> * @FilePath: /vscode-config.md</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="code-runner"><a href="#code-runner" class="headerlink" title="code runner"></a>code runner</h3></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>golang同package下的代码undefined<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在.vscode下的settigns.json增加配置</span><br><span class="line">&quot;code-runner.executorMap&quot;: &#123;</span><br><span class="line">    &quot;go&quot;: &quot;cd $dir &amp;&amp; go run .&quot;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="go-path"><a href="#go-path" class="headerlink" title="go path"></a>go path</h3><ol>
-<li>vscode同时开发多个项目,每个项目不同路径<br>在不同终端下,配置不同gopath,使用 eexport GOPATH=/home/xxx/xxx设置</li>
-</ol>
-<p>2.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1259,7 +1253,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1272,7 +1266,7 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-count">113</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1349,13 +1343,13 @@ Index 用于提高数据检索和 SQL 查询性能。 Index Hints 向优化器�
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">93k</span>
+    <span title="站点总字数">94k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:24</span>
+    <span title="站点阅读时长">1:26</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

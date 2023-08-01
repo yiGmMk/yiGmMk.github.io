@@ -5,6 +5,7 @@ https://programnotes.cn/window-terminal-config/index.html
 https://programnotes.cn/wrk/index.html
 https://programnotes.cn/wsl-set-ulimit/index.html
 https://programnotes.cn/vscode-java-import-package/index.html
+https://programnotes.cn/vscode-java-debug/index.html
 https://programnotes.cn/about/index.html
 https://programnotes.cn/categories/index.html
 https://programnotes.cn/CImageList-CBitmap-Usage/index.html
@@ -83,7 +84,6 @@ https://programnotes.cn/mysql-backend-index-scan/index.html
 https://programnotes.cn/mysql-explain/index.html
 https://programnotes.cn/serverless-startup/index.html
 https://programnotes.cn/vscode-java-debug-2/index.html
-https://programnotes.cn/vscode-java-debug/index.html
 https://programnotes.cn/html/references/mysql/0.html
 https://programnotes.cn/html/references/mysql/51.html
 https://programnotes.cn/html/references/mysql/50.html

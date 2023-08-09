@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">81</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">82</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -174,6 +174,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go-build-cross-platform/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/go-build-cross-platform/index.html" class="post-title-link" itemprop="url">Go|跨平台编译</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-09 00:00:00 / 修改时间：11:04:00" itemprop="dateCreated datePublished" datetime="2023-08-09T00:00:00+08:00">2023-08-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>342</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="通过命令传参"><a href="#通过命令传参" class="headerlink" title="通过命令传参"></a>通过命令传参</h2><h3 id="linux系统"><a href="#linux系统" class="headerlink" title="linux系统"></a>linux系统</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 GOOS指定系统,GOARCH指定架构</span></span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go</span><br></pre></td></tr></table></figure>
+
+<h3 id="windows系统"><a href="#windows系统" class="headerlink" title="windows系统"></a>windows系统</h3><p>上述命令在powershell,cmd中不可用</p>
+<h2 id="通过设置环境变量"><a href="#通过设置环境变量" class="headerlink" title="通过设置环境变量"></a>通过设置环境变量</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看go环境变量</span></span><br><span class="line">go env</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置</span></span><br><span class="line">go env -w GOOS=windows GOARCH=amd64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置完环境变量再构建</span></span><br><span class="line"></span><br><span class="line">go build -o xxx xxx.go</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="系统-架构值参考"><a href="#系统-架构值参考" class="headerlink" title="系统,架构值参考"></a>系统,架构值参考</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$GOOS</span>         <span class="variable">$GOARCH</span>     </span><br><span class="line">darwin         386</span><br><span class="line">darwin         amd64</span><br><span class="line">freebsd        386</span><br><span class="line">freebsd        amd64</span><br><span class="line">linux          386</span><br><span class="line">linux          amd64</span><br><span class="line">linux          arm</span><br><span class="line">windows        386</span><br><span class="line">windows        amd64</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://golang.google.cn/cmd/go/" target="_blank" rel="noopener">go cmd</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/serverless-startup/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +297,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
 
           <br>
@@ -292,7 +384,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -396,7 +488,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
 
           <br>
@@ -490,7 +582,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -589,7 +681,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -753,7 +845,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
 
           <br>
@@ -858,7 +950,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
 
           <br>
@@ -957,7 +1049,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
 
           <br>
@@ -1044,7 +1136,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
+                <time title="修改时间：2023-08-09 11:04:00" itemprop="dateModified" datetime="2023-08-09T11:04:00+08:00">2023-08-09</time>
               </span>
 
           <br>
@@ -1081,96 +1173,6 @@
 <h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p>在用户主目录下进入.m2目录，创建一个settings.xml配置文件</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 阿里云 Maven镜像 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/vscode-java-import-package/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/vscode-java-import-package/index.html" class="post-title-link" itemprop="url">vscode java,手动导入jar包</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-02-03 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-03T00:00:00+08:00">2023-02-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-01 17:38:35" itemprop="dateModified" datetime="2023-08-01T17:38:35+08:00">2023-08-01</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>766</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>vscode不使用maven等工具手动导入jar包</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li>下载相应的jar包</li>
-<li>加入Referenced Libraries中<br>比如下面日志用了Commons Logging(一个第三方日志库)</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/vscode-java-import-package/index.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1256,7 +1258,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1346,7 +1348,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">96k</span>
+    <span title="站点总字数">97k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

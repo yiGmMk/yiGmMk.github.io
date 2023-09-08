@@ -23,17 +23,17 @@
     var CONFIG = {"hostname":"programnotes.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan | disqus | disqusjs | gitalk | livere | valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Gitalk is a modern comment component based on Github Issue and Preact. Gitalk can only use GitHub accounts for comments.Click here to sign up for a new OAuth Application https:&#x2F;&#x2F;github.com&#x2F;settings&#x2F;ap">
+  <meta name="description" content="Gitalk基于github的评论组件 设置github OAuth  Gitalk can only use GitHub accounts for comments.  Click here to sign up for a new OAuth Application  Other content can be filled in at will, but be sure to fill in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="use gitalk in next theme">
 <meta property="og:url" content="https://programnotes.cn/use-gitalk-in-next-theme/index.html">
 <meta property="og:site_name" content="编程笔记">
-<meta property="og:description" content="Gitalk is a modern comment component based on Github Issue and Preact. Gitalk can only use GitHub accounts for comments.Click here to sign up for a new OAuth Application https:&#x2F;&#x2F;github.com&#x2F;settings&#x2F;ap">
+<meta property="og:description" content="Gitalk基于github的评论组件 设置github OAuth  Gitalk can only use GitHub accounts for comments.  Click here to sign up for a new OAuth Application  Other content can be filled in at will, but be sure to fill in">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://programnotes.cn/Image/github_1.png">
 <meta property="og:image" content="https://programnotes.cn/Image/gitalk_1.png">
 <meta property="article:published_time" content="2019-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-08T06:00:57.761Z">
+<meta property="article:modified_time" content="2023-09-08T06:09:47.056Z">
 <meta property="article:author" content="yigmmk">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="next">
@@ -213,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:00:57" itemprop="dateModified" datetime="2023-09-08T14:00:57+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-08 14:09:47" itemprop="dateModified" datetime="2023-09-08T14:09:47+08:00">2023-09-08</time>
               </span>
 
           
@@ -229,7 +229,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -248,21 +248,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Gitalk-is-a-modern-comment-component-based-on-Github-Issue-and-Preact"><a href="#Gitalk-is-a-modern-comment-component-based-on-Github-Issue-and-Preact" class="headerlink" title="Gitalk is a modern comment component based on Github Issue and Preact."></a>Gitalk is a modern comment component based on Github Issue and Preact.</h2><ul>
-<li>Gitalk can only use GitHub accounts for comments.<br>Click here to sign up for a new OAuth Application <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a>.<br>Other content can be filled in at will, but be sure to fill in the <strong>correct callback URL</strong> (usually the domain name corresponding to the comment page). Then you will get a <strong>Client ID and a Client secret</strong>.</li>
-<li><strong>Create a repository</strong> you want to store Gitalk comments in your GitHub.<a id="more"></a></li>
-<li>Set the value enable to true, add Client ID (client_id) and Client secret (client_secret) in step 1, add your<br>Github username (github_id and admin_user) and the created repository name (repo) in step 2, and edit other configurations in gitalk section in the theme config file as following:</li>
-</ul>
+        <h2 id="Gitalk"><a href="#Gitalk" class="headerlink" title="Gitalk"></a>Gitalk</h2><p>基于github的评论组件</p>
+<h3 id="设置github-OAuth"><a href="#设置github-OAuth" class="headerlink" title="设置github OAuth"></a>设置github OAuth</h3><p>  Gitalk can only use GitHub accounts for comments.<br>  <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">Click here to sign up for a new OAuth Application</a><br>  Other content can be filled in at will, but be sure to fill in the <strong>correct callback URL</strong> (usually the domain name corresponding to the comment page). Then you will get a <strong>Client ID and a Client secret</strong>.</p>
+<h3 id="创建github仓库存储评论数据"><a href="#创建github仓库存储评论数据" class="headerlink" title="创建github仓库存储评论数据"></a>创建github仓库存储评论数据</h3><p>  <strong>Create a repository</strong> you want to store Gitalk comments in your GitHub.<br>  <a id="more"></a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>  Set the value enable to true, add Client ID (client_id) and Client secret (client_secret) in step 1,<br>  add your Github username (github_id and admin_user) and the created repository name (repo) in step 2,<br>  and edit other configurations in gitalk section in the theme config file as following:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##next/_config.yml</span></span><br><span class="line">    <span class="comment"># Gitalk</span></span><br><span class="line">    <span class="comment"># Demo: https://gitalk.github.io</span></span><br><span class="line">​    gitalk:</span><br><span class="line">​      <span class="built_in">enable</span>: <span class="literal">false</span>     <span class="comment">#使用时设为true</span></span><br><span class="line">​      github_id:        <span class="comment"># Github repo owner，用户名</span></span><br><span class="line">​      repo:             <span class="comment"># Repository name to store issues，新建的用于保存评论数据的仓库名，比如： comment_blog</span></span><br><span class="line">​      client_id:        <span class="comment"># Github Application Client ID，</span></span><br><span class="line">​      client_secret:    <span class="comment"># Github Application Client Secret</span></span><br><span class="line">​      admin_user:       <span class="comment"># GitHub repo owner and collaborators, only these guys can initialize github issues</span></span><br><span class="line">​      distraction_free_mode: <span class="literal">true</span> <span class="comment"># Facebook-like distraction free mode</span></span><br><span class="line">      <span class="comment"># Gitalk's display language depends on user's browser or system environment</span></span><br><span class="line">      <span class="comment"># If you want everyone visiting your site to see a uniform language, you can set a force language value</span></span><br><span class="line">      <span class="comment"># Available value: en, es-ES, fr, ru, zh-CN, zh-TW</span></span><br><span class="line">​      language:</span><br></pre></td></tr></table></figure>
 
 <p>   可将网站所有配置保存在根目录下的_config.yml文件中，需注意将这些配置放在next主题的配置区域中，这是因为gitalk是内置在next主题中的，对hexo进行配置无效，需要在next主题中配置才能生效。配置gitalk时需将这些配置的级别和<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme： Pices</span><br></pre></td></tr></table></figure>保持一致即gitalk配置是theme_config的子集。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">theme_config:</span><br><span class="line"><span class="comment">#========================================================</span></span><br><span class="line"><span class="comment">#===================== Scheme Settings =================</span></span><br><span class="line"><span class="comment">#======================================================== </span></span><br><span class="line">  <span class="comment">#scheme: Muse</span></span><br><span class="line">  <span class="comment">#scheme: Mist</span></span><br><span class="line">  scheme: Pisces</span><br><span class="line">  <span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>OAuth Application<img src="/Image/github_1.png" class="[class github]" title="[title setting ]">
-
-</li>
-</ul>
+<h3 id="OAuth"><a href="#OAuth" class="headerlink" title="OAuth"></a>OAuth</h3><p>  OAuth Application<br>  <img src="/Image/github_1.png" class="[class github]" title="[title setting ]"></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Application name            随便填</span><br><span class="line">Homepage URL			    站点网址，没有买域名就用XXXX.github.io，有域名需要配置到域名上填域名，如我的是https://www.programnotes.cn</span><br><span class="line">Application description     随便填</span><br><span class="line">Authorization callback URL  网址，没域名填XXXX.github.io（github pages的地址）；</span><br><span class="line">                            设为域名则同上，如我的：https://www.programnotes.cn</span><br></pre></td></tr></table></figure>
 
 <p>如果，域名放置了顶级域名通过CNAME改变为二级域名的，即网站配置为XXX.com或者XXX.cn类的，homepage URL这里需要填写网站配置的，不能填CNAME指向的二级域名如blog.XXX.com等，会导致gitalk异常。</p>
@@ -416,7 +411,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitalk-is-a-modern-comment-component-based-on-Github-Issue-and-Preact"><span class="nav-number">1.</span> <span class="nav-text">Gitalk is a modern comment component based on Github Issue and Preact.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitalk使用"><span class="nav-number">2.</span> <span class="nav-text">Gitalk使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalk-cdn"><span class="nav-number">3.</span> <span class="nav-text">gitalk cdn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理接口"><span class="nav-number">4.</span> <span class="nav-text">代理接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口部署"><span class="nav-number">4.1.</span> <span class="nav-text">接口部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">4.2.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitalk"><span class="nav-number">1.</span> <span class="nav-text">Gitalk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置github-OAuth"><span class="nav-number">1.1.</span> <span class="nav-text">设置github OAuth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建github仓库存储评论数据"><span class="nav-number">1.2.</span> <span class="nav-text">创建github仓库存储评论数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OAuth"><span class="nav-number">1.4.</span> <span class="nav-text">OAuth</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitalk使用"><span class="nav-number">2.</span> <span class="nav-text">Gitalk使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalk-cdn"><span class="nav-number">3.</span> <span class="nav-text">gitalk cdn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理接口"><span class="nav-number">4.</span> <span class="nav-text">代理接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口部署"><span class="nav-number">4.1.</span> <span class="nav-text">接口部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">4.2.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

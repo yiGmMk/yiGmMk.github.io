@@ -1,6 +1,12 @@
-https://programnotes.cn/index.html
 https://programnotes.cn/photo/index.html
 https://programnotes.cn/tags/index.html
+https://programnotes.cn/index.html
+https://programnotes.cn/network-test/index.html
+https://programnotes.cn/nginx/index.html
+https://programnotes.cn/optimization-method/index.html
+https://programnotes.cn/overwrite/index.html
+https://programnotes.cn/practice-in-tensorflow/index.html
+https://programnotes.cn/redis_base_1/index.html
 https://programnotes.cn/supervised-learning/index.html
 https://programnotes.cn/tensorflow/index.html
 https://programnotes.cn/test-gitalk/index.html
@@ -64,12 +70,6 @@ https://programnotes.cn/m3u8/index.html
 https://programnotes.cn/memcached/index.html
 https://programnotes.cn/mysql-group_concat-truncated/index.html
 https://programnotes.cn/mysql-slow-query/index.html
-https://programnotes.cn/network-test/index.html
-https://programnotes.cn/nginx/index.html
-https://programnotes.cn/optimization-method/index.html
-https://programnotes.cn/overwrite/index.html
-https://programnotes.cn/practice-in-tensorflow/index.html
-https://programnotes.cn/redis_base_1/index.html
 https://programnotes.cn/linux-lsb_release/index.html
 https://programnotes.cn/micro-service/index.html
 https://programnotes.cn/a-set-of-notes-blogs/index.html

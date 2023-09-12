@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">83</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">85</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">114</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">115</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -174,6 +174,212 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/load-balance/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/load-balance/index.html" class="post-title-link" itemprop="url">load balance</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+08:00">2021-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>678</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><pre><code>对流量进行按需分发的服务，通过将流量分发到不同的后端服务来扩展应用系统的</code></pre><p>服务吞吐能力，并且可以消除系统中的单点故障，提升应用系统的可用性。<br>    主要为HTTP/HTTPS/TCP/UDP/QUICk几种类型的请求设置转发规则。</p>
+<h3 id="负载均衡算法"><a href="#负载均衡算法" class="headerlink" title="负载均衡算法"></a>负载均衡算法</h3><ol>
+<li>轮询（Round Robin）：第一个请求选择列表中的第一个服务器，按顺序移动列表直到结尾，循环。</li>
+<li>最小连接（Least Connections）：优先选择连接数最少的服务器</li>
+<li>请求来源（Source）：根据请求源的 IP 的散列（hash）来选择要转发的服务器。<h3 id="7层负载均衡与4层负载均衡"><a href="#7层负载均衡与4层负载均衡" class="headerlink" title="7层负载均衡与4层负载均衡"></a>7层负载均衡与4层负载均衡</h3><h4 id="4层"><a href="#4层" class="headerlink" title="4层"></a>4层</h4> 4层 LB 主要是通过报文中的目的地址和端口，再加上负载均衡设备设置的服务器<br>选择方式，决定最终选择的内部服务器。负载能力实现主要基于数据包的传输层信息<br>（ ip + port ）进行负载转发。</li>
+</ol>
+<ul>
+<li>基于域名或URL转发<h4 id="7层"><a href="#7层" class="headerlink" title="7层"></a>7层</h4>  7层 LB 也称为“内容交换”，主要通过报文中真正有意义的应用层内容（证书，<br>cookies，http头部信息），会在负载均衡设备上进行证书校验，三次握手等操作，再<br>加上负载均衡设备设置的服务器选择方式，决定最终的内服务器。负载能力实现主要基<br>于应数据包应用层信息（ domain+port+url 等）进行负载转发。</li>
+<li>基于内容的路由</li>
+<li>HTTP标头改写、重定向、重写、限速等</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li>阿里云:<a href="https://help.aliyun.com/document_detail/197202.html?spm=a2c4g.11186623.6.554.66e4773aZkbJZE" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/197202.html?spm=a2c4g.11186623.6.554.66e4773aZkbJZE</a></li>
+<li>腾讯云:</li>
+<li>知乎:<a href="https://zhuanlan.zhihu.com/p/32841479" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32841479</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/wrk/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/wrk/index.html" class="post-title-link" itemprop="url">wrk</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-01T00:00:00+08:00">2021-08-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="wrk"><a href="#wrk" class="headerlink" title="wrk"></a>wrk</h3><ol start="0">
+<li>usage<br>HTTP benchmarking tool.<br>More information: <a href="https://github.com/wg/wrk" target="_blank" rel="noopener">https://github.com/wg/wrk</a>.</li>
+<li>param<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line"> -c, --connections &lt;N&gt;  Connections to keep open &#x2F;&#x2F;连接数</span><br><span class="line"> -d, --duration    &lt;T&gt;  Duration of test         &#x2F;&#x2F;测试时间</span><br><span class="line"> -t, --threads     &lt;N&gt;  Number of threads to use &#x2F;&#x2F;线程数</span><br><span class="line"></span><br><span class="line"> -s, --script      &lt;S&gt;  Load Lua script file     &#x2F;&#x2F;lua脚本</span><br><span class="line"> -H, --header      &lt;H&gt;  Add header to request    &#x2F;&#x2F;添加头信息</span><br><span class="line">     --latency          Print latency statistics</span><br><span class="line">     --timeout     &lt;T&gt;  Socket&#x2F;request timeout</span><br><span class="line"> -v, --version          Print version details    &#x2F;&#x2F;版本信息</span><br><span class="line">Numeric arguments may include a SI unit (1k, 1M, 1G)</span><br><span class="line">Time arguments may include a time unit (2s, 2m, 2h)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h3><ol>
+<li>测试go-zero demo中的check接口<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wrk -t10 -c1000 -d30s --latency &quot;http:&#x2F;&#x2F;localhost:8888&#x2F;check?book&#x3D;go-zero&quot;</span><br></pre></td></tr></table></figure></li>
+<li>结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Running 30s test @ http:&#x2F;&#x2F;localhost:8888&#x2F;check? book&#x3D;go-zero</span><br><span class="line">  10 threads and 1000 connections</span><br><span class="line">  Thread Stats   Avg      Stdev     Max   +&#x2F;-   Stdev</span><br><span class="line">    Latency   128.84ms   60.10ms 593.00ms   77.53%</span><br><span class="line">    Req&#x2F;Sec   794.67    304.69     1.95k    69.54%</span><br><span class="line">  Latency Distribution</span><br><span class="line">     50%  115.23ms</span><br><span class="line">     75%  153.24ms</span><br><span class="line">     90%  203.13ms</span><br><span class="line">     99%  339.48ms</span><br><span class="line">  233390 requests in 30.10s, 29.60MB read</span><br><span class="line">Requests&#x2F;sec:   7754.33</span><br><span class="line">Transfer&#x2F;sec:      0.98MB</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="ubuntu下使用"><a href="#ubuntu下使用" class="headerlink" title="ubuntu下使用"></a>ubuntu下使用</h3><ol>
+<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;wg&#x2F;wrk.git</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 构建可执行文件</span><br><span class="line">cd wrk</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 软连接</span><br><span class="line">ln -s 绝对路径&#x2F;wrk &#x2F;usr&#x2F;local&#x2F;bin(任意在PATH中的路径都可以)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/docker-mysql/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +411,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -302,7 +508,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -440,7 +646,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -548,7 +754,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -649,7 +855,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -796,7 +1002,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -877,7 +1083,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -964,7 +1170,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
+                <time title="修改时间：2023-09-12 16:18:50" itemprop="dateModified" datetime="2023-09-12T16:18:50+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -993,188 +1199,6 @@
 
       
           <h2 id="what"><a href="#what" class="headerlink" title="what"></a>what</h2><h3 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h3><h2 id="why"><a href="#why" class="headerlink" title="why"></a>why</h2><h2 id="how"><a href="#how" class="headerlink" title="how"></a>how</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/idempotent/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/idempotent/index.html" class="post-title-link" itemprop="url">幂等/idempotent</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>10</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="what"><a href="#what" class="headerlink" title="what"></a>what</h2><h2 id="why"><a href="#why" class="headerlink" title="why"></a>why</h2><h2 id="how"><a href="#how" class="headerlink" title="how"></a>how</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/linux-port/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux-port/index.html" class="post-title-link" itemprop="url">linux port</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-16 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-16T00:00:00+08:00">2021-02-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-08 14:10:54" itemprop="dateModified" datetime="2023-09-08T14:10:54+08:00">2023-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>772</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
-<h2 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h2><p> lsof(list open files)是一个列出当前系统打开文件的工具。</p>
-<h3 id="lsof-查看端口"><a href="#lsof-查看端口" class="headerlink" title="lsof 查看端口"></a>lsof 查看端口</h3><ul>
-<li><p>lsof -i:端口号</p>
-<p>查看服务器 8000 端口的占用情况：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lsof -i:8000</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME</span><br><span class="line">nodejs  26993 root   10u  IPv4 37999514      0t0  TCP *:8000 (LISTEN)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其他参数</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:8080：查看8080端口占用</span><br><span class="line"></span><br><span class="line">lsof abc.txt：显示开启文件abc.txt的进程</span><br><span class="line"></span><br><span class="line">lsof -c abc：显示abc进程现在打开的文件</span><br><span class="line"></span><br><span class="line">lsof -c -p 1234：列出进程号为1234的进程所打开的文件</span><br><span class="line"></span><br><span class="line">lsof -g gid：显示归属gid的进程情况</span><br><span class="line"></span><br><span class="line">lsof +d /usr/<span class="built_in">local</span>/：显示目录下被进程开启的文件</span><br><span class="line"></span><br><span class="line">lsof +D /usr/<span class="built_in">local</span>/：同上，但是会搜索目录下的目录，时间较长</span><br><span class="line"></span><br><span class="line">lsof -d 4：显示使用fd为4的进程</span><br><span class="line"></span><br><span class="line">lsof -i -U：显示所有打开的端口和UNIX domain文件</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><p> netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。</p>
-<h3 id="netstat-查看端口占用语法格式"><a href="#netstat-查看端口占用语法格式" class="headerlink" title="netstat 查看端口占用语法格式"></a>netstat 查看端口占用语法格式</h3> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp | grep 端口号</span><br><span class="line"></span><br><span class="line">-t (tcp) 仅显示tcp相关选项</span><br><span class="line">-u (udp)仅显示udp相关选项</span><br><span class="line">-n 拒绝显示别名，能显示数字的全部转化为数字</span><br><span class="line">-l 仅列出在Listen(监听)的服务状态</span><br><span class="line">-p 显示建立相关链接的程序名</span><br></pre></td></tr></table></figure>
-
-<p> 更多命令</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp              //查看当前所有tcp端口</span><br><span class="line">netstat -ntulp | grep 80   //查看所有80端口使用情况</span><br><span class="line">netstat -ntulp | grep 3306 //查看所有3306端口使用情况</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -1260,7 +1284,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1273,7 +1297,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">114</span>
+        <span class="site-state-item-count">115</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1350,13 +1374,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">98k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:29</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

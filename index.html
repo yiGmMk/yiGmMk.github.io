@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-09-12 00:00:00 / 修改时间：16:25:18" itemprop="dateCreated datePublished" datetime="2023-09-12T00:00:00+08:00">2023-09-12</time>
+              <time title="创建时间：2023-09-12 00:00:00 / 修改时间：16:32:20" itemprop="dateCreated datePublished" datetime="2023-09-12T00:00:00+08:00">2023-09-12</time>
             </span>
 
           <br>
@@ -242,27 +242,14 @@
 <p><img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/97f257b59ac3be4851c52ae0d55c54cc.png" alt="file size exceeds configured limit"></p>
 <p>Idea菜单栏点击”Help”-&gt;”Edit custom properties” 添加下面的配置,修改文件大小限制</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> custom IntelliJ IDEA properties</span></span><br><span class="line">idea.max.intellisense.filesize=50000</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><ol>
-<li>一开始从类飘红的入手,怀疑是没有生成对应的类,在”target/generated-sources/protobuf/java/xxxx”目录下查找<br>对应的类,看了一圈没有(实际生成了,Idea扫描后做代码提示,由于这个文件过大把文件放到了最后,并不是正常按文件排序,<br>导致误判,认为没有生成)</li>
-<li>于是尝试下载protoc插件手动生成,没成功</li>
-<li>换个环境,在wsl上配置idea环境,直接调用windwos上的maven编译,发现了生成的对应类</li>
-<li>开始配置wsl+idea: maven,jdk,jre,idea配置</li>
-<li>配置一堆,通过idea编译发现还是不能跳转(能生成正常应该能跳转…)</li>
-<li>又找了一圈,看到了Position类,提示”The file size (4MB) exceeds the configured limit (2.56 MB).Code insight features are not available.”</li>
-<li>修复idea配置,添加”idea.max.intellisense.filesize=50000”,终于正常了</li>
-</ol>
-<h2 id="wsl2-idea"><a href="#wsl2-idea" class="headerlink" title="wsl2+idea"></a>wsl2+idea</h2><h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><ul>
-<li>占用cpu过高,是在windwos上的几倍,环境里的git版本太低(如2.17.1)不支持,</li>
-<li>debug/run需要手动配置”Run Configuration”,和Win比太折腾,在Windows上点下main方法就好了</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://github.com/xolstice/protobuf-maven-plugin/" target="_blank" rel="noopener">maven生成protobuf</a><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 参考 : https://www.xolstice.org/protobuf-maven-plugin/usage.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.21.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.xolstice.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.6.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pluginId</span>&gt;</span>protoc-java<span class="tag">&lt;/<span class="name">pluginId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">protocArtifact</span>&gt;</span></span><br><span class="line">            com.google.protobuf:protoc:$&#123;protoc.version&#125;:exe:$&#123;os.detected.classifier&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">protocArtifact</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pluginArtifact</span>&gt;</span></span><br><span class="line">            io.grpc:protoc-gen-grpc-java:$&#123;grpc.version&#125;:exe:$&#123;os.detected.classifier&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">pluginArtifact</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><a href="https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html" target="_blank" rel="noopener">idea+wsl环境配置</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/574175209" target="_blank" rel="noopener">idea+wsl环境配置.2</a></li>
-<li><a href="https://blog.csdn.net/qq_34321590/article/details/106131393" target="_blank" rel="noopener">The file size exceeds configured limit</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/idea-issue-protobuf/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -306,7 +293,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-09-12 00:00:00 / 修改时间：16:25:18" itemprop="dateCreated datePublished" datetime="2023-09-12T00:00:00+08:00">2023-09-12</time>
+              <time title="创建时间：2023-09-12 00:00:00 / 修改时间：16:32:20" itemprop="dateCreated datePublished" datetime="2023-09-12T00:00:00+08:00">2023-09-12</time>
             </span>
 
           <br>
@@ -392,7 +379,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -489,7 +476,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -587,7 +574,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -674,7 +661,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -778,7 +765,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
 
           <br>
@@ -872,7 +859,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -971,7 +958,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1135,7 +1122,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 16:25:18" itemprop="dateModified" datetime="2023-09-12T16:25:18+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-12 16:32:20" itemprop="dateModified" datetime="2023-09-12T16:32:20+08:00">2023-09-12</time>
               </span>
 
           <br>

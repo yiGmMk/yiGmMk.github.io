@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">85</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">115</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">116</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -174,6 +174,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/3d-matrix/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/3d-matrix/index.html" class="post-title-link" itemprop="url">线性代数-三维矩阵运算</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-31 00:00:00" itemprop="dateCreated datePublished" datetime="2023-03-31T00:00:00+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>655</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><p>常见的线性变换平移、缩放、旋转、投影</p>
+<h3 id="三维空间的坐标表示"><a href="#三维空间的坐标表示" class="headerlink" title="三维空间的坐标表示"></a>三维空间的坐标表示</h3><p>通常用4x4矩阵表示3D空间中的变换，如平移、旋转、缩放等。</p>
+<ul>
+<li>旋转变换：矩阵的前三列表示三个坐标轴的旋转变换，每列都是一个长度为3的向量。例如，第一列表示绕X轴旋转的变换，第二列表示绕Y轴旋转的变换，第三列表示绕Z轴旋转的变换。</li>
+<li>平移变换：矩阵的第四列表示平移变换，它是一个长度为3的向量，表示在每个坐标轴上的平移量。</li>
+<li>透视变换：矩阵的第四行用于透视变换，通常表示投影平面上的坐标系。</li>
+<li>缩放变换：矩阵的对角线元素表示缩放变换的比例因子，例如，x轴缩放因子为矩阵的第一个元素，y轴缩放因子为第二个元素，z轴缩放因子为第三个元素。</li>
+</ul>
+<h2 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h2><p>对于一个3D空间中的点A(x, y, z)，我们可以使用一个4x1列向量表示它，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x</span><br><span class="line">y</span><br><span class="line">z</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p>其中最后一个元素为1，这是为了让矩阵乘法能够正确地进行。<br>要对这个点进行平移变换，我们可以创建一个如下所示的4x4矩阵：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 0 0 tx</span><br><span class="line">0 1 0 ty</span><br><span class="line">0 0 1 tz</span><br><span class="line">0 0 0 1</span><br></pre></td></tr></table></figure>
+
+<p>其中(tx, ty, tz)表示平移向量。然后，我们可以将该点与矩阵相乘来进行变换，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x&#39; &#x3D; x + tx</span><br><span class="line">y&#39; &#x3D; y + ty</span><br><span class="line">z&#39; &#x3D; z + tz</span><br><span class="line">1&#39; &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p>缩放矩阵</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sx  0   0   0</span><br><span class="line">0   sy  0   0</span><br><span class="line">0   0   sz  0</span><br><span class="line">0   0   0   1</span><br></pre></td></tr></table></figure>
+
+<p>缩放后点A为A’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x&#39; &#x3D; x*sx</span><br><span class="line">y&#39; &#x3D; y*sy</span><br><span class="line">z&#39; &#x3D; z*sz</span><br><span class="line">1&#39; &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><h2 id="透视"><a href="#透视" class="headerlink" title="透视"></a>透视</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/187411029" target="_blank" rel="noopener">线性变换</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/147282442" target="_blank" rel="noopener">三维矩阵表示变换</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/3d-base/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +310,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
 
           <br>
@@ -304,7 +409,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
 
           <br>
@@ -391,7 +496,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
 
           <br>
@@ -477,7 +582,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
 
           <br>
@@ -567,7 +672,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
 
           <br>
@@ -657,7 +762,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
 
           <br>
@@ -744,7 +849,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -846,7 +951,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -948,7 +1053,7 @@ img{
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
+                <time title="修改时间：2023-09-17 22:24:48" itemprop="dateModified" datetime="2023-09-17T22:24:48+08:00">2023-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -996,128 +1101,6 @@ img{
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/book_2022_1/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/book_2022_1/index.html" class="post-title-link" itemprop="url">Building Event-Driven Microservices</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-17T00:00:00+08:00">2022-03-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-12 17:09:19" itemprop="dateModified" datetime="2023-09-12T17:09:19+08:00">2023-09-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/book/" itemprop="url" rel="index"><span itemprop="name">book</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="中文翻译-lt-微服务与事件驱动架构-gt"><a href="#中文翻译-lt-微服务与事件驱动架构-gt" class="headerlink" title="中文翻译:&lt;微服务与事件驱动架构&gt;"></a>中文翻译:&lt;微服务与事件驱动架构&gt;</h2><h3 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h3><h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h4><ol>
-<li>康威定律</li>
-<li>微服务</li>
-<li>事件驱动架构</li>
-</ol>
-<h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><ol>
-<li><p>康威定律: 设计系统的组织……受到约束，产生的设计是这些组织的沟通结构的副本</p>
-<blockquote><p>Organizations which design systems are constrained to produce designs which are copies of the communication structures of these organizations. - Melvin Conway(1967)</p>
-</blockquote>
-<p>references:</p>
-<ul>
-<li><p>阿里肥侠文章:”微服务架构的理论基础 - 康威定律” <a href="https://developer.aliyun.com/article/8611" target="_blank" rel="noopener">https://developer.aliyun.com/article/8611</a></p>
-</li>
-<li><p>康威定律详细介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第一定律</span><br><span class="line">Communication dictates design</span><br><span class="line">组织沟通方式会通过系统设计表达出来</span><br><span class="line">第二定律</span><br><span class="line">There is never enough time to do something right, but there is always enough time to do it over</span><br><span class="line">时间再多一件事情也不可能做的完美，但总有时间做完一件事情</span><br><span class="line">第三定律</span><br><span class="line">There is a homomorphism from the linear graph of a system to the linear graph of its design organization</span><br><span class="line">线型系统和线型组织架构间有潜在的异质同态特性</span><br><span class="line">第四定律</span><br><span class="line">The structures of large systems tend to disintegrate during development, qualitatively more so than with  small  ystems</span><br><span class="line">大的系统组织总是比小系统更倾向于分解</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>微服务</p>
-<blockquote><p>The microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services , which may be written in different programming languages and use different data storage technologies.<br>         – James Lewis and Martin Fowler</p>
-</blockquote>
-<blockquote><p>Martin Fowler是国际著名的OO专家，敏捷开发方法的创始人之一，现为ThoughtWorks公司的首席科学家.福勒（Martin Fowler），在面向对象分析设计、UML、模式、软件开发方法学、XP、重构等方面，都是世界顶级的专家，现为Thought Works公司的首席科学家。Thought Works是一家从事企业应用开发和集成的公司。早在20世纪80年代，Fowler就是使用对象技术构建多层企业应用的倡导者，他著有几本经典书籍：《企业应用架构模式》、《UML精粹》和《重构》等。—— 百度百科</p>
-</blockquote>
-</li>
-<li><p>微服务问题<br>微服务架构需要考虑的问题，包括</p>
-</li>
-</ol>
-<ul>
-<li>API Gateway</li>
-<li>服务间调用</li>
-<li>服务发现</li>
-<li>服务容错</li>
-<li>服务部署</li>
-<li>数据调用</li>
-</ul>
-
       
     </div>
 
@@ -1203,7 +1186,7 @@ img{
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1216,7 +1199,7 @@ img{
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">115</span>
+        <span class="site-state-item-count">116</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1293,13 +1276,13 @@ img{
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">100k</span>
+    <span title="站点总字数">101k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:31</span>
+    <span title="站点阅读时长">1:32</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

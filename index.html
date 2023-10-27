@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-10-27 00:00:00 / 修改时间：16:05:06" itemprop="dateCreated datePublished" datetime="2023-10-27T00:00:00+08:00">2023-10-27</time>
+              <time title="创建时间：2023-10-27 00:00:00 / 修改时间：16:05:33" itemprop="dateCreated datePublished" datetime="2023-10-27T00:00:00+08:00">2023-10-27</time>
             </span>
 
           <br>
@@ -279,7 +279,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-10-27 00:00:00 / 修改时间：16:05:06" itemprop="dateCreated datePublished" datetime="2023-10-27T00:00:00+08:00">2023-10-27</time>
+              <time title="创建时间：2023-10-27 00:00:00 / 修改时间：16:05:33" itemprop="dateCreated datePublished" datetime="2023-10-27T00:00:00+08:00">2023-10-27</time>
             </span>
 
           <br>
@@ -336,6 +336,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/vscode-go-test/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vscode-go-test/index.html" class="post-title-link" itemprop="url">vscode|go测试调试配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-17 00:00:00" itemprop="dateCreated datePublished" datetime="2023-10-17T00:00:00+08:00">2023-10-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="vscode-go测试调试"><a href="#vscode-go测试调试" class="headerlink" title="vscode|go测试调试"></a>vscode|go测试调试</h1><h2 id="单测"><a href="#单测" class="headerlink" title="单测"></a>单测</h2><p>在vscode中,带_test的go源文件里的测试函数有有专门的优化,可点击”run test”,”debug test”一键测试</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在settings.json可以指定go buld参数如ldfalgs,gcflags等</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">"go.buildFlags": [</span><br><span class="line">    <span class="string">"--ldflags -r=$&#123;workspaceRoot&#125;/lib"</span>    <span class="comment">// works for 'debug test' but not 'run test'</span></span><br><span class="line">    <span class="comment">// "-ldflags=-r $&#123;workspaceRoot&#125;/lib"  // works for 'run test' but not 'debug test'</span></span><br><span class="line">],</span><br><span class="line">"go.buildTags": "linux",</span><br><span class="line">"gopls": &#123;</span><br><span class="line">    "build.buildFlags": [</span><br><span class="line">        "-tags=linux",</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vscode-go-test/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go-gopls-optimize/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -367,7 +455,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -467,7 +555,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -567,7 +655,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -653,7 +741,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -750,7 +838,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -848,7 +936,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -935,7 +1023,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 16:05:33" itemprop="dateModified" datetime="2023-10-27T16:05:33+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -990,100 +1078,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/http-multipart/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/http-multipart/index.html" class="post-title-link" itemprop="url">multipart</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-15T00:00:00+08:00">2023-05-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 16:05:06" itemprop="dateModified" datetime="2023-10-27T16:05:06+08:00">2023-10-27</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>961</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>multipart 用于在http中高效上传文件</p>
-<blockquote>
-<p>“multipart” or “form-encoded data” is a MIME type which contains multiple files.</p>
-</blockquote>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li><p>‘application/x-www-form-urlencoded’(在multipart之前用于文件上传的方式)需要在文件上传前encoding,multipart不需要</p>
-</li>
-<li><p>stream each part separately(多个文件,对每个文件支持单独流式传输)</p>
-</li>
-</ul>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/cgi-bin/qtest</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Content-Type</span>: multipart/form-data; boundary=2a8ae6ad-f4ad-4d9a-a92c-6d217011fe0f</span><br><span class="line"><span class="attribute">Content-Length</span>: 514</span><br><span class="line"></span><br><span class="line">--2a8ae6ad-f4ad-4d9a-a92c-6d217011fe0f</span><br><span class="line"><span class="attribute">Content-Disposition</span>: form-data; name="datafile1"; filename="r.gif"</span><br><span class="line"><span class="attribute">Content-Type</span>: image/gif</span><br><span class="line"></span><br><span class="line"><span class="attribute">GIF87a.............,...........D..;</span></span><br><span class="line"><span class="attribute">--2a8ae6ad-f4ad-4d9a-a92c-6d217011fe0f</span></span><br><span class="line"><span class="attribute">Content-Disposition</span>: form-data; name="datafile2"; filename="g.gif"</span><br><span class="line"><span class="attribute">Content-Type</span>: image/gif</span><br><span class="line"></span><br><span class="line"><span class="attribute">GIF87a.............,...........D..;</span></span><br><span class="line"><span class="attribute">--2a8ae6ad-f4ad-4d9a-a92c-6d217011fe0f</span></span><br><span class="line"><span class="attribute">Content-Disposition</span>: form-data; name="datafile3"; filename="b.gif"</span><br><span class="line"><span class="attribute">Content-Type</span>: image/gif</span><br><span class="line"></span><br><span class="line"><span class="attribute">GIF87a.............,...........D..;</span></span><br><span class="line"><span class="attribute">--2a8ae6ad-f4ad-4d9a-a92c-6d217011fe0f--</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><ul>
-<li><a href="https://blog.adamchalmers.com/multipart" target="_blank" rel="noopener">multipart</a></li>
-<li><a href="https://juejin.cn/post/7209464086891036730" target="_blank" rel="noopener">https://juejin.cn/post/7209464086891036730</a></li>
-</ul>
-
       
     </div>
 

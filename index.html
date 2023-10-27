@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">87</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">88</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">116</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">117</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -188,7 +188,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ai%7Clocal-knowledge/index.html" class="post-title-link" itemprop="url">ai|local-knowledge</a>
+            <a href="/ai%7Clocal-knowledge/index.html" class="post-title-link" itemprop="url">大语言模型构建本地知识库</a>
         </h2>
 
         <div class="post-meta">
@@ -197,8 +197,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-10-27 14:32:23" itemprop="dateCreated datePublished" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+              <time title="创建时间：2023-10-27 00:00:00 / 修改时间：15:30:49" itemprop="dateCreated datePublished" datetime="2023-10-27T00:00:00+08:00">2023-10-27</time>
             </span>
 
           <br>
@@ -227,36 +228,14 @@
 
       
           <h1 id="大语言模型构建本地知识库"><a href="#大语言模型构建本地知识库" class="headerlink" title="大语言模型构建本地知识库"></a>大语言模型构建本地知识库</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="LLM-大语言模型"><a href="#LLM-大语言模型" class="headerlink" title="LLM/大语言模型"></a>LLM/大语言模型</h3><p>大语言模型（英文：Large Language Model，缩写LLM）是一种人工智能模型，旨在理解和生成人类语言。它们在大量的文本数据上进行训练，可以执行广泛的任务，包括文本总结、翻译、情感分析等等。LLM的特点是规模庞大，包含数十亿的参数</p>
-<h3 id="LangChain"><a href="#LangChain" class="headerlink" title="LangChain"></a>LangChain</h3><p>LangChain是一个强大的框架，旨在帮助开发人员使用语言模型构建端到端的应用程序。它提供了一套工具、组件和接口，可简化创建由大型语言模型 (LLM) 和聊天模型提供支持的应用程序的过程。LangChain 可以轻松管理与语言模型的交互，将多个组件链接在一起，并集成额外的资源，例如 API 和数据库</p>
-<h4 id="Components-and-Chains"><a href="#Components-and-Chains" class="headerlink" title="Components and Chains"></a>Components and Chains</h4><ul>
-<li>Component 是模块化的构建块，可以组合起来创建强大的应用程序。</li>
-<li>Chain 是组合在一起以完成特定任务的一系列 Components（或其他 Chain）。</li>
-</ul>
-<p>例如，一个 Chain 可能包括一个 Prompt 模板、一个语言模型和一个输出解析器，它们一起工作以处理用户输入、生成响应并处理输出。</p>
-<h4 id="Prompt-Templates-and-Values"><a href="#Prompt-Templates-and-Values" class="headerlink" title="Prompt Templates and Values"></a>Prompt Templates and Values</h4><ul>
-<li>Prompt Template 负责创建 Prompt Value，这是最终传递给语言模型的内容</li>
-<li>Prompt Values 是具有方法的类，这些方法可以转换为每个模型类型期望的确切输入类型（如文本或聊天消息）</li>
-</ul>
-<h4 id="Output-Parsers"><a href="#Output-Parsers" class="headerlink" title="Output Parsers"></a>Output Parsers</h4><p>负责将语言模型响应构建为更有用的格式</p>
-<h3 id="LlamaIndex"><a href="#LlamaIndex" class="headerlink" title="LlamaIndex"></a>LlamaIndex</h3><p><a href="https://gpt-index.readthedocs.io/en/latest/" target="_blank" rel="noopener">LlamaIndex</a>使用 LangChain 的 LLM 模块并允许自定义底层 LLM。LlamaIndex 是一个强大的工具，它提供了一个中央接口来将 LLM 与外部数据连接起来，并允许你根据你提供的数据创建一个聊天机器人。使用 LlamaIndex，您无需成为 NLP 或机器学习专家。您只需要提供您希望聊天机器人使用的数据，LlamaIndex 会处理剩下的事情</p>
-<h3 id="Hugging-Face"><a href="#Hugging-Face" class="headerlink" title="Hugging Face"></a>Hugging Face</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/620529542" target="_blank" rel="noopener">LangChain,知乎</a></li>
-<li><a href="https://docs.langchain.com/docs/" target="_blank" rel="noopener">LangChain,docs</a><br><a href="https://www.langchain.com.cn/getting_started/getting_started" target="_blank" rel="noopener">中文</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/640680449" target="_blank" rel="noopener">Hugging Face,初学者在使用 Hugging Face LLM 之前最好知道的12件事</a></li>
-</ul>
-<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><h3 id="阿里云-DashVector-x-LLM"><a href="#阿里云-DashVector-x-LLM" class="headerlink" title="阿里云 DashVector x LLM"></a>阿里云 DashVector x LLM</h3><h3 id="GPT4All-LangChain"><a href="#GPT4All-LangChain" class="headerlink" title="GPT4All + LangChain"></a>GPT4All + LangChain</h3><h3 id="FASTGpt-One-api-阿里云DashScope"><a href="#FASTGpt-One-api-阿里云DashScope" class="headerlink" title="FASTGpt+One-api+阿里云DashScope"></a>FASTGpt+One-api+阿里云DashScope</h3><p>开源项目FastGpt构建本地知识库,通过one-api调用非chatgpt的大语言模型(为非openai的LLM提供类似chatgpt接口),阿里的<br>DashScope有通义千问,Llmma2,通义万相,姜子牙通用大模型等LLM接口可供使用</p>
-<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
-<li><a href="https://github.com/labring/FastGPT" target="_blank" rel="noopener">FastGpt</a></li>
-<li><a href="https://github.com/songquanpeng/one-api" target="_blank" rel="noopener">One-api</a></li>
-<li><a href="https://dashscope.console.aliyun.com/model" target="_blank" rel="noopener">DashScope</a></li>
-</ul>
-<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/633924725" target="_blank" rel="noopener">GP4ALL,在本地计算机上搭建自己的文档 ‘ChatGPT’</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/636080096" target="_blank" rel="noopener">使用 OpenAI、LangChain 和 LlamaIndex 构建自己的 DevSecOps 知识库</a><br><a href="https://github.com/wenqiglantz/DevSecOpsKB-LlamaIndex-LangChain-OpenAI/tree/main/DevSecOpsKB" target="_blank" rel="noopener">code</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/643233392" target="_blank" rel="noopener">构建你的第一个 LLM  APP 所需了解的一切</a></li>
-<li><a href="https://help.aliyun.com/document_detail/2510235.html?spm=a2c4g.2568028.0.0.20521b9672Ea6J" target="_blank" rel="noopener">DashVector x LLM大模型:打造基于专属知识的问答服务</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ai%7Clocal-knowledge/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -306,7 +285,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -406,7 +385,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -506,7 +485,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -592,7 +571,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -689,7 +668,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -787,7 +766,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -874,7 +853,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -978,7 +957,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
 
           <br>
@@ -1072,7 +1051,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+                <time title="修改时间：2023-10-27 15:30:49" itemprop="dateModified" datetime="2023-10-27T15:30:49+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1207,7 +1186,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1220,7 +1199,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">116</span>
+        <span class="site-state-item-count">117</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1297,13 +1276,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">103k</span>
+    <span title="站点总字数">104k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:33</span>
+    <span title="站点阅读时长">1:34</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

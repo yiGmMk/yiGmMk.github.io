@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -174,6 +174,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go-string/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/go-string/index.html" class="post-title-link" itemprop="url">go语言string按下标访问和for range访问有什么区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-09-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-19T00:00:00+08:00">2022-09-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/go/" itemprop="url" rel="index"><span itemprop="name">go</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="下标访问"><a href="#下标访问" class="headerlink" title="下标访问"></a>下标访问</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestStr</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line"> str := <span class="string">`中\a`</span></span><br><span class="line"> log.Println(unsafe.Sizeof(<span class="keyword">rune</span>(<span class="string">'中'</span>)), unsafe.Sizeof(str[<span class="number">0</span>]), str[<span class="number">0</span>], <span class="keyword">string</span>(str[<span class="number">0</span>]))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出: 2022/09/15 19:55:27 4 1 228 ä</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nihongo = <span class="string">"日本語"</span></span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> nihongo &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%#U starts at byte position %d\n"</span>, v, i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出:</span></span><br><span class="line"><span class="comment">// U+65E5 '日' starts at byte position 0</span></span><br><span class="line"><span class="comment">// U+672C '本' starts at byte position 3</span></span><br><span class="line"><span class="comment">// U+8A9E '語' starts at byte position 6</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/go-string/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/book_2022_1/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +302,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -327,7 +424,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -426,7 +523,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -524,7 +621,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -615,7 +712,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -711,7 +808,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -803,7 +900,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -919,7 +1016,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1025,7 +1122,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
+                <time title="修改时间：2023-10-27 14:32:23" itemprop="dateModified" datetime="2023-10-27T14:32:23+08:00">2023-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1118,112 +1215,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/a-set-of-notes-blogs/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/a-set-of-notes-blogs/index.html" class="post-title-link" itemprop="url">日常采集</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-02T00:00:00+08:00">2021-12-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-17 22:32:11" itemprop="dateModified" datetime="2023-09-17T22:32:11+08:00">2023-09-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>395</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="golang-org"><a href="#golang-org" class="headerlink" title="golang.org"></a>golang.org</h3><ol>
-<li>effective go: <a href="https://golang.google.cn/doc/effective_go.html" target="_blank" rel="noopener">https://golang.google.cn/doc/effective_go.html</a></li>
-</ol>
-<h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><ol>
-<li>go面试题：<a href="https://github.com/lifei6671/interview-go" target="_blank" rel="noopener">https://github.com/lifei6671/interview-go</a></li>
-<li>go <a href="https://github.com/shomali11/go-interview" target="_blank" rel="noopener">https://github.com/shomali11/go-interview</a></li>
-</ol>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
-<li>国光: <a href="https://www.sqlsec.com/" target="_blank" rel="noopener">https://www.sqlsec.com/</a></li>
-<li>Go Questions: <a href="https://golang.design/go-questions/" target="_blank" rel="noopener">https://golang.design/go-questions/</a></li>
-</ol>
-<h3 id="golang-blog"><a href="#golang-blog" class="headerlink" title="golang blog"></a>golang blog</h3><ol>
-<li>曹春晖: <a href="https://xargin.com/" target="_blank" rel="noopener">https://xargin.com/</a></li>
-<li>兔兔(7天从零实现系列): <a href="https://geektutu.com/post/gee.html" target="_blank" rel="noopener">https://geektutu.com/post/gee.html</a></li>
-<li>go by example:<a href="https://golangbyexample.com/" target="_blank" rel="noopener">https://golangbyexample.com/</a></li>
-</ol>
-<h3 id="golang-book"><a href="#golang-book" class="headerlink" title="golang book"></a>golang book</h3><h3 id="golang-社区"><a href="#golang-社区" class="headerlink" title="golang 社区"></a>golang 社区</h3><ol>
-<li>GOCN: <a href="https://gocn.vip/" target="_blank" rel="noopener">https://gocn.vip/</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1295,7 +1286,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1385,13 +1376,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">102k</span>
+    <span title="站点总字数">103k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:32</span>
+    <span title="站点阅读时长">1:33</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

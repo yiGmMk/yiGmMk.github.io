@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://programnotes.cn//how-i-build-my-blog/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//idempotent/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//install-typora-in-Ubuntu/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//libssl.so.1.0.0-not-found/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
     <loc>https://programnotes.cn//linux-port/index.html</loc>
     <lastmod>2023-12-26</lastmod>
   </url>
@@ -121,27 +105,11 @@
     <lastmod>2023-12-26</lastmod>
   </url>
   <url>
-    <loc>https://programnotes.cn//linux-lsb_release/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
     <loc>https://programnotes.cn//micro-service/index.html</loc>
     <lastmod>2023-12-26</lastmod>
   </url>
   <url>
     <loc>https://programnotes.cn//ssh-usage/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//http-multipart/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//idea-springboot-nacos-issue/index.html</loc>
-    <lastmod>2023-12-26</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//idea-issue-protobuf/index.html</loc>
     <lastmod>2023-12-26</lastmod>
   </url>
   <url>
@@ -313,6 +281,26 @@
     <lastmod>2023-12-26</lastmod>
   </url>
   <url>
+    <loc>https://programnotes.cn//how-i-build-my-blog/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//idempotent/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//install-typora-in-Ubuntu/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//libssl.so.1.0.0-not-found/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//linux-lsb_release/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
     <loc>https://programnotes.cn//a-set-of-notes-blogs/index.html</loc>
     <lastmod>2023-12-26</lastmod>
   </url>
@@ -345,6 +333,14 @@
     <lastmod>2023-12-26</lastmod>
   </url>
   <url>
+    <loc>https://programnotes.cn//aliyun-activity/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//aliyun-try/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
     <loc>https://programnotes.cn//go-build-cross-platform/index.html</loc>
     <lastmod>2023-12-26</lastmod>
   </url>
@@ -354,6 +350,18 @@
   </url>
   <url>
     <loc>https://programnotes.cn//go-pprof-excel-csv/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//http-multipart/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//idea-issue-protobuf/index.html</loc>
+    <lastmod>2023-12-26</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//idea-springboot-nacos-issue/index.html</loc>
     <lastmod>2023-12-26</lastmod>
   </url>
 </urlset> 

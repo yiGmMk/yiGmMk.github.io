@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"programnotes.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan | disqus | disqusjs | gitalk | livere | valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="大语言模型构建本地知识库概念LLM&#x2F;大语言模型大语言模型（英文：Large Language Model，缩写LLM）是一种人工智能模型，旨在理解和生成人类语言。它们在大量的文本数据上进行训练，可以执行广泛的任务，包括文本总结、翻译、情感分析等等。LLM的特点是规模庞大，包含数十亿的参数">
+  <meta name="description" content="概念LLM&#x2F;大语言模型大语言模型（英文：Large Language Model，缩写LLM）是一种人工智能模型，旨在理解和生成人类语言。它们在大量的文本数据上进行训练，可以执行广泛的任务，包括文本总结、翻译、情感分析等等。LLM的特点是规模庞大，包含数十亿的参数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大语言模型构建本地知识库">
+<meta property="og:title" content="大语言模型构建本地知识库(RAG)">
 <meta property="og:url" content="https://programnotes.cn/ai|local-knowledge/index.html">
 <meta property="og:site_name" content="编程笔记">
-<meta property="og:description" content="大语言模型构建本地知识库概念LLM&#x2F;大语言模型大语言模型（英文：Large Language Model，缩写LLM）是一种人工智能模型，旨在理解和生成人类语言。它们在大量的文本数据上进行训练，可以执行广泛的任务，包括文本总结、翻译、情感分析等等。LLM的特点是规模庞大，包含数十亿的参数">
+<meta property="og:description" content="概念LLM&#x2F;大语言模型大语言模型（英文：Large Language Model，缩写LLM）是一种人工智能模型，旨在理解和生成人类语言。它们在大量的文本数据上进行训练，可以执行广泛的任务，包括文本总结、翻译、情感分析等等。LLM的特点是规模庞大，包含数十亿的参数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-03T14:25:15.519Z">
+<meta property="article:modified_time" content="2023-12-26T02:29:34.853Z">
 <meta property="article:author" content="yigmmk">
 <meta property="article:tag" content="LLM">
 <meta name="twitter:card" content="summary">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>大语言模型构建本地知识库 | 编程笔记</title>
+  <title>大语言模型构建本地知识库(RAG) | 编程笔记</title>
   
 
 
@@ -190,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          大语言模型构建本地知识库
+          大语言模型构建本地知识库(RAG)
         </h1>
 
         <div class="post-meta">
@@ -207,7 +207,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-03 22:25:15" itemprop="dateModified" datetime="2023-11-03T22:25:15+08:00">2023-11-03</time>
+                <time title="修改时间：2023-12-26 10:29:34" itemprop="dateModified" datetime="2023-12-26T10:29:34+08:00">2023-12-26</time>
               </span>
 
           
@@ -242,7 +242,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="大语言模型构建本地知识库"><a href="#大语言模型构建本地知识库" class="headerlink" title="大语言模型构建本地知识库"></a>大语言模型构建本地知识库</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="LLM-大语言模型"><a href="#LLM-大语言模型" class="headerlink" title="LLM/大语言模型"></a>LLM/大语言模型</h3><p>大语言模型（英文：Large Language Model，缩写LLM）是一种人工智能模型，旨在理解和生成人类语言。它们在大量的文本数据上进行训练，可以执行广泛的任务，包括文本总结、翻译、情感分析等等。LLM的特点是规模庞大，包含数十亿的参数</p>
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="LLM-大语言模型"><a href="#LLM-大语言模型" class="headerlink" title="LLM/大语言模型"></a>LLM/大语言模型</h3><p>大语言模型（英文：Large Language Model，缩写LLM）是一种人工智能模型，旨在理解和生成人类语言。它们在大量的文本数据上进行训练，可以执行广泛的任务，包括文本总结、翻译、情感分析等等。LLM的特点是规模庞大，包含数十亿的参数</p>
 <a id="more"></a>
 <h3 id="LangChain"><a href="#LangChain" class="headerlink" title="LangChain"></a>LangChain</h3><p>LangChain是一个强大的框架，旨在帮助开发人员使用语言模型构建端到端的应用程序。它提供了一套工具、组件和接口，可简化创建由大型语言模型 (LLM) 和聊天模型提供支持的应用程序的过程。LangChain 可以轻松管理与语言模型的交互，将多个组件链接在一起，并集成额外的资源，例如 API 和数据库</p>
 <h4 id="Components-and-Chains"><a href="#Components-and-Chains" class="headerlink" title="Components and Chains"></a>Components and Chains</h4><ul>
@@ -256,22 +256,20 @@
 </ul>
 <h4 id="Output-Parsers"><a href="#Output-Parsers" class="headerlink" title="Output Parsers"></a>Output Parsers</h4><p>负责将语言模型响应构建为更有用的格式</p>
 <h3 id="LlamaIndex"><a href="#LlamaIndex" class="headerlink" title="LlamaIndex"></a>LlamaIndex</h3><p><a href="https://gpt-index.readthedocs.io/en/latest/" target="_blank" rel="noopener">LlamaIndex</a>使用 LangChain 的 LLM 模块并允许自定义底层 LLM。LlamaIndex 是一个强大的工具，它提供了一个中央接口来将 LLM 与外部数据连接起来，并允许你根据你提供的数据创建一个聊天机器人。使用 LlamaIndex，您无需成为 NLP 或机器学习专家。您只需要提供您希望聊天机器人使用的数据，LlamaIndex 会处理剩下的事情</p>
-<h3 id="Hugging-Face"><a href="#Hugging-Face" class="headerlink" title="Hugging Face"></a>Hugging Face</h3><h3 id="Emdedding"><a href="#Emdedding" class="headerlink" title="Emdedding"></a>Emdedding</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/620529542" target="_blank" rel="noopener">LangChain,知乎</a></li>
-<li><a href="https://docs.langchain.com/docs/" target="_blank" rel="noopener">LangChain,docs</a><br><a href="https://www.langchain.com.cn/getting_started/getting_started" target="_blank" rel="noopener">中文</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/640680449" target="_blank" rel="noopener">Hugging Face,初学者在使用 Hugging Face LLM 之前最好知道的12件事</a></li>
-</ul>
-<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><h3 id="阿里云-DashVector-x-LLM"><a href="#阿里云-DashVector-x-LLM" class="headerlink" title="阿里云 DashVector x LLM"></a>阿里云 DashVector x LLM</h3><h3 id="GPT4All-LangChain"><a href="#GPT4All-LangChain" class="headerlink" title="GPT4All + LangChain"></a>GPT4All + LangChain</h3><h3 id="FASTGpt-One-api-阿里云DashScope"><a href="#FASTGpt-One-api-阿里云DashScope" class="headerlink" title="FASTGpt+One-api+阿里云DashScope"></a>FASTGpt+One-api+阿里云DashScope</h3><p>开源项目FastGpt构建本地知识库,通过one-api调用非chatgpt的大语言模型(为非openai的LLM提供类似chatgpt接口),阿里的<br>DashScope有通义千问,Llmma2,通义万相,姜子牙通用大模型等LLM接口可供使用</p>
+<h3 id="Hugging-Face"><a href="#Hugging-Face" class="headerlink" title="Hugging Face"></a>Hugging Face</h3><h3 id="Emdedding"><a href="#Emdedding" class="headerlink" title="Emdedding"></a>Emdedding</h3><h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><h3 id="阿里云-DashVector-x-LLM"><a href="#阿里云-DashVector-x-LLM" class="headerlink" title="阿里云 DashVector x LLM"></a>阿里云 DashVector x LLM</h3><h3 id="GPT4All-LangChain"><a href="#GPT4All-LangChain" class="headerlink" title="GPT4All + LangChain"></a>GPT4All + LangChain</h3><h3 id="FASTGpt-One-api-阿里云DashScope"><a href="#FASTGpt-One-api-阿里云DashScope" class="headerlink" title="FASTGpt+One-api+阿里云DashScope"></a>FASTGpt+One-api+阿里云DashScope</h3><p>开源项目FastGpt构建本地知识库,通过one-api调用非chatgpt的大语言模型(为非openai的LLM提供类似chatgpt接口),阿里的<br>DashScope有通义千问,Llmma2,通义万相,姜子牙通用大模型等LLM接口可供使用</p>
 <h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
 <li><a href="https://github.com/labring/FastGPT" target="_blank" rel="noopener">FastGpt</a></li>
 <li><a href="https://github.com/songquanpeng/one-api" target="_blank" rel="noopener">One-api</a></li>
 <li><a href="https://dashscope.console.aliyun.com/model" target="_blank" rel="noopener">DashScope</a></li>
 </ul>
-<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://zhuanlan.zhihu.com/p/633924725" target="_blank" rel="noopener">GP4ALL,在本地计算机上搭建自己的文档 ‘ChatGPT’</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/636080096" target="_blank" rel="noopener">使用 OpenAI、LangChain 和 LlamaIndex 构建自己的 DevSecOps 知识库</a><br><a href="https://github.com/wenqiglantz/DevSecOpsKB-LlamaIndex-LangChain-OpenAI/tree/main/DevSecOpsKB" target="_blank" rel="noopener">code</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/643233392" target="_blank" rel="noopener">构建你的第一个 LLM  APP 所需了解的一切</a></li>
 <li><a href="https://help.aliyun.com/document_detail/2510235.html?spm=a2c4g.2568028.0.0.20521b9672Ea6J" target="_blank" rel="noopener">DashVector x LLM大模型:打造基于专属知识的问答服务</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/620529542" target="_blank" rel="noopener">LangChain,知乎</a></li>
+<li><a href="https://docs.langchain.com/docs/" target="_blank" rel="noopener">LangChain,docs</a><br><a href="https://www.langchain.com.cn/getting_started/getting_started" target="_blank" rel="noopener">中文</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/640680449" target="_blank" rel="noopener">Hugging Face,初学者在使用 Hugging Face LLM 之前最好知道的12件事</a></li>
 </ul>
 
     </div>
@@ -288,7 +286,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://programnotes.cn/ai|local-knowledge/index.html" title="大语言模型构建本地知识库">https://programnotes.cn/ai|local-knowledge/index.html</a>
+    <a href="https://programnotes.cn/ai|local-knowledge/index.html" title="大语言模型构建本地知识库(RAG)">https://programnotes.cn/ai|local-knowledge/index.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -390,7 +388,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大语言模型构建本地知识库"><span class="nav-number">1.</span> <span class="nav-text">大语言模型构建本地知识库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM-大语言模型"><span class="nav-number">1.1.1.</span> <span class="nav-text">LLM&#x2F;大语言模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LangChain"><span class="nav-number">1.1.2.</span> <span class="nav-text">LangChain</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Components-and-Chains"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Components and Chains</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prompt-Templates-and-Values"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Prompt Templates and Values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Parsers"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Output Parsers</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LlamaIndex"><span class="nav-number">1.1.3.</span> <span class="nav-text">LlamaIndex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hugging-Face"><span class="nav-number">1.1.4.</span> <span class="nav-text">Hugging Face</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emdedding"><span class="nav-number">1.1.5.</span> <span class="nav-text">Emdedding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">1.1.6.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案"><span class="nav-number">1.2.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阿里云-DashVector-x-LLM"><span class="nav-number">1.2.1.</span> <span class="nav-text">阿里云 DashVector x LLM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT4All-LangChain"><span class="nav-number">1.2.2.</span> <span class="nav-text">GPT4All + LangChain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FASTGpt-One-api-阿里云DashScope"><span class="nav-number">1.2.3.</span> <span class="nav-text">FASTGpt+One-api+阿里云DashScope</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工具"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考-1"><span class="nav-number">1.2.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM-大语言模型"><span class="nav-number">1.1.</span> <span class="nav-text">LLM&#x2F;大语言模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LangChain"><span class="nav-number">1.2.</span> <span class="nav-text">LangChain</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Components-and-Chains"><span class="nav-number">1.2.1.</span> <span class="nav-text">Components and Chains</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prompt-Templates-and-Values"><span class="nav-number">1.2.2.</span> <span class="nav-text">Prompt Templates and Values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Parsers"><span class="nav-number">1.2.3.</span> <span class="nav-text">Output Parsers</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LlamaIndex"><span class="nav-number">1.3.</span> <span class="nav-text">LlamaIndex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hugging-Face"><span class="nav-number">1.4.</span> <span class="nav-text">Hugging Face</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emdedding"><span class="nav-number">1.5.</span> <span class="nav-text">Emdedding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案"><span class="nav-number">2.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阿里云-DashVector-x-LLM"><span class="nav-number">2.1.</span> <span class="nav-text">阿里云 DashVector x LLM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT4All-LangChain"><span class="nav-number">2.2.</span> <span class="nav-text">GPT4All + LangChain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FASTGpt-One-api-阿里云DashScope"><span class="nav-number">2.3.</span> <span class="nav-text">FASTGpt+One-api+阿里云DashScope</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工具"><span class="nav-number">2.3.1.</span> <span class="nav-text">工具</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

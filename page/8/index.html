@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">91</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">92</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">118</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">119</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -174,6 +174,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/MFC-User-Objects/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/MFC-User-Objects/index.html" class="post-title-link" itemprop="url">MFC-User-Objects</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-12T00:00:00+08:00">2020-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="一、用户对象、句柄"><a href="#一、用户对象、句柄" class="headerlink" title="一、用户对象、句柄"></a>一、用户对象、句柄</h4><p>User interface objects support only one handle per object. Processes cannot inherit or duplicate handles to user objects. Processes in one session cannot reference a user handle in another session.</p>
+<p>There is a theoretical limit of 65,536 user handles per session. However, the maximum number of user handles that can be opened per session is usually lower, since it is affected by available memory. There is also a default per-process limit of user handles. To change this limit, set the following registry value:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\USERProcessHandleQuota</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/MFC-User-Objects/index.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/test-gitalk/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +293,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -283,7 +371,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -362,7 +450,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -448,7 +536,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -537,7 +625,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -628,7 +716,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -706,7 +794,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -805,7 +893,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -898,7 +986,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
+                <time title="修改时间：2024-01-04 15:31:38" itemprop="dateModified" datetime="2024-01-04T15:31:38+08:00">2024-01-04</time>
               </span>
 
           <br>
@@ -935,92 +1023,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/libssl.so.1.0.0-not-found/index.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/Keras-flow_from_dataframe/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Keras-flow_from_dataframe/index.html" class="post-title-link" itemprop="url">Keras-flow_from_dataframe</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-22T00:00:00+08:00">2019-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-26 11:22:18" itemprop="dateModified" datetime="2023-12-26T11:22:18+08:00">2023-12-26</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error :</span><br><span class="line">TypeError: If class_mode=<span class="string">"binary"</span>, y_col=<span class="string">"Label"</span> column values must be strings.</span><br><span class="line">使用class_mode=<span class="string">'categorical'</span>或者其他也会报错</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Keras-flow_from_dataframe/index.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1111,7 +1113,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1124,7 +1126,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">118</span>
+        <span class="site-state-item-count">119</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1191,7 +1193,7 @@
 <div class="copyright">
   
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="user"></i>
   </span>
@@ -1201,13 +1203,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">106k</span>
+    <span title="站点总字数">111k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:37</span>
+    <span title="站点阅读时长">1:41</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

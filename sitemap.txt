@@ -1,6 +1,8 @@
 https://programnotes.cn/index.html
 https://programnotes.cn/photo/index.html
 https://programnotes.cn/tags/index.html
+https://programnotes.cn/linux-top/index.html
+https://programnotes.cn/load-balance/index.html
 https://programnotes.cn/m3u8/index.html
 https://programnotes.cn/memcached/index.html
 https://programnotes.cn/mysql-group_concat-truncated/index.html
@@ -75,8 +77,6 @@ https://programnotes.cn/idempotent/index.html
 https://programnotes.cn/install-typora-in-Ubuntu/index.html
 https://programnotes.cn/libssl.so.1.0.0-not-found/index.html
 https://programnotes.cn/linux-port/index.html
-https://programnotes.cn/linux-top/index.html
-https://programnotes.cn/load-balance/index.html
 https://programnotes.cn/linux-lsb_release/index.html
 https://programnotes.cn/a-set-of-notes-blogs/index.html
 https://programnotes.cn/beego-cors/index.html
@@ -88,6 +88,7 @@ https://programnotes.cn/3d-maxscript/index.html
 https://programnotes.cn/ai|local-knowledge/index.html
 https://programnotes.cn/aliyun-activity/index.html
 https://programnotes.cn/aliyun-try/index.html
+https://programnotes.cn/es-sql-birthday/index.html
 https://programnotes.cn/go-build-cross-platform/index.html
 https://programnotes.cn/go-gopls-optimize/index.html
 https://programnotes.cn/go-pprof-excel-csv/index.html
@@ -254,6 +255,7 @@ https://programnotes.cn/tags/3d/
 https://programnotes.cn/tags/maxscript/
 https://programnotes.cn/tags/LLM/
 https://programnotes.cn/tags/%E6%B4%BB%E5%8A%A8/
+https://programnotes.cn/tags/es/
 https://programnotes.cn/tags/gopls/
 https://programnotes.cn/tags/http/
 https://programnotes.cn/tags/idea/

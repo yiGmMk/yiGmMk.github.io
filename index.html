@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">92</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">93</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -174,6 +174,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/vscode-portable-mode/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vscode-portable-mode/index.html" class="post-title-link" itemprop="url">vscode|下载老版本解决(1.86.x起)服务器不兼容问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-02-17 00:00:00" itemprop="dateCreated datePublished" datetime="2024-02-17T00:00:00+08:00">2024-02-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>496</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>VSCode从V1.86起对部分服务器不兼容(remote ssh),出现类似报错</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You are connected to an OS version that is unsupported by Visual Studio Code</span><br></pre></td></tr></table></figure>
+
+<p>原因可参考<a href="https://code.visualstudio.com/docs/remote/linux#_remote-host-container-wsl-linux-prerequisites" target="_blank" rel="noopener">文档</a>,从报错提示看,<br>大部分人遇到的情况是GLIBC版本过低,而VSCode要求版本&gt;=2.28,这是vscode的依赖nodejs要求的</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本要求 kernel &gt;= 4.18, glibc &gt;=2.28, libstdc++ &gt;= 3.4.25, Python 2.6 or 2.7, tar</span></span><br><span class="line"><span class="comment"># 可以通过如下命令查看glibc版本</span></span><br><span class="line">ldd  --ersion</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看libstdc++ 3.4.25 是否可用</span></span><br><span class="line">strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX</span><br></pre></td></tr></table></figure>
+
+<p>可以升级服务器版本或者降低VSCode版本来解决</p>
+<h2 id="老版本"><a href="#老版本" class="headerlink" title="老版本"></a>老版本</h2><p>VSCode支持<a href="https://code.visualstudio.com/docs/editor/portable#_enable-portable-mode" target="_blank" rel="noopener">Portable Mode</a>,可以同时安装多个版本,多个版本建</p>
+<h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><ul>
+<li><a href="https://code.visualstudio.com/docs/supporting/faq#_previous-release-versions" target="_blank" rel="noopener">官方</a></li>
+<li><a href="https://vscode.download.prss.microsoft.com/dbazure/download/stable/8b3775030ed1a69b13e4f4c628c612102e30a681/VSCode-win32-x64-1.85.2.zip" target="_blank" rel="noopener">官方,1.85.2版本下载</a></li>
+<li>123网盘下载 <a href="https://www.123pan.com/s/nPH8jv-EJi8H.html" target="_blank" rel="noopener">https://www.123pan.com/s/nPH8jv-EJi8H.html</a> 提取码:mBgZ</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/aliyun-activity/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +296,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -290,7 +381,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -376,7 +467,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -462,7 +553,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -550,7 +641,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -638,7 +729,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -738,7 +829,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -838,7 +929,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -924,7 +1015,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
+                <time title="修改时间：2024-02-18 13:50:20" itemprop="dateModified" datetime="2024-02-18T13:50:20+08:00">2024-02-18</time>
               </span>
 
           <br>
@@ -972,104 +1063,6 @@
 <li><a href="https://help.autodesk.com/view/3DSMAX/2015/ENU/?guid=__files_GUID_0EE531B2_6FF8_4D0B_ACA1_5400E0B9D604_htm" target="_blank" rel="noopener">file name parsing</a></li>
 </ul>
 <h2 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- 按钮,点击按钮弹窗展示一张图片</span><br><span class="line">-- layout是弹出窗口的布局,只有一张图片</span><br><span class="line"></span><br><span class="line">rollout layout "示例图"</span><br><span class="line">(</span><br><span class="line"> 	bitmap bmp  fileName: ("img\\example.png") </span><br><span class="line">)</span><br><span class="line">button displayImg "查看示例图" across:1 offset:[0,0] align:#center width:100 height:35 </span><br><span class="line">on displayImg pressed do </span><br><span class="line">(</span><br><span class="line">	createDialog layout 1920 1080</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/go-build-cross-platform/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/go-build-cross-platform/index.html" class="post-title-link" itemprop="url">Go|跨平台编译</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-08-09 00:00:00" itemprop="dateCreated datePublished" datetime="2023-08-09T00:00:00+08:00">2023-08-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 14:13:35" itemprop="dateModified" datetime="2024-01-05T14:13:35+08:00">2024-01-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>342</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="通过命令传参"><a href="#通过命令传参" class="headerlink" title="通过命令传参"></a>通过命令传参</h2><h3 id="linux系统"><a href="#linux系统" class="headerlink" title="linux系统"></a>linux系统</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 GOOS指定系统,GOARCH指定架构</span></span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go</span><br></pre></td></tr></table></figure>
-
-<h3 id="windows系统"><a href="#windows系统" class="headerlink" title="windows系统"></a>windows系统</h3><p>上述命令在powershell,cmd中不可用</p>
-<h2 id="通过设置环境变量"><a href="#通过设置环境变量" class="headerlink" title="通过设置环境变量"></a>通过设置环境变量</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看go环境变量</span></span><br><span class="line">go env</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置</span></span><br><span class="line">go env -w GOOS=windows GOARCH=amd64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置完环境变量再构建</span></span><br><span class="line"></span><br><span class="line">go build -o xxx xxx.go</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="系统-架构值参考"><a href="#系统-架构值参考" class="headerlink" title="系统,架构值参考"></a>系统,架构值参考</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$GOOS</span>         <span class="variable">$GOARCH</span>     </span><br><span class="line">darwin         386</span><br><span class="line">darwin         amd64</span><br><span class="line">freebsd        386</span><br><span class="line">freebsd        amd64</span><br><span class="line">linux          386</span><br><span class="line">linux          amd64</span><br><span class="line">linux          arm</span><br><span class="line">windows        386</span><br><span class="line">windows        amd64</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://golang.google.cn/cmd/go/" target="_blank" rel="noopener">go cmd</a></li>
-</ul>
-
       
     </div>
 
@@ -1155,7 +1148,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1245,7 +1238,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">112k</span>
+    <span title="站点总字数">113k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

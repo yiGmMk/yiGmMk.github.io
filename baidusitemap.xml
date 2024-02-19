@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://programnotes.cn//anaconda-usage/index.html</loc>
-    <lastmod>2024-02-19</lastmod>
-  </url>
-  <url>
     <loc>https://programnotes.cn//book_2022_1/index.html</loc>
     <lastmod>2024-02-19</lastmod>
   </url>
@@ -225,10 +221,6 @@
     <lastmod>2024-02-19</lastmod>
   </url>
   <url>
-    <loc>https://programnotes.cn//beego-cors/index.html</loc>
-    <lastmod>2024-02-19</lastmod>
-  </url>
-  <url>
     <loc>https://programnotes.cn//donot-use-pointer-in-request-param/index.html</loc>
     <lastmod>2024-02-19</lastmod>
   </url>
@@ -238,14 +230,6 @@
   </url>
   <url>
     <loc>https://programnotes.cn//ssh-usage/index.html</loc>
-    <lastmod>2024-02-19</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//aliyun-activity/index.html</loc>
-    <lastmod>2024-02-19</lastmod>
-  </url>
-  <url>
-    <loc>https://programnotes.cn//aliyun-try/index.html</loc>
     <lastmod>2024-02-19</lastmod>
   </url>
   <url>
@@ -353,7 +337,15 @@
     <lastmod>2024-02-19</lastmod>
   </url>
   <url>
+    <loc>https://programnotes.cn//anaconda-usage/index.html</loc>
+    <lastmod>2024-02-19</lastmod>
+  </url>
+  <url>
     <loc>https://programnotes.cn//a-set-of-notes-blogs/index.html</loc>
+    <lastmod>2024-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//beego-cors/index.html</loc>
     <lastmod>2024-02-19</lastmod>
   </url>
   <url>
@@ -370,6 +362,14 @@
   </url>
   <url>
     <loc>https://programnotes.cn//ai%7Clocal-knowledge/index.html</loc>
+    <lastmod>2024-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//aliyun-activity/index.html</loc>
+    <lastmod>2024-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://programnotes.cn//aliyun-try/index.html</loc>
     <lastmod>2024-02-19</lastmod>
   </url>
 </urlset> 

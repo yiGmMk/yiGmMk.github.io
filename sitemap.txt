@@ -1,7 +1,6 @@
 https://programnotes.cn/index.html
 https://programnotes.cn/photo/index.html
 https://programnotes.cn/tags/index.html
-https://programnotes.cn/anaconda-usage/index.html
 https://programnotes.cn/book_2022_1/index.html
 https://programnotes.cn/browser_plugin/index.html
 https://programnotes.cn/bug-fix/index.html
@@ -57,12 +56,9 @@ https://programnotes.cn/wrk/index.html
 https://programnotes.cn/wsl-set-ulimit/index.html
 https://programnotes.cn/linux-lsb_release/index.html
 https://programnotes.cn/micro-service/index.html
-https://programnotes.cn/beego-cors/index.html
 https://programnotes.cn/donot-use-pointer-in-request-param/index.html
 https://programnotes.cn/hexo-config/index.html
 https://programnotes.cn/ssh-usage/index.html
-https://programnotes.cn/aliyun-activity/index.html
-https://programnotes.cn/aliyun-try/index.html
 https://programnotes.cn/es-sql-birthday/index.html
 https://programnotes.cn/go-build-cross-platform/index.html
 https://programnotes.cn/go-gopls-optimize/index.html
@@ -91,11 +87,15 @@ https://programnotes.cn/MFC-User-Objects/index.html
 https://programnotes.cn/MFC/index.html
 https://programnotes.cn/Neural-Style-Transfer/index.html
 https://programnotes.cn/Ubuntu19.04-win10-Z8-CR7N1/index.html
+https://programnotes.cn/anaconda-usage/index.html
 https://programnotes.cn/a-set-of-notes-blogs/index.html
+https://programnotes.cn/beego-cors/index.html
 https://programnotes.cn/3d-base/index.html
 https://programnotes.cn/3d-matrix/index.html
 https://programnotes.cn/3d-maxscript/index.html
 https://programnotes.cn/ai|local-knowledge/index.html
+https://programnotes.cn/aliyun-activity/index.html
+https://programnotes.cn/aliyun-try/index.html
 https://programnotes.cn/html/references/mysql/0.html
 https://programnotes.cn/html/references/mysql/51.html
 https://programnotes.cn/html/references/mysql/50.html

@@ -36,8 +36,9 @@
 <meta property="og:image" content="https://programnotes.cn/Image/NVIDIA_driver.png">
 <meta property="og:image" content="https://programnotes.cn/Image/NVIDIA_smi.png">
 <meta property="og:image" content="https://programnotes.cn/Image/nvidia-settings.png">
+<meta property="og:image" content="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/abfe075a8dae9059f5255bebf0751b4a.png">
 <meta property="article:published_time" content="2019-07-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-14T10:27:50.909Z">
+<meta property="article:modified_time" content="2024-03-20T07:24:30.456Z">
 <meta property="article:author" content="yigmmk">
 <meta property="article:tag" content="Ubuntu19.04">
 <meta property="article:tag" content="ubuntu">
@@ -49,6 +50,7 @@
 <meta property="article:tag" content="anaconda">
 <meta property="article:tag" content="双显卡">
 <meta property="article:tag" content="双硬盘">
+<meta property="article:tag" content="v2ray">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://programnotes.cn/Image/rufus_1.jpg">
 
@@ -149,12 +151,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">93</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">94</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">119</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">122</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -223,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-14 18:27:50" itemprop="dateModified" datetime="2024-03-14T18:27:50+08:00">2024-03-14</time>
+                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,7 +243,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -344,7 +346,22 @@
 <li>vscode</li>
 <li>1panel,服务器管理面板</li>
 <li>docker</li>
+<li>v2ray,v2rayA,v2rayNG,SwitchyOmeg</li>
 </ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="v2RayA"><a href="#v2RayA" class="headerlink" title="v2RayA"></a>v2RayA</h4><p>安装情况,Ubuntu22.04,宿主机安装v2Raya,宿主机安装docker,想实现的:</p>
+<ul>
+<li>局域网内可通过SwitchyOmeg在浏览器使用代理</li>
+<li>docker容器内网络不受影响</li>
+<li>宿主机网络不受影响</li>
+</ul>
+<p>配置:</p>
+<ul>
+<li>开启IP转发,不开启会影响docker容器内的网络</li>
+<li>开启端口分享=&gt;允许局域网内使用</li>
+<li>大陆白名单=&gt;分流,只代理外网</li>
+<li>防止DNS污染,避免宿主机上外网站点DNS失败,或被解析为127.0.0.1,如 ping raw.githubusercontent.com</li>
+</ul>
+<p><img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/abfe075a8dae9059f5255bebf0751b4a.png" alt="v2RayA配置"></p>
 
     </div>
 
@@ -400,6 +417,7 @@
               <a href="/tags/anaconda/" rel="tag"># anaconda</a>
               <a href="/tags/%E5%8F%8C%E6%98%BE%E5%8D%A1/" rel="tag"># 双显卡</a>
               <a href="/tags/%E5%8F%8C%E7%A1%AC%E7%9B%98/" rel="tag"># 双硬盘</a>
+              <a href="/tags/v2ray/" rel="tag"># v2ray</a>
           </div>
 
         
@@ -474,7 +492,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统安装：Win10-Ubuntu19-04双系统"><span class="nav-number">1.</span> <span class="nav-text">系统安装：Win10+Ubuntu19.04双系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电脑配置：双显卡-双硬盘"><span class="nav-number">1.1.</span> <span class="nav-text">电脑配置：双显卡+双硬盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#U盘启动盘制作：Rufus"><span class="nav-number">1.2.</span> <span class="nav-text">U盘启动盘制作：Rufus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置清华镜像源"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置清华镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新系统"><span class="nav-number">1.3.2.</span> <span class="nav-text">更新系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装NVIDIA"><span class="nav-number">1.3.3.</span> <span class="nav-text">安装NVIDIA</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必备工具"><span class="nav-number">2.</span> <span class="nav-text">必备工具</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统安装：Win10-Ubuntu19-04双系统"><span class="nav-number">1.</span> <span class="nav-text">系统安装：Win10+Ubuntu19.04双系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电脑配置：双显卡-双硬盘"><span class="nav-number">1.1.</span> <span class="nav-text">电脑配置：双显卡+双硬盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#U盘启动盘制作：Rufus"><span class="nav-number">1.2.</span> <span class="nav-text">U盘启动盘制作：Rufus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置清华镜像源"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置清华镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新系统"><span class="nav-number">1.3.2.</span> <span class="nav-text">更新系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装NVIDIA"><span class="nav-number">1.3.3.</span> <span class="nav-text">安装NVIDIA</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必备工具"><span class="nav-number">2.</span> <span class="nav-text">必备工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">2.1.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#v2RayA"><span class="nav-number">2.1.1.</span> <span class="nav-text">v2RayA</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -490,7 +508,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -503,7 +521,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-count">122</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -580,7 +598,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">113k</span>
+    <span title="站点总字数">114k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">94</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">95</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">122</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">123</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -174,6 +174,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/network-tool/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/network-tool/index.html" class="post-title-link" itemprop="url">网络|组网工具-tailscale</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-21 00:00:00 / 修改时间：16:47:47" itemprop="dateCreated datePublished" datetime="2024-03-21T00:00:00+08:00">2024-03-21</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>428</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="什么是-tailscale"><a href="#什么是-tailscale" class="headerlink" title="什么是 tailscale"></a>什么是 tailscale</h2><p>Tailscale 是一个开源的 VPN 服务器，它允许用户使用自己的互联网连接来创建一个安全的、无备案的 VPN 网络。</p>
+<h3 id="direct-vs-relayed-connection"><a href="#direct-vs-relayed-connection" class="headerlink" title="direct vs relayed connection"></a>direct vs relayed connection</h3><p><a href="https://tailscale.com/kb/1257/connection-types" target="_blank" rel="noopener">直连和中继网络的区别</a>,如果建立连接后不同终端间的网络延迟很大,可检查下是否使用了中继节点(relay),考虑使用direct connection优化延迟<br>经测试,relay模式延迟300ms左右情况下,改用direct模式延迟在10ms左右</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前节点,网络状态</span></span><br><span class="line">tailscale status</span><br><span class="line"><span class="comment"># 如下是直连模式:direct connection</span></span><br><span class="line"><span class="comment"># xxxxx windows active; direct 27.xx.xxx.xxxx:xxxx, tx xxxxx rx 18832</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用ping 或 tailscale ping xxxx,查看延迟</span></span><br><span class="line">ping xxx</span><br></pre></td></tr></table></figure>
+
+<p>relayed connection可能的优化:<br>在某个节点的防火墙放开UDP协议的41641端口</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://tailscale.com/kb/1257/connection-types" target="_blank" rel="noopener">tailscale</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/630841212" target="_blank" rel="noopener">知乎</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/ai-stable-diffusion/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +286,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -304,7 +385,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -364,91 +445,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/aliyun-activity/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/aliyun-activity/index.html" class="post-title-link" itemprop="url">阿里云|学Mysql送200元等价奖励</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-24 00:00:00" itemprop="dateCreated datePublished" datetime="2023-12-24T00:00:00+08:00">2023-12-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>304</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="参与链接"><a href="#参与链接" class="headerlink" title="参与链接"></a>参与链接</h2><p><a href="https://edu.aliyun.com/learning/topic/RDS-Serverless-buy?clubTaskBiz=subTask..10998022..10188..&share_source=copy_link" target="_blank" rel="noopener">活动连接</a></p>
-<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>需要账号是RDS首购才能拿到奖励,不清楚的可进钉钉群问,需要购买7天的Mysql套餐(54元)</p>
-<h3 id="奖励"><a href="#奖励" class="headerlink" title="奖励"></a>奖励</h3><p>限首购用户】前2000名完成阶段二的：【任务1-产品开通】、【任务2-动手实验】、【任务3-动手实验】，可获得价值200元的冬日暖心礼盒：100元电话充值卡+定制办公礼（保温杯、笔记本、签字笔），任务1开通的产品7天到期自动会释放，鼓励根据学习内容多进行产品体验实践，若用户提前手动释放，则视为放弃领奖资格（入群填写信息，活动结束后统一发放）</p>
-<p><img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/bc3f909dae9b5ba6adafe5872997e6cd.png" alt="任务"></p>
-<h4 id="任务1-产品开通"><a href="#任务1-产品开通" class="headerlink" title="任务1-产品开通"></a>任务1-产品开通</h4><p>购买54这款即可,不需要做为何更改</p>
-<p><img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/3d43a09181e26bd8685ab2fd38cdfa40.png" alt="购买54这款即可,不需要做为何更改"></p>
-<h4 id="任务2-3-动手实验"><a href="#任务2-3-动手实验" class="headerlink" title="任务2/3-动手实验"></a>任务2/3-动手实验</h4><p>按照实验手册一步步操作即可,官方会提供资源,页面上的浏览器有点卡顿需要耐心操作</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/aliyun-try/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -480,7 +476,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -535,6 +531,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/aliyun-activity/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Image/logo.png">
+      <meta itemprop="name" content="yigmmk">
+      <meta itemprop="description" content="learn & share & note">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/aliyun-activity/index.html" class="post-title-link" itemprop="url">阿里云|学Mysql送200元等价奖励</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-24 00:00:00" itemprop="dateCreated datePublished" datetime="2023-12-24T00:00:00+08:00">2023-12-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>304</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="参与链接"><a href="#参与链接" class="headerlink" title="参与链接"></a>参与链接</h2><p><a href="https://edu.aliyun.com/learning/topic/RDS-Serverless-buy?clubTaskBiz=subTask..10998022..10188..&share_source=copy_link" target="_blank" rel="noopener">活动连接</a></p>
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>需要账号是RDS首购才能拿到奖励,不清楚的可进钉钉群问,需要购买7天的Mysql套餐(54元)</p>
+<h3 id="奖励"><a href="#奖励" class="headerlink" title="奖励"></a>奖励</h3><p>限首购用户】前2000名完成阶段二的：【任务1-产品开通】、【任务2-动手实验】、【任务3-动手实验】，可获得价值200元的冬日暖心礼盒：100元电话充值卡+定制办公礼（保温杯、笔记本、签字笔），任务1开通的产品7天到期自动会释放，鼓励根据学习内容多进行产品体验实践，若用户提前手动释放，则视为放弃领奖资格（入群填写信息，活动结束后统一发放）</p>
+<p><img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/bc3f909dae9b5ba6adafe5872997e6cd.png" alt="任务"></p>
+<h4 id="任务1-产品开通"><a href="#任务1-产品开通" class="headerlink" title="任务1-产品开通"></a>任务1-产品开通</h4><p>购买54这款即可,不需要做为何更改</p>
+<p><img src="https://image-1252731913.cos.ap-guangzhou.myqcloud.com/blog-img/3d43a09181e26bd8685ab2fd38cdfa40.png" alt="购买54这款即可,不需要做为何更改"></p>
+<h4 id="任务2-3-动手实验"><a href="#任务2-3-动手实验" class="headerlink" title="任务2/3-动手实验"></a>任务2/3-动手实验</h4><p>按照实验手册一步步操作即可,官方会提供资源,页面上的浏览器有点卡顿需要耐心操作</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://programnotes.cn/ai|local-knowledge/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -566,7 +647,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -652,7 +733,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -740,7 +821,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -828,7 +909,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -928,7 +1009,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
+                <time title="修改时间：2024-03-21 16:47:47" itemprop="dateModified" datetime="2024-03-21T16:47:47+08:00">2024-03-21</time>
               </span>
 
           <br>
@@ -979,92 +1060,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://programnotes.cn/mysql-1835-malformed-communication-packet/index.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Image/logo.png">
-      <meta itemprop="name" content="yigmmk">
-      <meta itemprop="description" content="learn & share & note">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/mysql-1835-malformed-communication-packet/index.html" class="post-title-link" itemprop="url">mysql|1835.Malformed communication packet</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2023-09-12T00:00:00+08:00">2023-09-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-20 15:24:30" itemprop="dateModified" datetime="2024-03-20T15:24:30+08:00">2024-03-20</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>147</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h2><p>Error 1835: Malformed communication packet.</p>
-<p>错误的数据包格式?</p>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
-<li>阿里云Serverless Mysql</li>
-<li>Mysql 8.0</li>
-</ul>
-<p>报错时发现DAS上显示’接入异常’,但是操作数据库写入,查询均正常,只有某个客户端用户操作报错.</p>
-<p>几分钟后DAS状态恢复正常,未能复现</p>
-
       
     </div>
 
@@ -1150,7 +1145,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1163,7 +1158,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">122</span>
+        <span class="site-state-item-count">123</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1246,7 +1241,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:43</span>
+    <span title="站点阅读时长">1:44</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

@@ -29,222 +29,6 @@
   </url>
   
   <url>
-    <loc>https://programnotes.cn/coding%20standard/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/cudnn-failed-to-initialize/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/distributed-transaction/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/docker-mysql/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/docker/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/excel/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/git/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/github-action-hexo-next/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go%20struct%20sort/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-module/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-pprof/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-string/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-technique/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-zero-usage/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go_regexp/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/golang%20error/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/golang-1000-question-answer/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/golang-1000-question/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/golang-excelize-read-date-type-data/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/hexo-command/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/how-i-build-my-blog/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/idempotent/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/install-typora-in-Ubuntu/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/libssl.so.1.0.0-not-found/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://programnotes.cn/linux-port/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
@@ -497,88 +281,7 @@
   </url>
   
   <url>
-    <loc>https://programnotes.cn/donot-use-pointer-in-request-param/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/hexo-config/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://programnotes.cn/ssh-usage/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-build-cross-platform/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/es-sql-birthday/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-gopls-optimize/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/go-pprof-excel-csv/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/http-multipart/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/idea-issue-protobuf/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/idea-springboot-nacos-issue/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
     
@@ -650,6 +353,15 @@
   </url>
   
   <url>
+    <loc>https://programnotes.cn/vscode-portable-mode/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://programnotes.cn/vscode-go-test/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
@@ -660,15 +372,6 @@
   
   <url>
     <loc>https://programnotes.cn/vscode-java-import-package/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://programnotes.cn/vscode-portable-mode/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
     
@@ -821,6 +524,222 @@
   </url>
   
   <url>
+    <loc>https://programnotes.cn/coding%20standard/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/cudnn-failed-to-initialize/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/distributed-transaction/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/docker-mysql/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/docker/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/excel/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/git/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/github-action-hexo-next/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go%20struct%20sort/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-module/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-pprof/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-string/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-technique/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-zero-usage/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go_regexp/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/golang%20error/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/golang-1000-question-answer/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/golang-1000-question/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/golang-excelize-read-date-type-data/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/hexo-command/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/how-i-build-my-blog/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/idempotent/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/install-typora-in-Ubuntu/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/libssl.so.1.0.0-not-found/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://programnotes.cn/a-set-of-notes-blogs/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
@@ -831,6 +750,24 @@
   
   <url>
     <loc>https://programnotes.cn/beego-cors/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/donot-use-pointer-in-request-param/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/hexo-config/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
     
@@ -875,15 +812,6 @@
   </url>
   
   <url>
-    <loc>https://programnotes.cn/aliyun-activity/index.html</loc>
-    
-    <lastmod>2024-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://programnotes.cn/ai|local-knowledge/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
@@ -893,7 +821,88 @@
   </url>
   
   <url>
+    <loc>https://programnotes.cn/ai|yolov8/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://programnotes.cn/aliyun-try/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/aliyun-activity/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/es-sql-birthday/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-build-cross-platform/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-gopls-optimize/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/go-pprof-excel-csv/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/idea-issue-protobuf/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/http-multipart/index.html</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/idea-springboot-nacos-issue/index.html</loc>
     
     <lastmod>2024-03-27</lastmod>
     
@@ -2128,14 +2137,21 @@
   </url>
   
   <url>
-    <loc>https://programnotes.cn/tags/%E6%B4%BB%E5%8A%A8/</loc>
+    <loc>https://programnotes.cn/tags/LLM/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://programnotes.cn/tags/LLM/</loc>
+    <loc>https://programnotes.cn/tags/YOLOV8/</loc>
+    <lastmod>2024-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/tags/%E6%B4%BB%E5%8A%A8/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2156,13 +2172,6 @@
   </url>
   
   <url>
-    <loc>https://programnotes.cn/tags/http/</loc>
-    <lastmod>2024-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://programnotes.cn/tags/idea/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -2171,6 +2180,13 @@
   
   <url>
     <loc>https://programnotes.cn/tags/protobuf/</loc>
+    <lastmod>2024-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://programnotes.cn/tags/http/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
